@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: var(--font-serif), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-navy: #0B1A30;
+  --color-navy-dark: #091426;
+  --color-navy-card: #0E203B;
+  --color-navy-border: #1A2D4B;
+  --color-gold: #B99A5E;
+  --color-gold-hover: #A8894E;
+  --color-steel: #244A80;
+  --color-gray-bg: #F1F5FB;
+  --color-gray-border: #DFE6EF;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #0B1A30;
+  --navy-dark: #091426;
+  --gold: #B99A5E;
+  --steel: #244A80;
+  --gray-bg: #F1F5FB;
+  --gray-border: #DFE6EF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Custom fine typography classes matching the PDF */
+.font-editorial {
+  font-family: var(--font-serif);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.tracking-loose {
+  letter-spacing: 0.18em;
+}
+
+.tracking-eyebrow {
+  letter-spacing: 0.22em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #091426;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A2D4B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B99A5E;
 }
