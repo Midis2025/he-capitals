@@ -1,53 +1,35 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface LogoProps {
   light?: boolean;
   className?: string;
+  width?: number;
+  height?: number;
 }
 
-export const Logo: React.FC<LogoProps> = ({ light = false, className = "" }) => {
+export const Logo: React.FC<LogoProps> = ({
+  light = false,
+  className = "",
+  width = 168,
+  height = 45,
+}) => {
   return (
     <Link
       href="/"
-      className={`inline-flex items-center gap-3.5 group select-none ${className}`}
+      className={`inline-flex items-center transition-opacity hover:opacity-90 select-none ${className}`}
       aria-label="HE Capital Markets Home"
     >
-      {/* Monogram HE badge */}
-      <div className="flex items-center">
-        <span
-          className={`font-serif text-2xl font-semibold tracking-wider transition-colors ${
-            light ? "text-white" : "text-[#0B1A30]"
-          }`}
-        >
-          HE
-        </span>
-      </div>
-
-      {/* Vertical divider */}
-      <div
-        className={`w-[1px] h-6 transition-colors ${
-          light ? "bg-white/20" : "bg-[#0B1A30]/20"
-        }`}
+      <Image
+        src={light ? "/logos/logo-white.png" : "/logos/logo.png"}
+        alt="HE Capital Markets"
+        width={width}
+        height={height}
+        priority
+        className="h-auto object-contain"
+        style={{ width: `${width}px`, height: "auto" }}
       />
-
-      {/* Stacked Wordmark */}
-      <div className="flex flex-col justify-center leading-none">
-        <span
-          className={`text-[10px] font-medium tracking-[0.28em] transition-colors ${
-            light ? "text-white" : "text-[#0B1A30]"
-          }`}
-        >
-          CAPITAL
-        </span>
-        <span
-          className={`text-[10px] font-medium tracking-[0.28em] mt-[3px] transition-colors ${
-            light ? "text-[#94A3B8]" : "text-[#5A6878]"
-          }`}
-        >
-          MARKETS
-        </span>
-      </div>
     </Link>
   );
 };
