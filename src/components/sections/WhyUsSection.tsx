@@ -19,7 +19,7 @@ export const WhyUsSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] max-h-[500px] rounded overflow-hidden shadow-xl bg-[#0B1A30]">
+            <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] max-h-[540px] rounded overflow-hidden shadow-xl bg-[#0B1A30]">
               <Image
                 src="/images/why-architecture.jpg"
                 alt="Modern corporate glass architecture representing strategic clarity and advantage"

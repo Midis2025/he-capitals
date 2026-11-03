@@ -39,7 +39,7 @@ export const SectorsSection: React.FC = () => {
               className="lg:col-span-7 bg-white rounded border border-[#DFE6EF] overflow-hidden group hover:shadow-xl transition-shadow flex flex-col h-full"
             >
               {/* Image expands to fill vertical height proportionally */}
-              <div className="relative w-full flex-1 min-h-[220px] sm:min-h-[260px] md:min-h-[280px] overflow-hidden bg-[#0B1A30]">
+              <div className="relative w-full flex-1 min-h-[240px] sm:min-h-[280px] md:min-h-[300px] overflow-hidden bg-[#0B1A30]">
                 <Image
                   src={mining.image}
                   alt={mining.title}

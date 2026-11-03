@@ -16,7 +16,7 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="section-spacing bg-white relative">
+    <section id="about" className="pt-10 sm:pt-12 lg:pt-14 pb-12 sm:pb-14 lg:pb-16 bg-white relative">
       <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Text Column */}
@@ -87,9 +87,9 @@ export const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5 flex items-center justify-center relative"
+            className="lg:col-span-5 flex items-center justify-center lg:justify-end relative"
           >
-            <div className="relative w-full max-w-[420px] aspect-square rounded-lg overflow-hidden">
+            <div className="relative w-full max-w-[460px] aspect-square rounded-lg overflow-hidden">
               <Image
                 src="/images/about-globe.jpg"
                 alt="Global network connectivity and international capital markets reach"

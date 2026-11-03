@@ -246,7 +246,7 @@ export const GlobalReachSection: React.FC = () => {
           {/* Right Globe Column (60-65% on Desktop) */}
           <div className="lg:col-span-7 relative flex items-center justify-center">
             {/* Globe Card Container with very light HE blue tint / white */}
-            <div className="relative w-full rounded-2xl md:rounded-3xl bg-[#F8FAFC] border border-[#DFE6EF] shadow-sm overflow-hidden h-[440px] sm:h-[500px] lg:h-[540px] flex items-center justify-center p-2 sm:p-4">
+            <div className="relative w-full rounded-2xl md:rounded-3xl bg-[#F8FAFC] border border-[#DFE6EF] shadow-sm overflow-hidden h-[460px] sm:h-[520px] lg:h-[580px] flex items-center justify-center p-2 sm:p-4">
               
               {/* Interactive 3D WebGL Globe */}
               <InteractiveGlobe

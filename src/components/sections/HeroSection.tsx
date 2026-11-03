@@ -17,7 +17,7 @@ export const HeroSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative pt-[108px] sm:pt-[120px] lg:pt-[128px] pb-12 sm:pb-14 lg:pb-16 bg-white overflow-hidden">
+    <section className="relative pt-[100px] sm:pt-[112px] lg:pt-[120px] pb-8 sm:pb-10 lg:pb-12 bg-white overflow-hidden border-b border-[#DFE6EF]">
       <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Headlines & Actions */}
@@ -35,7 +35,7 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.1] tracking-tight text-[#0B1A30] font-normal">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.08] tracking-tight text-[#0B1A30] font-normal">
               Building Market Value Through Strategic Capital Markets Advisory.
             </h1>
 
@@ -118,11 +118,6 @@ export const HeroSection: React.FC = () => {
             </div>
           </motion.div>
         </div>
-      </div>
-
-      {/* Subtle Bottom Section Divider */}
-      <div className="site-container mt-10 md:mt-12">
-        <div className="w-full h-[1px] bg-[#DFE6EF]" />
       </div>
     </section>
   );
