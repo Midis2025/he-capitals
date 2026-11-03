@@ -254,7 +254,7 @@ export const ContactSection: React.FC = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto bg-[#B99A5E] hover:bg-[#A8894E] text-white px-8 py-3.5 rounded text-xs font-semibold tracking-[0.16em] uppercase transition-all duration-300 inline-flex items-center justify-center gap-2 group cursor-pointer shadow-lg shadow-[#B99A5E]/15 select-none"
+                    className="w-full sm:w-auto bg-[#B99A5E] hover:bg-[#A8894E] text-white px-8 py-3.5 rounded text-xs font-semibold tracking-[0.16em] uppercase transition-all duration-300 inline-flex items-center justify-center gap-2 group cursor-pointer shadow-lg shadow-[#B99A5E]/15 select-none whitespace-nowrap"
                   >
                     <span>Submit Enquiry</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -275,3 +275,4 @@ export const ContactSection: React.FC = () => {
     </section>
   );
 };
+

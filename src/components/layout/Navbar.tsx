@@ -115,11 +115,11 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Right CTA Button */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block shrink-0">
           <Button
             href="#contact"
             variant="primary"
-            className="w-[194px] h-[48px] text-[13px] tracking-wide"
+            className="h-[48px] px-6 text-[13px] tracking-wide whitespace-nowrap"
           >
             Discuss Your Goals
           </Button>
@@ -192,3 +192,4 @@ export const Navbar: React.FC = () => {
     </header>
   );
 };
+

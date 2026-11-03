@@ -186,7 +186,7 @@ export const Footer: React.FC = () => {
               />
               <button
                 type="submit"
-                className="bg-[#B99A5E] hover:bg-[#A8894E] text-white px-6 py-3 rounded text-xs font-medium tracking-wider uppercase transition-colors inline-flex items-center justify-center gap-2 select-none cursor-pointer"
+                className="bg-[#B99A5E] hover:bg-[#A8894E] text-white px-6 py-3 rounded text-xs font-medium tracking-wider uppercase transition-colors inline-flex items-center justify-center gap-2 select-none cursor-pointer whitespace-nowrap"
               >
                 <span>{subscribed ? "Subscribed!" : "Subscribe"}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -231,3 +231,4 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+

@@ -20,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded text-sm font-medium transition-all duration-300 group cursor-pointer select-none";
+    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded text-sm font-medium transition-all duration-300 group cursor-pointer select-none whitespace-nowrap";
 
   const variantStyles = {
     primary:
@@ -79,3 +79,4 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
