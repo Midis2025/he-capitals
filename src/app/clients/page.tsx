@@ -60,21 +60,21 @@ export default function ClientsPage() {
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
 
-      <main className="flex-1 pt-[100px]">
+      <main className="flex-1 pt-[88px]">
         {/* 1. Hero Section */}
-        <section className="relative bg-[#091426] text-white py-20 md:py-28 overflow-hidden">
+        <section className="relative bg-[#091426] text-white section-spacing overflow-hidden">
           {/* Subtle background overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#091426] via-[#0B1A30]/80 to-[#091426] z-10 pointer-events-none" />
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#244A80_1px,transparent_1px)] [background-size:16px_16px]" />
 
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 relative z-20 space-y-8">
+          <div className="site-container relative z-20 space-y-6">
             <SectionBadge number="07" label="OUR CLIENTS" light />
 
-            <div className="max-w-3xl space-y-4">
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white font-normal tracking-tight leading-[1.08]">
+            <div className="max-w-3xl space-y-3">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-white font-normal tracking-tight leading-[1.08]">
                 Innovative Companies. Lasting Partnerships.
               </h1>
-              <p className="text-sm sm:text-base text-[#8E9CAE] leading-relaxed font-normal pt-2">
+              <p className="text-xs sm:text-sm md:text-base text-[#8E9CAE] leading-relaxed font-normal pt-1">
                 We are proud to partner with a diverse group of forward-thinking
                 companies across our key sectors, helping them connect with
                 market opportunity, capital and strategic growth.
@@ -82,7 +82,7 @@ export default function ClientsPage() {
             </div>
 
             {/* Metrics Strip */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-[#1A2D4B]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-8 border-t border-[#1A2D4B]">
               <div className="space-y-1">
                 <span className="font-serif text-xs text-[#B99A5E] font-medium block">
                   01 CLIENTS
@@ -112,14 +112,14 @@ export default function ClientsPage() {
         </section>
 
         {/* 2. Sectors Strip */}
-        <section className="py-16 bg-[#F1F5FB] border-b border-[#DFE6EF]">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <section className="section-spacing-compact bg-[#F1F5FB] border-b border-[#DFE6EF]">
+          <div className="site-container">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
               <div>
                 <span className="text-[10px] font-semibold tracking-[0.24em] uppercase text-[#244A80] block mb-1">
                   ACROSS CRITICAL SECTORS
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1A30] font-normal">
+                <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-[#0B1A30] font-normal">
                   A Broad Range of Innovative Sectors
                 </h2>
               </div>
@@ -129,7 +129,7 @@ export default function ClientsPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
               {SECTOR_CARDS.map((sec) => (
                 <div
                   key={sec.name}
@@ -154,17 +154,17 @@ export default function ClientsPage() {
         </section>
 
         {/* 3. Client Directory Grid */}
-        <section className="py-20 md:py-28 bg-white">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#DFE6EF]">
-              <div className="space-y-3 max-w-2xl">
+        <section className="section-spacing bg-white">
+          <div className="site-container">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#DFE6EF]">
+              <div className="space-y-2.5 max-w-2xl">
                 <span className="text-[10px] font-semibold tracking-[0.24em] uppercase text-[#244A80] block">
                   PARTNER PORTFOLIO
                 </span>
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] font-normal tracking-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0B1A30] font-normal tracking-tight">
                   Trusted by Innovative Companies
                 </h2>
-                <p className="text-sm sm:text-base text-[#5A6878] leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm md:text-base text-[#5A6878] leading-relaxed font-normal">
                   We work alongside a diverse group of companies and industry
                   participants across our key sectors, providing strategic
                   advisory, market positioning and investor relations excellence.
@@ -177,7 +177,7 @@ export default function ClientsPage() {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`px-4 py-2 rounded text-xs font-semibold tracking-wider uppercase transition-colors cursor-pointer ${
+                    className={`px-3.5 py-1.5 rounded text-xs font-semibold tracking-wider uppercase transition-colors cursor-pointer ${
                       selectedCategory === cat
                         ? "bg-[#0B1A30] text-white"
                         : "bg-[#F1F5FB] text-[#0B1A30] hover:bg-[#E2EAF4]"
@@ -190,7 +190,7 @@ export default function ClientsPage() {
             </div>
 
             {/* Grid of All Real Logos */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 mt-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-4 mt-8">
               {filteredClients.map((client, idx) => (
                 <motion.div
                   key={client.id}
@@ -198,19 +198,19 @@ export default function ClientsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.03 }}
-                  className="bg-white border border-[#DFE6EF] rounded-lg p-6 flex flex-col items-center justify-center hover:border-[#B99A5E] hover:shadow-xl transition-all duration-300 min-h-[140px] group"
+                  className="bg-white border border-[#DFE6EF] rounded-lg p-5 flex flex-col items-center justify-center hover:border-[#B99A5E] hover:shadow-xl transition-all duration-300 min-h-[120px] group"
                 >
-                  <div className="relative w-full h-16 flex items-center justify-center">
+                  <div className="relative w-full h-14 flex items-center justify-center">
                     <Image
                       src={client.logo}
                       alt={client.name}
-                      width={180}
-                      height={60}
+                      width={160}
+                      height={50}
                       unoptimized
-                      className="max-h-12 w-auto max-w-[90%] object-contain group-hover:scale-105 transition-transform duration-300"
+                      className="max-h-11 w-auto max-w-[90%] object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <span className="text-[11px] font-semibold text-[#0B1A30] text-center mt-3 group-hover:text-[#B99A5E] transition-colors line-clamp-1">
+                  <span className="text-[11px] font-semibold text-[#0B1A30] text-center mt-2.5 group-hover:text-[#B99A5E] transition-colors line-clamp-1">
                     {client.name}
                   </span>
                 </motion.div>
@@ -220,18 +220,18 @@ export default function ClientsPage() {
         </section>
 
         {/* 4. Statement Banner */}
-        <section className="py-20 bg-[#091426] text-white text-center border-y border-[#1A2D4B]">
-          <div className="max-w-[1440px] mx-auto px-6">
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white tracking-[0.16em] uppercase font-normal max-w-4xl mx-auto leading-relaxed">
+        <section className="section-spacing-compact bg-[#091426] text-white text-center border-y border-[#1A2D4B]">
+          <div className="site-container">
+            <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-white tracking-[0.16em] uppercase font-normal max-w-4xl mx-auto leading-relaxed">
               INCREASE VALUE. INSPIRE INVESTMENT. REALISE RESULTS.
             </h2>
           </div>
         </section>
 
         {/* 5. Latest Client News */}
-        <section className="py-20 md:py-28 bg-[#F1F5FB]">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-            <div className="flex items-end justify-between mb-12">
+        <section className="section-spacing bg-[#F1F5FB]">
+          <div className="site-container">
+            <div className="flex items-end justify-between mb-8">
               <div className="space-y-2">
                 <span className="text-[10px] font-semibold tracking-[0.24em] uppercase text-[#244A80] block">
                   PARTNER UPDATES
@@ -314,20 +314,20 @@ export default function ClientsPage() {
         </section>
 
         {/* 6. CTA Banner */}
-        <section className="py-20 bg-[#0B1A30] text-white">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-3 max-w-xl text-center md:text-left">
+        <section className="section-spacing bg-[#0B1A30] text-white">
+          <div className="site-container flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
+            <div className="space-y-2.5 max-w-xl text-center md:text-left">
               <span className="text-[10px] font-semibold tracking-[0.24em] uppercase text-[#B99A5E]">
                 LET&apos;S WORK TOGETHER
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-white font-normal">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white font-normal">
                 Partner with a team that understands your vision.
               </h2>
               <p className="text-xs sm:text-sm text-[#8E9CAE]">
                 Let&apos;s discuss how we can assist in reaching your capital markets goals.
               </p>
             </div>
-            <Button href="/#contact" variant="gold" className="px-8 h-12">
+            <Button href="/#contact" variant="gold" className="px-7 h-11 shrink-0">
               Discuss Your Goals
             </Button>
           </div>

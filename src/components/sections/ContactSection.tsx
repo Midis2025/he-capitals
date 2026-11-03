@@ -35,16 +35,16 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-[#0B1A30] text-white relative">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <section id="contact" className="section-spacing bg-[#0B1A30] text-white relative">
+      <div className="site-container">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Headline & Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5 space-y-6"
+            className="lg:col-span-5 space-y-4 sm:space-y-5"
           >
             <SectionBadge number="11" label="LET'S CONNECT" light />
 
@@ -52,14 +52,14 @@ export const ContactSection: React.FC = () => {
               Your Next Opportunity Starts With a Conversation.
             </h2>
 
-            <p className="text-sm sm:text-base text-[#8E9CAE] leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm md:text-[15px] text-[#8E9CAE] leading-relaxed font-normal">
               Whether you re looking to strengthen investor relationships,
               expand market visibility or explore new opportunities, our team
               is ready to understand your objectives.
             </p>
 
             {/* Info Items */}
-            <div className="space-y-4 pt-6 border-t border-[#1A2D4B]">
+            <div className="space-y-3 pt-4 border-t border-[#1A2D4B]">
               <div>
                 <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#B99A5E] block">
                   Business Email
@@ -95,9 +95,9 @@ export const ContactSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="lg:col-span-7 bg-[#0E203B] border border-[#1A2D4B] rounded p-8 sm:p-10 shadow-2xl"
+            className="lg:col-span-7 bg-[#0E203B] border border-[#1A2D4B] rounded p-6 sm:p-8 shadow-xl"
           >
-            <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal mb-8">
+            <h3 className="font-serif text-xl sm:text-2xl text-white font-normal mb-5 sm:mb-6">
               Tell us about your goals.
             </h3>
 

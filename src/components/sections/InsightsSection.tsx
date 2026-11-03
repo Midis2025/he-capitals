@@ -13,25 +13,25 @@ export const InsightsSection: React.FC = () => {
   const [featured, second, third] = INSIGHTS_DATA;
 
   return (
-    <section id="insights" className="py-24 md:py-32 bg-white relative">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+    <section id="insights" className="section-spacing bg-white relative">
+      <div className="site-container">
         {/* Header */}
-        <div className="space-y-4 max-w-2xl mb-12">
+        <div className="space-y-2.5 max-w-2xl mb-6 sm:mb-8">
           <SectionBadge number="08" label="INSIGHTS & PRESS RELEASES" />
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] font-normal tracking-tight">
             Stay Informed. Stay Connected.
           </h2>
-          <p className="text-sm sm:text-base text-[#5A6878] leading-relaxed font-normal">
+          <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
             Explore the latest company announcements, industry developments,
             press releases and insights from across the markets we serve.
           </p>
-          <p className="text-[11px] font-semibold tracking-[0.2em] text-[#8E9CAE] uppercase pt-1">
+          <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] text-[#8E9CAE] uppercase pt-0.5">
             SAMPLE EDITORIAL NOT PUBLISHED ANNOUNCEMENTS
           </p>
         </div>
 
         {/* 2-Column Grid matching PDF Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           {/* Left Column: Featured Large Article */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export const InsightsSection: React.FC = () => {
               </div>
             )}
 
-            <div className="p-6 sm:p-8 space-y-4">
+            <div className="p-5 sm:p-6 space-y-3">
               <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-[#244A80] uppercase">
                 <span>{featured.category}</span>
                 <span className="text-[#8E9CAE]">·</span>
@@ -61,7 +61,7 @@ export const InsightsSection: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors">
+              <h3 className="font-serif text-xl sm:text-2xl text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors">
                 {featured.title}
               </h3>
 
@@ -69,7 +69,7 @@ export const InsightsSection: React.FC = () => {
                 {featured.description}
               </p>
 
-              <div className="pt-2">
+              <div className="pt-1">
                 <Link
                   href="#contact"
                   className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
@@ -82,7 +82,7 @@ export const InsightsSection: React.FC = () => {
           </motion.div>
 
           {/* Right Column: Stacked 2 Articles */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-5 sm:space-y-6">
             {/* Card 2: With tech image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -103,7 +103,7 @@ export const InsightsSection: React.FC = () => {
                 </div>
               )}
 
-              <div className="p-6 space-y-3">
+              <div className="p-4 sm:p-5 space-y-2.5">
                 <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-[#244A80] uppercase">
                   <span>{second.category}</span>
                   <span className="text-[#8E9CAE]">·</span>
@@ -112,7 +112,7 @@ export const InsightsSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="font-serif text-xl sm:text-2xl text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors">
+                <h3 className="font-serif text-lg sm:text-xl text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors">
                   {second.title}
                 </h3>
 
@@ -120,7 +120,7 @@ export const InsightsSection: React.FC = () => {
                   {second.description}
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-1">
                   <Link
                     href="#contact"
                     className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
@@ -138,7 +138,7 @@ export const InsightsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="bg-[#F1F5FB] border border-[#DFE6EF] rounded p-6 sm:p-7 space-y-3 group hover:shadow-xl transition-shadow"
+              className="bg-[#F1F5FB] border border-[#DFE6EF] rounded p-5 sm:p-6 space-y-2.5 group hover:shadow-xl transition-shadow"
             >
               <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-[#244A80] uppercase">
                 <span>{third.category}</span>
@@ -148,7 +148,7 @@ export const InsightsSection: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="font-serif text-xl sm:text-2xl text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors">
+              <h3 className="font-serif text-lg sm:text-xl text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors">
                 {third.title}
               </h3>
 
@@ -156,7 +156,7 @@ export const InsightsSection: React.FC = () => {
                 {third.description}
               </p>
 
-              <div className="pt-2">
+              <div className="pt-1">
                 <Link
                   href="#contact"
                   className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
@@ -170,8 +170,8 @@ export const InsightsSection: React.FC = () => {
         </div>
 
         {/* Bottom Link Button */}
-        <div className="mt-14 text-center">
-          <Button href="#contact" variant="outline" className="px-8">
+        <div className="mt-8 sm:mt-10 text-center">
+          <Button href="#contact" variant="outline" className="px-7 h-[44px]">
             View All Insights
           </Button>
         </div>

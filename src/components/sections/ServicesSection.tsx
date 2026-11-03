@@ -13,16 +13,16 @@ export const ServicesSection: React.FC = () => {
   const otherServices = SERVICES_DATA.slice(1);
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-white relative">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+    <section id="services" className="section-spacing bg-white relative">
+      <div className="site-container">
         {/* Header Row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-[#DFE6EF]">
-          <div className="space-y-3 max-w-2xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-6 sm:pb-8 border-b border-[#DFE6EF]">
+          <div className="space-y-2.5 max-w-2xl">
             <SectionBadge number="04" label="OUR SERVICES" />
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] font-normal tracking-tight">
               Our Services.
             </h2>
-            <p className="text-sm sm:text-base text-[#5A6878] leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
               We bring together financial expertise, investor connections and
               strategic communications to help companies strengthen their market
               presence, attract investment and unlock new opportunities.
@@ -41,21 +41,21 @@ export const ServicesSection: React.FC = () => {
         </div>
 
         {/* Services Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mt-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mt-6 sm:mt-8 items-start">
           {/* Left Column: Featured Card (01 Investor Relations) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5 bg-[#F1F5FB] border border-[#DFE6EF] rounded p-6 sm:p-8 space-y-6"
+            className="lg:col-span-5 bg-[#F1F5FB] border border-[#DFE6EF] rounded p-5 sm:p-6 space-y-4"
           >
             <div>
-              <span className="font-serif text-3xl sm:text-4xl font-medium text-[#B99A5E] block mb-3">
+              <span className="font-serif text-2xl sm:text-3xl font-medium text-[#B99A5E] block mb-2">
                 {featured.number}
               </span>
 
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#0B1A30] font-normal mb-3">
+              <h3 className="font-serif text-xl sm:text-2xl text-[#0B1A30] font-normal mb-2">
                 {featured.title}
               </h3>
 
@@ -65,14 +65,14 @@ export const ServicesSection: React.FC = () => {
             </div>
 
             {featured.highlight && (
-              <div className="pt-4 border-t border-[#DFE6EF]">
-                <p className="font-serif text-base sm:text-lg text-[#0B1A30] italic leading-snug">
+              <div className="pt-3 border-t border-[#DFE6EF]">
+                <p className="font-serif text-sm sm:text-base text-[#0B1A30] italic leading-snug">
                   {featured.highlight}
                 </p>
               </div>
             )}
 
-            <div className="pt-2">
+            <div className="pt-1">
               <Link
                 href="#contact"
                 className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
@@ -92,11 +92,11 @@ export const ServicesSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="py-4 sm:py-5 first:pt-0 last:pb-0 group cursor-pointer"
+                className="py-3.5 sm:py-4 first:pt-0 last:pb-0 group cursor-pointer"
                 onMouseEnter={() => setActiveService(index)}
               >
-                <div className="flex items-start justify-between gap-4 mb-1.5">
-                  <div className="flex items-baseline gap-3">
+                <div className="flex items-start justify-between gap-4 mb-1">
+                  <div className="flex items-baseline gap-2.5">
                     <span className="font-serif text-xs sm:text-sm font-medium text-[#B99A5E]">
                       {service.number}
                     </span>
@@ -108,7 +108,7 @@ export const ServicesSection: React.FC = () => {
                   <ArrowUpRight className="w-4 h-4 text-[#B99A5E] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed max-w-xl pl-6 sm:pl-7">
+                <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed max-w-xl pl-5 sm:pl-6">
                   {service.description}
                 </p>
               </motion.div>
@@ -117,14 +117,14 @@ export const ServicesSection: React.FC = () => {
         </div>
 
         {/* Bottom Strip: Connected Communication Capabilities */}
-        <div className="mt-12 pt-8 border-t border-[#DFE6EF]">
-          <div className="mb-4">
-            <span className="text-[11px] font-semibold tracking-[0.24em] uppercase text-[#244A80]">
+        <div className="mt-8 sm:mt-10 pt-6 border-t border-[#DFE6EF]">
+          <div className="mb-3">
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.24em] uppercase text-[#244A80]">
               CONNECTED COMMUNICATION CAPABILITIES
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-2.5 sm:gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-2.5">
             {COMMUNICATION_CAPABILITIES.map((cap) => (
               <Link
                 key={cap}

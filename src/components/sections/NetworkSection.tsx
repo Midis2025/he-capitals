@@ -39,21 +39,21 @@ export const NetworkSection: React.FC = () => {
   const bottomLoop = [...BOTTOM_ROW_LOGOS, ...BOTTOM_ROW_LOGOS, ...BOTTOM_ROW_LOGOS];
 
   return (
-    <section id="clients" className="py-16 md:py-24 bg-[#F1F5FB] relative overflow-hidden">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="clients" className="section-spacing bg-[#F1F5FB] relative overflow-hidden">
+      <div className="site-container">
         {/* Main Framed Card Container matching the uploaded design */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white rounded-2xl md:rounded-3xl border border-[#DFE6EF] shadow-sm overflow-hidden relative"
+          className="bg-white rounded-xl md:rounded-2xl border border-[#DFE6EF] shadow-sm overflow-hidden relative"
         >
           {/* Top Row Logo Ribbon (Infinite Loop) */}
           <div className="relative border-b border-[#DFE6EF] bg-white overflow-hidden">
             {/* Fade Gradients at Edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
             <motion.div
               animate={{ x: ["0%", "-33.333%"] }}
@@ -67,16 +67,16 @@ export const NetworkSection: React.FC = () => {
               {topLoop.map((client, idx) => (
                 <div
                   key={`${client.name}-${idx}`}
-                  className="h-24 sm:h-28 md:h-30 w-[170px] sm:w-[200px] md:w-[220px] px-6 py-4 border-r border-[#DFE6EF] flex items-center justify-center shrink-0 hover:bg-[#F8FAFC] transition-colors"
+                  className="h-20 sm:h-22 md:h-24 w-[160px] sm:w-[180px] md:w-[200px] px-5 py-3 border-r border-[#DFE6EF] flex items-center justify-center shrink-0 hover:bg-[#F8FAFC] transition-colors"
                 >
                   <div className="relative w-full h-full flex items-center justify-center">
                     <Image
                       src={client.src}
                       alt={client.name}
-                      width={200}
-                      height={80}
+                      width={180}
+                      height={70}
                       unoptimized
-                      className="max-h-12 sm:max-h-14 md:max-h-16 w-auto max-w-[85%] object-contain"
+                      className="max-h-10 sm:max-h-12 md:max-h-14 w-auto max-w-[85%] object-contain"
                     />
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export const NetworkSection: React.FC = () => {
           </div>
 
           {/* Centered Editorial Content with subtle World Map Watermark */}
-          <div className="relative py-16 sm:py-20 md:py-24 px-6 sm:px-12 text-center bg-white overflow-hidden">
+          <div className="relative py-10 sm:py-12 md:py-14 px-5 sm:px-8 text-center bg-white overflow-hidden">
             {/* Subtle World Map Silhouette Watermark in background */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.035] select-none">
               <svg
@@ -105,20 +105,20 @@ export const NetworkSection: React.FC = () => {
 
             <div className="relative z-10 max-w-3xl mx-auto">
               {/* Eyebrow with decorative lines */}
-              <div className="flex items-center justify-center gap-3 sm:gap-4 text-[10px] sm:text-[11px] font-semibold tracking-[0.24em] text-[#244A80] uppercase mb-4 sm:mb-5">
+              <div className="flex items-center justify-center gap-3 sm:gap-4 text-[10px] sm:text-[11px] font-semibold tracking-[0.24em] text-[#244A80] uppercase mb-3 sm:mb-4">
                 <span className="w-8 sm:w-16 h-[1px] bg-[#DFE6EF]" />
                 <span>CLIENTS WE HAVE WORKED WITH</span>
                 <span className="w-8 sm:w-16 h-[1px] bg-[#DFE6EF]" />
               </div>
 
               {/* Title */}
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[52px] text-[#0B1A30] font-normal tracking-tight leading-[1.12]">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[46px] text-[#0B1A30] font-normal tracking-tight leading-[1.12]">
                 Trusted by Innovative Companies
-                <span className="block mt-1 sm:mt-2">Worldwide</span>
+                <span className="block mt-1">Worldwide</span>
               </h2>
 
               {/* Subparagraph without serial commas */}
-              <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed max-w-2xl mx-auto font-normal mt-5 sm:mt-6">
+              <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed max-w-2xl mx-auto font-normal mt-3.5 sm:mt-4">
                 We are proud to partner with a diverse range of forward-thinking companies across the resource,
                 technology and industrial sectors, helping them connect with the right investors and achieve their
                 strategic goals.
@@ -129,8 +129,8 @@ export const NetworkSection: React.FC = () => {
           {/* Bottom Row Logo Ribbon (Reverse Loop) */}
           <div className="relative border-t border-[#DFE6EF] bg-white overflow-hidden">
             {/* Fade Gradients at Edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
             <motion.div
               animate={{ x: ["-33.333%", "0%"] }}
@@ -144,16 +144,16 @@ export const NetworkSection: React.FC = () => {
               {bottomLoop.map((client, idx) => (
                 <div
                   key={`${client.name}-${idx}`}
-                  className="h-24 sm:h-28 md:h-30 w-[170px] sm:w-[200px] md:w-[220px] px-6 py-4 border-r border-[#DFE6EF] flex items-center justify-center shrink-0 hover:bg-[#F8FAFC] transition-colors"
+                  className="h-20 sm:h-22 md:h-24 w-[160px] sm:w-[180px] md:w-[200px] px-5 py-3 border-r border-[#DFE6EF] flex items-center justify-center shrink-0 hover:bg-[#F8FAFC] transition-colors"
                 >
                   <div className="relative w-full h-full flex items-center justify-center">
                     <Image
                       src={client.src}
                       alt={client.name}
-                      width={200}
-                      height={80}
+                      width={180}
+                      height={70}
                       unoptimized
-                      className="max-h-12 sm:max-h-14 md:max-h-16 w-auto max-w-[85%] object-contain"
+                      className="max-h-10 sm:max-h-12 md:max-h-14 w-auto max-w-[85%] object-contain"
                     />
                   </div>
                 </div>

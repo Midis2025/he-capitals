@@ -92,11 +92,11 @@ export const GlobalReachSection: React.FC = () => {
   return (
     <section
       id="global-reach"
-      className="py-16 md:py-24 lg:py-32 bg-white text-[#0B1A30] relative overflow-hidden border-t border-[#DFE6EF]"
+      className="section-spacing bg-white text-[#0B1A30] relative overflow-hidden border-t border-[#DFE6EF]"
     >
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+      <div className="site-container">
         {/* Split Screen Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           
           {/* Left Content Column (35-40% on Desktop) */}
           <div className="lg:col-span-5 flex flex-col justify-between z-10">
@@ -246,7 +246,7 @@ export const GlobalReachSection: React.FC = () => {
           {/* Right Globe Column (60-65% on Desktop) */}
           <div className="lg:col-span-7 relative flex items-center justify-center">
             {/* Globe Card Container with very light HE blue tint / white */}
-            <div className="relative w-full rounded-2xl md:rounded-3xl bg-[#F8FAFC] border border-[#DFE6EF] shadow-sm overflow-hidden h-[460px] sm:h-[560px] lg:h-[640px] flex items-center justify-center p-2 sm:p-4">
+            <div className="relative w-full rounded-2xl md:rounded-3xl bg-[#F8FAFC] border border-[#DFE6EF] shadow-sm overflow-hidden h-[440px] sm:h-[500px] lg:h-[540px] flex items-center justify-center p-2 sm:p-4">
               
               {/* Interactive 3D WebGL Globe */}
               <InteractiveGlobe

@@ -25,11 +25,11 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#091426]/95 backdrop-blur-md shadow-lg border-b border-[#1A2D4B] h-[80px]"
-          : "bg-[#091426] border-b border-[#1A2D4B] h-[100px]"
+          ? "bg-[#091426]/95 backdrop-blur-md shadow-lg border-b border-[#1A2D4B] h-[72px]"
+          : "bg-[#091426] border-b border-[#1A2D4B] h-[88px]"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto h-full px-6 md:px-12 lg:px-20 flex items-center justify-between">
+      <div className="site-container h-full flex items-center justify-between">
         {/* Logo - cleanly placed without extra background */}
         <Logo />
 

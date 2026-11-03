@@ -8,9 +8,9 @@ import { motion } from "framer-motion";
 
 export const WhyUsSection: React.FC = () => {
   return (
-    <section className="py-24 md:py-32 bg-white relative">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section className="section-spacing bg-white relative">
+      <div className="site-container">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Vertical Skyscraper Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
@@ -19,7 +19,7 @@ export const WhyUsSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] max-h-[640px] rounded overflow-hidden shadow-xl bg-[#0B1A30]">
+            <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] max-h-[500px] rounded overflow-hidden shadow-xl bg-[#0B1A30]">
               <Image
                 src="/images/why-architecture.jpg"
                 alt="Modern corporate glass architecture representing strategic clarity and advantage"
@@ -36,7 +36,7 @@ export const WhyUsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 space-y-4 sm:space-y-5"
           >
             <SectionBadge number="10" label="WHY HE CAPITAL MARKETS" />
 
@@ -44,27 +44,27 @@ export const WhyUsSection: React.FC = () => {
               The Right Experience. The Right Connections. A Strategic Advantage.
             </h2>
 
-            <p className="text-sm sm:text-base text-[#5A6878] leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
               We combine capital markets experience, industry knowledge and
               integrated communication capabilities to help companies navigate
               complex markets and strengthen their presence within the investment
               community.
             </p>
 
-            <div className="pt-2 pb-2">
-              <span className="text-[11px] font-semibold tracking-[0.22em] text-[#0B1A30] uppercase">
+            <div className="pt-1">
+              <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] text-[#0B1A30] uppercase">
                 PERSPECTIVE BUILDS POSSIBILITY.
               </span>
             </div>
 
             {/* 5 Numbered Items */}
-            <div className="space-y-5 pt-2 border-t border-[#DFE6EF]">
+            <div className="space-y-3.5 pt-3 border-t border-[#DFE6EF]">
               {WHY_US_POINTS.map((point) => (
                 <div
                   key={point.number}
-                  className="flex items-start gap-4 sm:gap-6 group"
+                  className="flex items-start gap-3.5 sm:gap-5 group"
                 >
-                  <span className="font-serif text-lg sm:text-xl font-medium text-[#B99A5E] shrink-0 pt-0.5">
+                  <span className="font-serif text-base sm:text-lg font-medium text-[#B99A5E] shrink-0 pt-0.5">
                     {point.number}
                   </span>
                   <div>

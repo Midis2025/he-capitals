@@ -17,15 +17,15 @@ export const HeroSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative pt-[120px] md:pt-[140px] pb-16 md:pb-24 bg-white overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section className="relative pt-[108px] sm:pt-[120px] lg:pt-[128px] pb-12 sm:pb-14 lg:pb-16 bg-white overflow-hidden">
+      <div className="site-container">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Headlines & Actions */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-6 space-y-6 md:space-y-8"
+            className="lg:col-span-6 space-y-5 md:space-y-6"
           >
             {/* Eyebrow */}
             <div className="inline-block">
@@ -35,30 +35,30 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-[1.08] tracking-tight text-[#0B1A30] font-normal">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.1] tracking-tight text-[#0B1A30] font-normal">
               Building Market Value Through Strategic Capital Markets Advisory.
             </h1>
 
             {/* Subparagraph */}
-            <p className="text-base sm:text-lg text-[#5A6878] leading-relaxed max-w-xl font-normal">
+            <p className="text-sm sm:text-base md:text-[17px] text-[#5A6878] leading-relaxed max-w-xl font-normal">
               We help ambitious companies navigate capital markets, strengthen
               investor relationships and build lasting market visibility
               through strategic communications and financial expertise.
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
               <Button
                 href="#contact"
                 variant="primary"
-                className="h-[50px] px-7 text-sm tracking-wide"
+                className="h-[48px] px-6 text-sm tracking-wide"
               >
                 Discuss Your Goals
               </Button>
               <Button
                 href="#services"
                 variant="outline"
-                className="h-[50px] px-7 text-sm tracking-wide"
+                className="h-[48px] px-6 text-sm tracking-wide"
               >
                 Explore Our Services
               </Button>
@@ -73,7 +73,7 @@ export const HeroSection: React.FC = () => {
             className="lg:col-span-6 relative"
           >
             {/* Hero Main Image Container */}
-            <div className="relative w-full aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] max-h-[660px] rounded-lg overflow-hidden shadow-2xl bg-[#0B1A30]">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[4/3] lg:aspect-[4/5] max-h-[520px] rounded-lg overflow-hidden shadow-xl bg-[#0B1A30]">
               <Image
                 src="/images/hero-skyscrapers.jpg"
                 alt="Corporate skyscrapers reaching into the sky representing strategic market growth"
@@ -121,7 +121,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Subtle Bottom Section Divider */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 mt-16">
+      <div className="site-container mt-10 md:mt-12">
         <div className="w-full h-[1px] bg-[#DFE6EF]" />
       </div>
     </section>

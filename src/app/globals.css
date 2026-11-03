@@ -56,3 +56,66 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #B99A5E;
 }
+
+/* Consistent Content Container */
+.site-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem; /* 20px on mobile */
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 1.5rem; /* 24px on tablet */
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 2rem; /* 32px on desktop */
+    padding-right: 2rem;
+  }
+}
+
+/* Shared Balanced Section Spacing */
+.section-spacing {
+  padding-top: 2.5rem; /* 40px on mobile */
+  padding-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-spacing {
+    padding-top: 3.25rem; /* 52px on tablet */
+    padding-bottom: 3.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding-top: 4.25rem; /* 68px on desktop (within 64px–72px requirement) */
+    padding-bottom: 4.25rem;
+  }
+}
+
+.section-spacing-compact {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .section-spacing-compact {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing-compact {
+    padding-top: 3.25rem; /* 52px on desktop */
+    padding-bottom: 3.25rem;
+  }
+}

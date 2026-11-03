@@ -20,13 +20,13 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[#091426] text-white border-t border-[#1A2D4B]">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-20 pb-12">
+      <div className="site-container pt-12 sm:pt-14 lg:pt-16 pb-8 sm:pb-10">
         {/* Top Grid: Logo + Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-[#1A2D4B]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 pb-10 sm:pb-12 border-b border-[#1A2D4B]">
           {/* Brand Info */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 space-y-4 sm:space-y-5">
             <Logo light />
-            <p className="text-sm text-[#8E9CAE] leading-relaxed max-w-sm font-normal">
+            <p className="text-xs sm:text-sm text-[#8E9CAE] leading-relaxed max-w-sm font-normal">
               Strategic capital markets advisory, investor relations and
               communications. Connecting ambitious companies with opportunity.
             </p>
@@ -163,12 +163,12 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Newsletter Section */}
-        <div className="py-12 border-b border-[#1A2D4B] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-2">
-            <h3 className="font-serif text-2xl md:text-3xl font-medium tracking-tight text-white">
+        <div className="py-8 sm:py-10 border-b border-[#1A2D4B] grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="lg:col-span-7 space-y-1.5">
+            <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-white">
               A more informed perspective.
             </h3>
-            <p className="text-xs md:text-sm text-[#8E9CAE] max-w-xl">
+            <p className="text-xs sm:text-sm text-[#8E9CAE] max-w-xl">
               Receive market perspectives, company news and updates from HE Capital
               Markets. Subscribe to our newsletter.
             </p>
@@ -182,11 +182,11 @@ export const Footer: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your business email"
                 required
-                className="flex-1 bg-[#0E203B] border border-[#1A2D4B] rounded px-4 py-3 text-xs text-white placeholder-[#8E9CAE] focus:outline-none focus:border-[#B99A5E] transition-colors"
+                className="flex-1 bg-[#0E203B] border border-[#1A2D4B] rounded px-4 py-2.5 text-xs text-white placeholder-[#8E9CAE] focus:outline-none focus:border-[#B99A5E] transition-colors"
               />
               <button
                 type="submit"
-                className="bg-[#B99A5E] hover:bg-[#A8894E] text-white px-6 py-3 rounded text-xs font-medium tracking-wider uppercase transition-colors inline-flex items-center justify-center gap-2 select-none cursor-pointer whitespace-nowrap"
+                className="bg-[#B99A5E] hover:bg-[#A8894E] text-white px-5 py-2.5 rounded text-xs font-medium tracking-wider uppercase transition-colors inline-flex items-center justify-center gap-2 select-none cursor-pointer whitespace-nowrap"
               >
                 <span>{subscribed ? "Subscribed!" : "Subscribe"}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -196,7 +196,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Legal & Socials */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#8E9CAE] gap-4">
+        <div className="pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-[#8E9CAE] gap-4">
           <div>
             <p>© HE Capital Markets. All rights reserved.</p>
           </div>

@@ -16,39 +16,39 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-white relative">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section id="about" className="section-spacing bg-white relative">
+      <div className="site-container">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Text Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 space-y-4 sm:space-y-5"
           >
             {/* Section Badge */}
             <SectionBadge number="02" label="ABOUT HE CAPITAL MARKETS" />
 
             {/* Title */}
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-[#0B1A30] leading-[1.12] tracking-tight font-normal">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] leading-[1.12] tracking-tight font-normal">
               Global Investor Relations Specialists.
             </h2>
 
             {/* Subheading */}
-            <p className="font-serif text-xl sm:text-2xl text-[#244A80] italic">
+            <p className="font-serif text-lg sm:text-xl text-[#244A80] italic">
               Building market value through strategic consultation.
             </p>
 
             {/* Eyebrow Callout */}
-            <div className="pt-2">
-              <span className="text-[11px] font-semibold tracking-[0.22em] text-[#0B1A30] uppercase block">
+            <div className="pt-1">
+              <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] text-[#0B1A30] uppercase block">
                 INNOVATIVE COMMUNICATIONS. STRATEGIES THAT INSPIRE INVESTMENT.
               </span>
             </div>
 
             {/* Paragraphs */}
-            <div className="space-y-4 text-sm sm:text-base text-[#5A6878] leading-relaxed font-normal max-w-2xl">
+            <div className="space-y-3 text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal max-w-2xl">
               <p>
                 HE Capital Markets is a full service investor relations firm with
                 a proven track record in helping companies optimize visibility in
@@ -70,7 +70,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* Link */}
-            <div className="pt-4">
+            <div className="pt-2">
               <Link
                 href="#services"
                 className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
@@ -89,12 +89,12 @@ export const AboutSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 flex items-center justify-center relative"
           >
-            <div className="relative w-full max-w-[500px] aspect-square rounded-lg overflow-hidden">
+            <div className="relative w-full max-w-[420px] aspect-square rounded-lg overflow-hidden">
               <Image
                 src="/images/about-globe.jpg"
                 alt="Global network connectivity and international capital markets reach"
                 fill
-                sizes="(max-width: 768px) 100vw, 500px"
+                sizes="(max-width: 768px) 100vw, 420px"
                 className="object-cover"
                 priority
               />
@@ -103,8 +103,8 @@ export const AboutSection: React.FC = () => {
         </div>
 
         {/* Bottom Ticker / Strip */}
-        <div className="mt-20 pt-8 border-t border-[#DFE6EF]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+        <div className="mt-10 sm:mt-12 pt-6 border-t border-[#DFE6EF]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center md:text-left">
             {tickerItems.map((item, idx) => (
               <div
                 key={idx}
