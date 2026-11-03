@@ -25,16 +25,16 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#DFE6EF]/70 h-[80px]"
-          : "bg-white border-b border-[#DFE6EF] h-[100px]"
+          ? "bg-[#091426]/95 backdrop-blur-md shadow-lg border-b border-[#1A2D4B] h-[80px]"
+          : "bg-[#091426] border-b border-[#1A2D4B] h-[100px]"
       }`}
     >
       <div className="max-w-[1440px] mx-auto h-full px-6 md:px-12 lg:px-20 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo - cleanly placed without extra background */}
         <Logo />
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8 text-[13px] font-medium tracking-[0.06em] text-[#0B1A30]">
+        <nav className="hidden lg:flex items-center gap-8 text-[13px] font-medium tracking-[0.06em] text-[#E2E8F0]">
           {NAVIGATION_ITEMS.map((item) => {
             const hasChildren = item.children && item.children.length > 0;
             const isOpen = activeDropdown === item.label;
@@ -56,7 +56,7 @@ export const Navbar: React.FC = () => {
                   {hasChildren && (
                     <ChevronDown
                       className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-[#B99A5E]" : "text-[#82909D]"
+                        isOpen ? "rotate-180 text-[#B99A5E]" : "text-[#8E9CAE]"
                       }`}
                     />
                   )}
@@ -118,8 +118,8 @@ export const Navbar: React.FC = () => {
         <div className="hidden lg:block shrink-0">
           <Button
             href="#contact"
-            variant="primary"
-            className="h-[48px] px-6 text-[13px] tracking-wide whitespace-nowrap"
+            variant="gold"
+            className="h-[48px] px-6 text-[13px] tracking-wide whitespace-nowrap shadow-lg shadow-[#B99A5E]/20"
           >
             Discuss Your Goals
           </Button>
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
         <div className="lg:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#0B1A30] hover:text-[#B99A5E] transition-colors"
+            className="p-2 text-white hover:text-[#B99A5E] transition-colors"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -192,4 +192,3 @@ export const Navbar: React.FC = () => {
     </header>
   );
 };
-
