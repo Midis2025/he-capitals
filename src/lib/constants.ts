@@ -18,7 +18,7 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       {
         number: "02",
         title: "Capital Markets Advisory",
-        description: "Navigate the capital markets with strategic insight, market positioning, and financial communications expertise.",
+        description: "Navigate the capital markets with strategic insight, market positioning and financial communications expertise.",
         href: "#services",
       },
       {
@@ -30,7 +30,7 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       {
         number: "04",
         title: "Digital & Social Media",
-        description: "Extend your reach through integrated digital content, social channels, and investor focused campaigns.",
+        description: "Extend your reach through integrated digital content, social channels and investor focused campaigns.",
         href: "#services",
       },
       {
@@ -112,17 +112,17 @@ export const COMMITMENT_PILLARS: CommitmentPillar[] = [
   {
     number: "02",
     title: "Global Network",
-    description: "Access to a broad network of investors, financial institutions, and industry connections.",
+    description: "Access to a broad network of investors, financial institutions and industry connections.",
   },
   {
     number: "03",
     title: "Integrated Solutions",
-    description: "Investor relations, financing communications, public relations, and digital communications.",
+    description: "Investor relations, financing communications, public relations and digital communications.",
   },
   {
     number: "04",
     title: "Measurable Impact",
-    description: "Building awareness, attracting investor interest, and supporting meaningful business outcomes.",
+    description: "Building awareness, attracting investor interest and supporting meaningful business outcomes.",
   },
 ];
 
@@ -138,7 +138,7 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     number: "02",
     title: "Capital Markets Advisory",
-    description: "Navigate the capital markets with strategic insight, market positioning, and financial communications expertise.",
+    description: "Navigate the capital markets with strategic insight, market positioning and financial communications expertise.",
     href: "#contact",
   },
   {
@@ -150,7 +150,7 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     number: "04",
     title: "Digital & Social Media",
-    description: "Extend your reach through integrated digital content, social channels, and investor focused campaigns.",
+    description: "Extend your reach through integrated digital content, social channels and investor focused campaigns.",
     href: "#contact",
   },
   {
@@ -227,22 +227,22 @@ export const APPROACH_STEPS: ApproachStep[] = [
   {
     number: "01",
     title: "UNDERSTAND",
-    description: "Discover the business, market position, objectives, target audiences, and investment goals.",
+    description: "Discover the business, market position, objectives, target audiences and investment goals.",
   },
   {
     number: "02",
     title: "STRATEGIZE",
-    description: "Develop tailored investor communication, market visibility, media, and PR strategies.",
+    description: "Develop tailored investor communication, market visibility, media and PR strategies.",
   },
   {
     number: "03",
     title: "CONNECT",
-    description: "Connect companies with relevant investors, financial professionals, media, and industry audiences.",
+    description: "Connect companies with relevant investors, financial professionals, media and industry audiences.",
   },
   {
     number: "04",
     title: "GROW",
-    description: "Strengthen visibility, investor engagement, and long term market presence.",
+    description: "Strengthen visibility, investor engagement and long term market presence.",
   },
 ];
 
@@ -284,12 +284,12 @@ export const WHY_US_POINTS: WhyUsPoint[] = [
   {
     number: "02",
     title: "International Network",
-    description: "Connections across North America, Europe, and Asia.",
+    description: "Connections across North America, Europe and Asia.",
   },
   {
     number: "03",
     title: "Integrated Capabilities",
-    description: "Investor relations, PR, digital media, and communications.",
+    description: "Investor relations, PR, digital media and communications.",
   },
   {
     number: "04",

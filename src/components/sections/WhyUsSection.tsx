@@ -45,7 +45,7 @@ export const WhyUsSection: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-base text-[#5A6878] leading-relaxed font-normal">
-              We combine capital markets experience, industry knowledge, and
+              We combine capital markets experience, industry knowledge and
               integrated communication capabilities to help companies navigate
               complex markets and strengthen their presence within the investment
               community.

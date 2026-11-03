@@ -55,17 +55,17 @@ export const AboutSection: React.FC = () => {
                 North American and international markets.
               </p>
               <p>
-                We combine strategic communications, investor outreach, and
+                We combine strategic communications, investor outreach and
                 financial market knowledge to help ambitious companies generate
-                awareness, attract new investors, and elevate their market
+                awareness, attract new investors and elevate their market
                 positioning.
               </p>
               <p>
                 With a team bringing approximately 40 years of capital markets
                 experience, we have developed an extensive network of brokers,
                 funds, venture capital firms, private equity groups, high
-                net-worth individuals, and family offices across the US, Canada,
-                Europe, and Asia.
+                net-worth individuals and family offices across the US, Canada,
+                Europe and Asia.
               </p>
             </div>
 

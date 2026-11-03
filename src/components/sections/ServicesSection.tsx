@@ -23,9 +23,9 @@ export const ServicesSection: React.FC = () => {
               Our Services.
             </h2>
             <p className="text-sm sm:text-base text-[#5A6878] leading-relaxed font-normal">
-              We bring together financial expertise, investor connections, and
+              We bring together financial expertise, investor connections and
               strategic communications to help companies strengthen their market
-              presence, attract investment, and unlock new opportunities.
+              presence, attract investment and unlock new opportunities.
             </p>
           </div>
 

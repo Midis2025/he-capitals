@@ -19,7 +19,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "HE Capital Markets | Strategic Capital Markets Advisory & Investor Relations",
   description:
-    "We help ambitious companies navigate capital markets, strengthen investor relationships, and build lasting market visibility through strategic communications and financial expertise.",
+    "We help ambitious companies navigate capital markets, strengthen investor relationships and build lasting market visibility through strategic communications and financial expertise.",
   keywords: [
     "HE Capital Markets",
     "Investor Relations",

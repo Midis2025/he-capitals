@@ -54,7 +54,7 @@ export const ContactSection: React.FC = () => {
 
             <p className="text-sm sm:text-base text-[#8E9CAE] leading-relaxed font-normal">
               Whether you re looking to strengthen investor relationships,
-              expand market visibility, or explore new opportunities, our team
+              expand market visibility or explore new opportunities, our team
               is ready to understand your objectives.
             </p>
 

@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-4 space-y-6">
             <Logo light />
             <p className="text-sm text-[#8E9CAE] leading-relaxed max-w-sm font-normal">
-              Strategic capital markets advisory, investor relations, and
+              Strategic capital markets advisory, investor relations and
               communications. Connecting ambitious companies with opportunity.
             </p>
           </div>
@@ -169,7 +169,7 @@ export const Footer: React.FC = () => {
               A more informed perspective.
             </h3>
             <p className="text-xs md:text-sm text-[#8E9CAE] max-w-xl">
-              Receive market perspectives, company news, and updates from HE Capital
+              Receive market perspectives, company news and updates from HE Capital
               Markets. Subscribe to our newsletter.
             </p>
           </div>

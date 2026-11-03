@@ -19,7 +19,7 @@ export const ApproachSection: React.FC = () => {
             A Strategic Approach to Every Opportunity.
           </h2>
           <p className="text-sm sm:text-base text-[#5A6878] leading-relaxed font-normal">
-            We combine industry knowledge, financial market experience, and
+            We combine industry knowledge, financial market experience and
             strategic communications to create a structured approach for every
             client.
           </p>

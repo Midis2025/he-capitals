@@ -31,13 +31,13 @@ export const CommitmentSection: React.FC = () => {
             <div className="space-y-4 text-sm sm:text-base text-[#8E9CAE] leading-relaxed font-normal pt-2">
               <p>
                 We believe every successful business deserves the right
-                connections, strategic direction, and market visibility to reach
+                connections, strategic direction and market visibility to reach
                 its full potential.
               </p>
               <p>
                 We develop tailored strategies that combine investor relations,
                 shareholder communications, equity financing communications,
-                public relations, and digital media to support our clients
+                public relations and digital media to support our clients
                 objectives.
               </p>
               <p>

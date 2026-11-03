@@ -42,7 +42,7 @@ export const HeroSection: React.FC = () => {
             {/* Subparagraph */}
             <p className="text-base sm:text-lg text-[#5A6878] leading-relaxed max-w-xl font-normal">
               We help ambitious companies navigate capital markets, strengthen
-              investor relationships, and build lasting market visibility
+              investor relationships and build lasting market visibility
               through strategic communications and financial expertise.
             </p>
 

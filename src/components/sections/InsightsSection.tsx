@@ -23,7 +23,7 @@ export const InsightsSection: React.FC = () => {
           </h2>
           <p className="text-sm sm:text-base text-[#5A6878] leading-relaxed font-normal">
             Explore the latest company announcements, industry developments,
-            press releases, and insights from across the markets we serve.
+            press releases and insights from across the markets we serve.
           </p>
           <p className="text-[11px] font-semibold tracking-[0.2em] text-[#8E9CAE] uppercase pt-1">
             SAMPLE EDITORIAL NOT PUBLISHED ANNOUNCEMENTS
