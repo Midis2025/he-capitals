@@ -83,25 +83,21 @@ export const AboutSection: React.FC = () => {
 
           {/* Right Visual: Globe */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 flex items-center justify-center relative"
           >
-            <div className="relative w-full max-w-[440px] aspect-square rounded-full p-2">
-              {/* Subtle background glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#244A80]/10 via-[#B99A5E]/10 to-transparent rounded-full blur-2xl pointer-events-none" />
-
-              <div className="relative w-full h-full rounded-full overflow-hidden shadow-xl border border-[#DFE6EF]">
-                <Image
-                  src="/images/about-globe.jpg"
-                  alt="Global network connectivity and international capital markets reach"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 440px"
-                  className="object-cover"
-                />
-              </div>
+            <div className="relative w-full max-w-[500px] aspect-square rounded-lg overflow-hidden">
+              <Image
+                src="/images/about-globe.jpg"
+                alt="Global network connectivity and international capital markets reach"
+                fill
+                sizes="(max-width: 768px) 100vw, 500px"
+                className="object-cover"
+                priority
+              />
             </div>
           </motion.div>
         </div>
@@ -126,3 +122,4 @@ export const AboutSection: React.FC = () => {
     </section>
   );
 };
+
