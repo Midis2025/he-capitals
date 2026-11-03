@@ -9,12 +9,19 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/d3-geo": "^3.1.1",
+    "@types/three": "^0.187.0",
+    "@types/topojson-client": "^3.1.5",
+    "d3-geo": "^3.1.2",
     "framer-motion": "^14.9.0",
     "lucide-react": "^1.67.0",
     "next": "16.4.4",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "three": "^0.187.0",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",

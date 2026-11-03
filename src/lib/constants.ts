@@ -95,7 +95,7 @@ export const NAVIGATION_ITEMS: NavItem[] = [
   },
   {
     label: "Clients",
-    href: "#clients",
+    href: "/clients",
   },
   {
     label: "Contact",
