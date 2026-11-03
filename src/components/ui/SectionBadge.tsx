@@ -24,3 +24,4 @@ export const SectionBadge: React.FC<SectionBadgeProps> = ({
     </div>
   );
 };
+

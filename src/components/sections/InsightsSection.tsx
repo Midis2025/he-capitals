@@ -179,3 +179,4 @@ export const InsightsSection: React.FC = () => {
     </section>
   );
 };
+

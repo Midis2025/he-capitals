@@ -66,3 +66,4 @@ export const ApproachSection: React.FC = () => {
     </section>
   );
 };
+

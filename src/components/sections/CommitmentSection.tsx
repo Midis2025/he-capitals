@@ -78,3 +78,4 @@ export const CommitmentSection: React.FC = () => {
     </section>
   );
 };
+
