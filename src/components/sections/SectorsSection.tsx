@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { SECTORS_DATA } from "@/lib/constants";
@@ -12,10 +11,10 @@ export const SectorsSection: React.FC = () => {
   const [mining, tech, blockchain, psychedelics, pharma, cannabis] = SECTORS_DATA;
 
   return (
-    <section id="sectors" className="py-24 md:py-32 bg-[#F1F5FB] relative">
+    <section id="sectors" className="py-16 md:py-24 bg-[#F1F5FB] relative">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
         {/* Section Header */}
-        <div className="space-y-4 max-w-2xl mb-14">
+        <div className="space-y-3 max-w-2xl mb-10">
           <SectionBadge number="05" label="SECTORS WE COVER" />
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] font-normal tracking-tight">
             Sectors We Cover.
@@ -30,16 +29,17 @@ export const SectorsSection: React.FC = () => {
         {/* Asymmetrical Grid matching PDF Layout */}
         <div className="space-y-6">
           {/* Top Row: Mining (Big Card) + Tech & Blockchain (Stacked) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             {/* 01 Mining (Featured Large Card) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="lg:col-span-7 bg-white rounded border border-[#DFE6EF] overflow-hidden group hover:shadow-xl transition-shadow flex flex-col justify-between"
+              className="lg:col-span-7 bg-white rounded border border-[#DFE6EF] overflow-hidden group hover:shadow-xl transition-shadow flex flex-col h-full"
             >
-              <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0B1A30]">
+              {/* Image expands to fill vertical height proportionally */}
+              <div className="relative w-full flex-1 min-h-[260px] sm:min-h-[320px] overflow-hidden bg-[#0B1A30]">
                 <Image
                   src={mining.image}
                   alt={mining.title}
@@ -49,8 +49,9 @@ export const SectorsSection: React.FC = () => {
                 />
               </div>
 
-              <div className="p-6 sm:p-8">
-                <div className="flex items-center justify-between mb-2">
+              {/* Compact, balanced text block with zero extra empty space */}
+              <div className="p-5 sm:p-6 bg-white shrink-0">
+                <div className="flex items-center justify-between mb-1.5">
                   <h3 className="font-serif text-xl sm:text-2xl text-[#0B1A30] group-hover:text-[#B99A5E] transition-colors flex items-center gap-2">
                     <span className="font-serif text-base text-[#B99A5E] font-medium">
                       {mining.number}
@@ -66,7 +67,7 @@ export const SectorsSection: React.FC = () => {
             </motion.div>
 
             {/* Right Stack: 02 Technology & 03 Blockchain */}
-            <div className="lg:col-span-5 grid grid-cols-1 gap-6">
+            <div className="lg:col-span-5 flex flex-col gap-6">
               {[tech, blockchain].map((sector, idx) => (
                 <motion.div
                   key={sector.number}
@@ -74,9 +75,9 @@ export const SectorsSection: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: idx * 0.15 }}
-                  className="bg-white rounded border border-[#DFE6EF] overflow-hidden group hover:shadow-xl transition-shadow flex flex-col justify-between"
+                  className="bg-white rounded border border-[#DFE6EF] overflow-hidden group hover:shadow-xl transition-shadow flex-1 flex flex-col"
                 >
-                  <div className="relative w-full aspect-[21/9] sm:aspect-[24/9] overflow-hidden bg-[#0B1A30]">
+                  <div className="relative w-full aspect-[21/9] sm:aspect-[22/9] overflow-hidden bg-[#0B1A30]">
                     <Image
                       src={sector.image}
                       alt={sector.title}
@@ -86,10 +87,10 @@ export const SectorsSection: React.FC = () => {
                     />
                   </div>
 
-                  <div className="p-5 sm:p-6">
-                    <div className="flex items-center justify-between mb-1.5">
-                      <h3 className="font-serif text-lg sm:text-xl text-[#0B1A30] group-hover:text-[#B99A5E] transition-colors flex items-center gap-2">
-                        <span className="font-serif text-sm text-[#B99A5E] font-medium">
+                  <div className="p-4 sm:p-5 flex-1 flex flex-col justify-center">
+                    <div className="flex items-center justify-between mb-1">
+                      <h3 className="font-serif text-base sm:text-lg text-[#0B1A30] group-hover:text-[#B99A5E] transition-colors flex items-center gap-2">
+                        <span className="font-serif text-xs sm:text-sm text-[#B99A5E] font-medium">
                           {sector.number}
                         </span>
                         <span>{sector.title}</span>
@@ -114,9 +115,9 @@ export const SectorsSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
-                className="bg-white rounded border border-[#DFE6EF] overflow-hidden group hover:shadow-xl transition-shadow flex flex-col justify-between"
+                className="bg-white rounded border border-[#DFE6EF] overflow-hidden group hover:shadow-xl transition-shadow flex flex-col"
               >
-                <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0B1A30]">
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#0B1A30]">
                   <Image
                     src={sector.image}
                     alt={sector.title}
@@ -126,10 +127,10 @@ export const SectorsSection: React.FC = () => {
                   />
                 </div>
 
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-serif text-lg sm:text-xl text-[#0B1A30] group-hover:text-[#B99A5E] transition-colors flex items-center gap-2">
-                      <span className="font-serif text-sm text-[#B99A5E] font-medium">
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-center">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <h3 className="font-serif text-base sm:text-lg text-[#0B1A30] group-hover:text-[#B99A5E] transition-colors flex items-center gap-2">
+                      <span className="font-serif text-xs sm:text-sm text-[#B99A5E] font-medium">
                         {sector.number}
                       </span>
                       <span>{sector.title}</span>
@@ -148,4 +149,3 @@ export const SectorsSection: React.FC = () => {
     </section>
   );
 };
-
