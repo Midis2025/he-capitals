@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { SectionBadge } from "@/components/ui/SectionBadge";
@@ -8,10 +8,6 @@ import { SERVICES_DATA, COMMUNICATION_CAPABILITIES } from "@/lib/constants";
 import { motion } from "framer-motion";
 
 export const ServicesSection: React.FC = () => {
-  const [activeService, setActiveService] = useState<number>(0);
-  const featured = SERVICES_DATA[0];
-  const otherServices = SERVICES_DATA.slice(1);
-
   return (
     <section id="services" className="section-spacing bg-white relative">
       <div className="site-container">
@@ -25,14 +21,14 @@ export const ServicesSection: React.FC = () => {
             <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
               We bring together financial expertise, investor connections and
               strategic communications to help companies strengthen their market
-              presence, attract investment and unlock new opportunities.
+              presence, attract investment and unlock new{"\u00A0"}opportunities.
             </p>
           </div>
 
-          <div>
+          <div className="shrink-0">
             <Link
               href="#contact"
-              className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
+              className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group whitespace-nowrap"
             >
               <span>Explore All Services</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -40,80 +36,50 @@ export const ServicesSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Services Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mt-6 sm:mt-8 items-start">
-          {/* Left Column: Featured Card (01 Investor Relations) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5 bg-[#F1F5FB] border border-[#DFE6EF] rounded p-5 sm:p-6 space-y-4"
-          >
-            <div>
-              <span className="font-serif text-2xl sm:text-3xl font-medium text-[#B99A5E] block mb-2">
-                {featured.number}
-              </span>
-
-              <h3 className="font-serif text-xl sm:text-2xl text-[#0B1A30] font-normal mb-2">
-                {featured.title}
-              </h3>
-
-              <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed font-normal">
-                {featured.description}
-              </p>
-            </div>
-
-            {featured.highlight && (
-              <div className="pt-3 border-t border-[#DFE6EF]">
-                <p className="font-serif text-sm sm:text-base text-[#0B1A30] italic leading-snug">
-                  {featured.highlight}
-                </p>
-              </div>
-            )}
-
-            <div className="pt-1">
+        {/* Services Main 2-Column Balanced Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 mt-6 sm:mt-8">
+          {SERVICES_DATA.map((service, index) => (
+            <motion.div
+              key={service.number}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.06 }}
+              className="h-full"
+            >
               <Link
-                href="#contact"
-                className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
+                href={service.href || "#contact"}
+                className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B99A5E] rounded transition-all duration-300"
               >
-                <span>Explore Investor Relations</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </motion.div>
+                <div
+                  className={`h-full border border-[#DFE6EF] rounded p-5 sm:p-6 md:p-7 flex flex-col justify-between transition-all duration-300 group-hover:border-[#B99A5E] group-hover:shadow-sm ${
+                    service.isFeatured
+                      ? "bg-[#F1F5FB] hover:bg-[#EAF0F8]"
+                      : "bg-white hover:bg-[#F8FAFC]"
+                  }`}
+                >
+                  <div className="space-y-2.5 sm:space-y-3">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-baseline gap-2.5 sm:gap-3">
+                        <span className="font-serif text-xs sm:text-sm font-semibold text-[#B99A5E] shrink-0">
+                          {service.number}
+                        </span>
+                        <h3 className="font-serif text-lg sm:text-xl md:text-[21px] text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors leading-snug">
+                          {service.title}
+                        </h3>
+                      </div>
 
-          {/* Right Column: Other Services Stack */}
-          <div className="lg:col-span-7 divide-y divide-[#DFE6EF]">
-            {otherServices.map((service, index) => (
-              <motion.div
-                key={service.number}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="py-3.5 sm:py-4 first:pt-0 last:pb-0 group cursor-pointer"
-                onMouseEnter={() => setActiveService(index)}
-              >
-                <div className="flex items-start justify-between gap-4 mb-1">
-                  <div className="flex items-baseline gap-2.5">
-                    <span className="font-serif text-xs sm:text-sm font-medium text-[#B99A5E]">
-                      {service.number}
-                    </span>
-                    <h3 className="text-sm sm:text-base font-medium text-[#0B1A30] group-hover:text-[#B99A5E] transition-colors">
-                      {service.title}
-                    </h3>
+                      <ArrowUpRight className="w-4 h-4 text-[#B99A5E] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 mt-1" />
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed font-normal pl-5 sm:pl-6">
+                      {service.description}
+                    </p>
                   </div>
-
-                  <ArrowUpRight className="w-4 h-4 text-[#B99A5E] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
                 </div>
-
-                <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed max-w-xl pl-5 sm:pl-6">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
 
         {/* Bottom Strip: Connected Communication Capabilities */}
@@ -129,7 +95,7 @@ export const ServicesSection: React.FC = () => {
               <Link
                 key={cap}
                 href="#contact"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded bg-[#F1F5FB] border border-[#DFE6EF] text-xs font-medium text-[#0B1A30] hover:border-[#B99A5E] hover:bg-white hover:text-[#B99A5E] transition-all group"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded bg-[#F1F5FB] border border-[#DFE6EF] text-xs font-medium text-[#0B1A30] hover:border-[#B99A5E] hover:bg-white hover:text-[#B99A5E] transition-all group whitespace-nowrap"
               >
                 <span>{cap}</span>
                 <ArrowUpRight className="w-3 h-3 text-[#B99A5E] opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -141,4 +107,3 @@ export const ServicesSection: React.FC = () => {
     </section>
   );
 };
-

@@ -15,7 +15,7 @@ export const SectionBadge: React.FC<SectionBadgeProps> = ({
 }) => {
   return (
     <div
-      className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] ${
+      className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] whitespace-nowrap ${
         light ? "text-[#B99A5E]" : "text-[#244A80]"
       } ${className}`}
     >

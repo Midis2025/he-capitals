@@ -2,8 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 
@@ -36,14 +35,14 @@ export const HeroSection: React.FC = () => {
 
             {/* Main Headline */}
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[62px] leading-[1.08] tracking-tight text-[#0B1A30] font-normal">
-              Building Market Value Through Strategic Capital Markets Advisory.
+              Building Market Value Through Strategic Capital Markets{"\u00A0"}Advisory.
             </h1>
 
             {/* Subparagraph */}
             <p className="text-sm sm:text-base md:text-[17px] text-[#5A6878] leading-relaxed max-w-xl font-normal">
               We help ambitious companies navigate capital markets, strengthen
               investor relationships and build lasting market visibility
-              through strategic communications and financial expertise.
+              through strategic communications and financial{"\u00A0"}expertise.
             </p>
 
             {/* Action Buttons */}

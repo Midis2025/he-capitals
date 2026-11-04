@@ -117,7 +117,7 @@ export const GlobalReachSection: React.FC = () => {
               {/* Body Text without serial comma */}
               <p className="text-sm sm:text-[15px] text-[#5A6878] leading-relaxed font-normal mt-4 sm:mt-5 max-w-xl">
                 We connect ambitious companies with investors, financial professionals and market
-                audiences across key international markets.
+                audiences across key international{"\u00A0"}markets.
               </p>
 
               {/* Editorial Region Selector */}

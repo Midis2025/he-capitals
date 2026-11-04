@@ -32,12 +32,12 @@ export const AboutSection: React.FC = () => {
 
             {/* Title */}
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] leading-[1.12] tracking-tight font-normal">
-              Global Investor Relations Specialists.
+              Global Investor Relations{"\u00A0"}Specialists.
             </h2>
 
             {/* Subheading */}
             <p className="font-serif text-lg sm:text-xl text-[#244A80] italic">
-              Building market value through strategic consultation.
+              Building market value through strategic{"\u00A0"}consultation.
             </p>
 
             {/* Eyebrow Callout */}
@@ -52,20 +52,19 @@ export const AboutSection: React.FC = () => {
               <p>
                 HE Capital Markets is a full service investor relations firm with
                 a proven track record in helping companies optimize visibility in
-                North American and international markets.
+                North American and international{"\u00A0"}markets.
               </p>
               <p>
                 We combine strategic communications, investor outreach and
                 financial market knowledge to help ambitious companies generate
-                awareness, attract new investors and elevate their market
-                positioning.
+                awareness, attract new investors and elevate their market{"\u00A0"}positioning.
               </p>
               <p>
                 With a team bringing approximately 40 years of capital markets
                 experience, we have developed an extensive network of brokers,
                 funds, venture capital firms, private equity groups, high
                 net-worth individuals and family offices across the US, Canada,
-                Europe and Asia.
+                Europe and{"\u00A0"}Asia.
               </p>
             </div>
 
@@ -73,7 +72,7 @@ export const AboutSection: React.FC = () => {
             <div className="pt-2">
               <Link
                 href="#services"
-                className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
+                className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group whitespace-nowrap"
               >
                 <span>ONE CONNECTED INVESTMENT LANDSCAPE</span>
                 <ArrowUpRight className="w-4 h-4 text-[#B99A5E] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

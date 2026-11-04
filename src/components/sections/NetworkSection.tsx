@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface ClientLogo {
@@ -11,27 +10,27 @@ interface ClientLogo {
 }
 
 const TOP_ROW_LOGOS: ClientLogo[] = [
-  { name: "ARway", src: "/logos/clients/arway.png" },
-  { name: "Pan Global Resources", src: "/logos/clients/pan-global.png" },
-  { name: "Harfang Exploration", src: "/logos/clients/harfang.png" },
-  { name: "Monumental Energy", src: "/logos/clients/monumental-energy.png" },
-  { name: "Silver One Resources", src: "/logos/clients/silver-one.png" },
-  { name: "West Point Gold", src: "/logos/clients/west-point-gold.png" },
-  { name: "Sirios Resources", src: "/logos/clients/sirios-resources-logo.png" },
-  { name: "BULGold", src: "/logos/clients/bulgold-logo.png" },
-  { name: "Contango Silver", src: "/logos/clients/contango.jpg" },
+  { name: "ARway", src: "/images/clients/arway.webp" },
+  { name: "Pan Global Resources", src: "/images/clients/pan-global-resources.webp" },
+  { name: "Harfang Exploration", src: "/images/clients/harfang-exploration.webp" },
+  { name: "Monumental Energy", src: "/images/clients/monumental-energy.webp" },
+  { name: "Silver One Resources", src: "/images/clients/silver-one.webp" },
+  { name: "West Point Gold", src: "/images/clients/west-point-gold.webp" },
+  { name: "Sirios Resources", src: "/images/clients/sirios-resources.webp" },
+  { name: "BULGold", src: "/images/clients/bulgold.webp" },
+  { name: "Contango Silver & Gold", src: "/images/clients/contango-silver-gold.webp" },
 ];
 
 const BOTTOM_ROW_LOGOS: ClientLogo[] = [
-  { name: "Standard Uranium", src: "/logos/clients/standard-uranium.png" },
-  { name: "AXO Metals", src: "/logos/clients/axo-metals.png" },
-  { name: "Deep Sea Minerals", src: "/logos/clients/deep-sea-minerals.png" },
-  { name: "Aftermath Silver", src: "/logos/clients/aftermath-silver.png" },
-  { name: "GoGold Silver & Gold", src: "/logos/clients/gogold.png" },
-  { name: "Talisker Resources", src: "/logos/clients/talisker.png" },
-  { name: "IDEX Metals", src: "/logos/clients/idex.png" },
-  { name: "Kootenay Silver", src: "/logos/clients/kootenay.png" },
-  { name: "Scottie Resources", src: "/logos/clients/scottie.svg" },
+  { name: "Standard Uranium", src: "/images/clients/standard-uranium.webp" },
+  { name: "AXO Metals", src: "/images/clients/axo-metals.webp" },
+  { name: "Deep Sea Minerals", src: "/images/clients/deep-sea-minerals.webp" },
+  { name: "Aftermath Silver", src: "/images/clients/aftermath-silver.webp" },
+  { name: "GoGold Resources", src: "/images/clients/gogold-resources.webp" },
+  { name: "Talisker Resources", src: "/images/clients/talisker-resources.webp" },
+  { name: "IDEX Metals", src: "/images/clients/idex-metals.webp" },
+  { name: "Kootenay Silver", src: "/images/clients/kootenay-silver.webp" },
+  { name: "Scottie Resources", src: "/images/clients/scottie-resources.webp" },
 ];
 
 export const NetworkSection: React.FC = () => {
@@ -67,16 +66,14 @@ export const NetworkSection: React.FC = () => {
               {topLoop.map((client, idx) => (
                 <div
                   key={`${client.name}-${idx}`}
-                  className="h-20 sm:h-22 md:h-24 w-[160px] sm:w-[180px] md:w-[200px] px-5 py-3 border-r border-[#DFE6EF] flex items-center justify-center shrink-0 hover:bg-[#F8FAFC] transition-colors"
+                  className="h-20 sm:h-22 md:h-24 w-[160px] sm:w-[180px] md:w-[200px] px-4 py-2 border-r border-[#DFE6EF] flex items-center justify-center shrink-0 hover:bg-[#F8FAFC] transition-colors"
                 >
                   <div className="relative w-full h-full flex items-center justify-center">
-                    <Image
+                    <img
                       src={client.src}
                       alt={client.name}
-                      width={180}
-                      height={70}
-                      unoptimized
-                      className="max-h-10 sm:max-h-12 md:max-h-14 w-auto max-w-[85%] object-contain"
+                      loading="lazy"
+                      className="max-h-12 sm:max-h-13 md:max-h-14 w-auto max-w-[85%] object-contain object-center transition-transform duration-300 hover:scale-105"
                     />
                   </div>
                 </div>
@@ -98,30 +95,26 @@ export const NetworkSection: React.FC = () => {
                 <circle cx="210" cy="320" r="50" opacity="0.3" />
                 <circle cx="510" cy="140" r="45" opacity="0.3" />
                 <circle cx="505" cy="270" r="60" opacity="0.3" />
-                <circle cx="720" cy="150" r="75" opacity="0.3" />
-                <circle cx="780" cy="310" r="40" opacity="0.3" />
               </svg>
             </div>
 
-            <div className="relative z-10 max-w-3xl mx-auto">
-              {/* Eyebrow with decorative lines */}
-              <div className="flex items-center justify-center gap-3 sm:gap-4 text-[10px] sm:text-[11px] font-semibold tracking-[0.24em] text-[#244A80] uppercase mb-3 sm:mb-4">
-                <span className="w-8 sm:w-16 h-[1px] bg-[#DFE6EF]" />
-                <span>CLIENTS WE HAVE WORKED WITH</span>
-                <span className="w-8 sm:w-16 h-[1px] bg-[#DFE6EF]" />
+            <div className="relative z-10 max-w-2xl mx-auto space-y-3">
+              <div className="flex items-center justify-center gap-3">
+                <span className="w-8 h-[1px] bg-[#B99A5E]" />
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#244A80]">
+                  CLIENTS WE HAVE WORKED WITH
+                </span>
+                <span className="w-8 h-[1px] bg-[#B99A5E]" />
               </div>
 
-              {/* Title */}
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[46px] text-[#0B1A30] font-normal tracking-tight leading-[1.12]">
-                Trusted by Innovative Companies
-                <span className="block mt-1">Worldwide</span>
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#0B1A30] font-normal tracking-tight">
+                Trusted by Innovative Companies Worldwide
               </h2>
 
-              {/* Subparagraph without serial commas */}
-              <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed max-w-2xl mx-auto font-normal mt-3.5 sm:mt-4">
-                We are proud to partner with a diverse range of forward-thinking companies across the resource,
-                technology and industrial sectors, helping them connect with the right investors and achieve their
-                strategic goals.
+              <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed pt-1">
+                We are proud to partner with a diverse range of forward-thinking companies across the
+                resource, technology and industrial sectors, helping them connect with the right investors and
+                achieve their strategic{"\u00A0"}goals.
               </p>
             </div>
           </div>
@@ -144,16 +137,14 @@ export const NetworkSection: React.FC = () => {
               {bottomLoop.map((client, idx) => (
                 <div
                   key={`${client.name}-${idx}`}
-                  className="h-20 sm:h-22 md:h-24 w-[160px] sm:w-[180px] md:w-[200px] px-5 py-3 border-r border-[#DFE6EF] flex items-center justify-center shrink-0 hover:bg-[#F8FAFC] transition-colors"
+                  className="h-20 sm:h-22 md:h-24 w-[160px] sm:w-[180px] md:w-[200px] px-4 py-2 border-r border-[#DFE6EF] flex items-center justify-center shrink-0 hover:bg-[#F8FAFC] transition-colors"
                 >
                   <div className="relative w-full h-full flex items-center justify-center">
-                    <Image
+                    <img
                       src={client.src}
                       alt={client.name}
-                      width={180}
-                      height={70}
-                      unoptimized
-                      className="max-h-10 sm:max-h-12 md:max-h-14 w-auto max-w-[85%] object-contain"
+                      loading="lazy"
+                      className="max-h-12 sm:max-h-13 md:max-h-14 w-auto max-w-[85%] object-contain object-center transition-transform duration-300 hover:scale-105"
                     />
                   </div>
                 </div>

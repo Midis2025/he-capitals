@@ -22,7 +22,7 @@ export const SectorsSection: React.FC = () => {
           <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
             We work with companies across a range of investment sectors,
             tailoring each capital markets programme to the audiences and
-            opportunities it needs to reach.
+            opportunities it needs to{"\u00A0"}reach.
           </p>
         </div>
 

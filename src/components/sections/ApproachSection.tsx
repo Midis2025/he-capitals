@@ -20,8 +20,7 @@ export const ApproachSection: React.FC = () => {
           </h2>
           <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
             We combine industry knowledge, financial market experience and
-            strategic communications to create a structured approach for every
-            client.
+            strategic communications to create a structured approach for every{"\u00A0"}client.
           </p>
         </div>
 

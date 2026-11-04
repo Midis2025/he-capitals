@@ -29,6 +29,15 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Balanced Headings & Typographic Orphan Prevention */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
 /* Custom fine typography classes matching the PDF */
 .font-editorial {
   font-family: var(--font-serif);

@@ -7,36 +7,82 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { SectionBadge } from "@/components/ui/SectionBadge";
-import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ClientDetail {
   id: number;
   name: string;
-  category: string;
+  category: "Mining" | "Technology" | "Energy" | "Healthcare";
   logo: string;
   description?: string;
 }
 
 const ALL_CLIENTS: ClientDetail[] = [
-  { id: 1, name: "Pan Global Resources", category: "Mining", logo: "/logos/clients/pan-global.png" },
-  { id: 2, name: "Harfang Exploration", category: "Mining", logo: "/logos/clients/harfang.png" },
-  { id: 3, name: "Monumental Energy", category: "Energy", logo: "/logos/clients/monumental-energy.png" },
-  { id: 4, name: "Silver One Resources", category: "Mining", logo: "/logos/clients/silver-one.png" },
-  { id: 5, name: "West Point Gold", category: "Mining", logo: "/logos/clients/west-point-gold.png" },
-  { id: 6, name: "Sirios Resources", category: "Mining", logo: "/logos/clients/sirios-resources-logo.png" },
-  { id: 7, name: "Standard Uranium", category: "Mining", logo: "/logos/clients/standard-uranium.png" },
-  { id: 8, name: "BULGold", category: "Mining", logo: "/logos/clients/bulgold-logo.png" },
-  { id: 9, name: "ARway", category: "Technology", logo: "/logos/clients/arway.png" },
-  { id: 10, name: "Contango Silver", category: "Mining", logo: "/logos/clients/contango.jpg" },
-  { id: 11, name: "AXO Metals", category: "Mining", logo: "/logos/clients/axo-metals.png" },
-  { id: 12, name: "Deep Sea Minerals", category: "Mining", logo: "/logos/clients/deep-sea-minerals.png" },
-  { id: 13, name: "Aftermath Silver", category: "Mining", logo: "/logos/clients/aftermath-silver.png" },
-  { id: 14, name: "GoGold Silver & Gold", category: "Mining", logo: "/logos/clients/gogold.png" },
-  { id: 15, name: "Talisker Resources", category: "Mining", logo: "/logos/clients/talisker.png" },
-  { id: 16, name: "IDEX Metals", category: "Mining", logo: "/logos/clients/idex.png" },
-  { id: 17, name: "Kootenay Silver", category: "Mining", logo: "/logos/clients/kootenay.png" },
-  { id: 18, name: "Scottie Resources", category: "Mining", logo: "/logos/clients/scottie.svg" },
+  // Flagship & Portfolio Clients (63 Verified Entities from Curated WebP Assets)
+  { id: 1, name: "Pan Global Resources", category: "Mining", logo: "/images/clients/pan-global-resources.webp" },
+  { id: 2, name: "Harfang Exploration", category: "Mining", logo: "/images/clients/harfang-exploration.webp" },
+  { id: 3, name: "Monumental Energy", category: "Energy", logo: "/images/clients/monumental-energy.webp" },
+  { id: 4, name: "Silver One Resources", category: "Mining", logo: "/images/clients/silver-one.webp" },
+  { id: 5, name: "West Point Gold", category: "Mining", logo: "/images/clients/west-point-gold.webp" },
+  { id: 6, name: "Sirios Resources", category: "Mining", logo: "/images/clients/sirios-resources.webp" },
+  { id: 7, name: "Standard Uranium", category: "Energy", logo: "/images/clients/standard-uranium.webp" },
+  { id: 8, name: "BULGold", category: "Mining", logo: "/images/clients/bulgold.webp" },
+  { id: 9, name: "ARway", category: "Technology", logo: "/images/clients/arway.webp" },
+  { id: 10, name: "Contango Silver & Gold", category: "Mining", logo: "/images/clients/contango-silver-gold.webp" },
+  { id: 11, name: "AXO Metals", category: "Mining", logo: "/images/clients/axo-metals.webp" },
+  { id: 12, name: "Deep Sea Minerals", category: "Mining", logo: "/images/clients/deep-sea-minerals.webp" },
+  { id: 13, name: "Aftermath Silver", category: "Mining", logo: "/images/clients/aftermath-silver.webp" },
+  { id: 14, name: "GoGold Resources", category: "Mining", logo: "/images/clients/gogold-resources.webp" },
+  { id: 15, name: "Talisker Resources", category: "Mining", logo: "/images/clients/talisker-resources.webp" },
+  { id: 16, name: "IDEX Metals", category: "Mining", logo: "/images/clients/idex-metals.webp" },
+  { id: 17, name: "Kootenay Silver", category: "Mining", logo: "/images/clients/kootenay-silver.webp" },
+  { id: 18, name: "Scottie Resources", category: "Mining", logo: "/images/clients/scottie-resources.webp" },
+  { id: 19, name: "AMEX Exploration", category: "Mining", logo: "/images/clients/amex-exploration.webp" },
+  { id: 20, name: "Marimaca Copper", category: "Mining", logo: "/images/clients/marimaca-copper.webp" },
+  { id: 21, name: "Lomiko Metals", category: "Mining", logo: "/images/clients/lomiko-metals.webp" },
+  { id: 22, name: "Inhibrx", category: "Healthcare", logo: "/images/clients/inhibrx.webp" },
+  { id: 23, name: "RedHill Biopharma", category: "Healthcare", logo: "/images/clients/redhill-biopharma.webp" },
+  { id: 24, name: "Hemostemix", category: "Healthcare", logo: "/images/clients/hemostemix.webp" },
+  { id: 25, name: "Defence Therapeutics", category: "Healthcare", logo: "/images/clients/defence-therapeutics.webp" },
+  { id: 26, name: "Quantum eMotion", category: "Technology", logo: "/images/clients/quantum-emotion.webp" },
+  { id: 27, name: "FSD Pharma", category: "Healthcare", logo: "/images/clients/fsd-pharma.webp" },
+  { id: 28, name: "FansUnite", category: "Technology", logo: "/images/clients/fansunite.webp" },
+  { id: 29, name: "Manganese X Energy Corp", category: "Energy", logo: "/images/clients/manganese-x-energy.webp" },
+  { id: 30, name: "QBioMed", category: "Healthcare", logo: "/images/clients/q-biomed.webp" },
+  { id: 31, name: "Revive Therapeutics", category: "Healthcare", logo: "/images/clients/revive-therapeutics.webp" },
+  { id: 32, name: "Steppe Gold", category: "Mining", logo: "/images/clients/steppe-gold.webp" },
+  { id: 33, name: "Red Light Holland", category: "Healthcare", logo: "/images/clients/red-light-holland.webp" },
+  { id: 34, name: "Silver Tiger Metals", category: "Mining", logo: "/images/clients/silver-tiger-metals.webp" },
+  { id: 35, name: "TRU Precious Metals", category: "Mining", logo: "/images/clients/tru-precious-metals.webp" },
+  { id: 36, name: "Defense Metals", category: "Mining", logo: "/images/clients/defense-metals.webp" },
+  { id: 37, name: "FOKUS Mining", category: "Mining", logo: "/images/clients/fokus-mining.webp" },
+  { id: 38, name: "Green Battery Minerals", category: "Energy", logo: "/images/clients/green-battery-minerals.webp" },
+  { id: 39, name: "Jackpot Digital", category: "Technology", logo: "/images/clients/jackpot-digital.webp" },
+  { id: 40, name: "Lexaria Bioscience", category: "Healthcare", logo: "/images/clients/lexaria-bioscience.webp" },
+  { id: 41, name: "Lithium South Development", category: "Energy", logo: "/images/clients/lithium-south.webp" },
+  { id: 42, name: "MAX Resource Corp", category: "Mining", logo: "/images/clients/max-resource.webp" },
+  { id: 43, name: "PharmaTher", category: "Healthcare", logo: "/images/clients/pharmather.webp" },
+  { id: 44, name: "Psyched Wellness", category: "Healthcare", logo: "/images/clients/psyched-wellness.webp" },
+  { id: 45, name: "BlockchainK2", category: "Technology", logo: "/images/clients/blockchain-k2.webp" },
+  { id: 46, name: "F3 Uranium", category: "Energy", logo: "/images/clients/f3-uranium.webp" },
+  { id: 47, name: "The Metals Company", category: "Mining", logo: "/images/clients/the-metals-company.webp" },
+  { id: 48, name: "Goldshore Resources", category: "Mining", logo: "/images/clients/goldshore-resources.webp" },
+  { id: 49, name: "POET Technologies", category: "Technology", logo: "/images/clients/poet-technologies.webp" },
+  { id: 50, name: "Aether Global Innovations", category: "Technology", logo: "/images/clients/aether-global-innovations.webp" },
+  { id: 51, name: "Southern Silver Exploration", category: "Mining", logo: "/images/clients/southern-silver.webp" },
+  { id: 52, name: "Predictmedix", category: "Healthcare", logo: "/images/clients/predictmedix.webp" },
+  { id: 53, name: "Independence Contract Drilling", category: "Energy", logo: "/images/clients/independence-contract-drilling.webp" },
+  { id: 54, name: "USHA Resources", category: "Mining", logo: "/images/clients/usha-resources.webp" },
+  { id: 55, name: "Hillcrest Energy Technologies", category: "Energy", logo: "/images/clients/hillcrest-energy-technologies.webp" },
+  { id: 56, name: "Cerrado Gold", category: "Mining", logo: "/images/clients/cerrado-gold.webp" },
+  { id: 57, name: "FLYHT Aerospace Solutions", category: "Technology", logo: "/images/clients/flyht.webp" },
+  { id: 58, name: "Defiance Silver", category: "Mining", logo: "/images/clients/defiance-silver.webp" },
+  { id: 59, name: "Edison Lithium", category: "Energy", logo: "/images/clients/edison-lithium.webp" },
+  { id: 60, name: "Graphano Energy", category: "Energy", logo: "/images/clients/graphano-energy.webp" },
+  { id: 61, name: "Tantalex Lithium Resources", category: "Energy", logo: "/images/clients/tantalex-lithium.webp" },
+  { id: 62, name: "Strathmore Plus Uranium", category: "Energy", logo: "/images/clients/strathmore-plus.webp" },
+  { id: 63, name: "FD Media", category: "Technology", logo: "/images/clients/unidentified-client.webp" },
 ];
 
 const SECTOR_CARDS = [
@@ -77,7 +123,7 @@ export default function ClientsPage() {
               <p className="text-xs sm:text-sm md:text-base text-[#8E9CAE] leading-relaxed font-normal pt-1">
                 We are proud to partner with a diverse group of forward-thinking
                 companies across our key sectors, helping them connect with
-                market opportunity, capital and strategic growth.
+                market opportunity, capital and strategic{"\u00A0"}growth.
               </p>
             </div>
 
@@ -88,7 +134,7 @@ export default function ClientsPage() {
                   01 CLIENTS
                 </span>
                 <p className="text-sm text-white font-medium">
-                  Over 50+ Emerging and established market leaders
+                  Over 60+ Emerging and established market leaders
                 </p>
               </div>
               <div className="space-y-1">
@@ -96,7 +142,7 @@ export default function ClientsPage() {
                   02 SECTORS
                 </span>
                 <p className="text-sm text-white font-medium">
-                  Natural resources, energy transition and deep technology
+                  Natural resources, energy transition, healthcare and deep technology
                 </p>
               </div>
               <div className="space-y-1">
@@ -125,7 +171,7 @@ export default function ClientsPage() {
               </div>
               <p className="text-xs sm:text-sm text-[#5A6878] max-w-md">
                 Our partnerships span the core growth sectors shaping global
-                commerce and industry.
+                commerce and{"\u00A0"}industry.
               </p>
             </div>
 
@@ -167,50 +213,74 @@ export default function ClientsPage() {
                 <p className="text-xs sm:text-sm md:text-base text-[#5A6878] leading-relaxed font-normal">
                   We work alongside a diverse group of companies and industry
                   participants across our key sectors, providing strategic
-                  advisory, market positioning and investor relations excellence.
+                  advisory, market positioning and investor relations{"\u00A0"}excellence.
                 </p>
               </div>
 
               {/* Category Filter Pills */}
-              <div className="flex flex-wrap gap-2">
-                {["All", "Mining", "Technology", "Energy"].map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`px-3.5 py-1.5 rounded text-xs font-semibold tracking-wider uppercase transition-colors cursor-pointer ${
-                      selectedCategory === cat
-                        ? "bg-[#0B1A30] text-white"
-                        : "bg-[#F1F5FB] text-[#0B1A30] hover:bg-[#E2EAF4]"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
+              <div className="flex flex-wrap items-center gap-2">
+                {["All", "Mining", "Energy", "Technology", "Healthcare"].map((cat) => {
+                  const count =
+                    cat === "All"
+                      ? ALL_CLIENTS.length
+                      : ALL_CLIENTS.filter((c) => c.category === cat).length;
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => setSelectedCategory(cat)}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer flex items-center gap-1.5 ${
+                        selectedCategory === cat
+                          ? "bg-[#0B1A30] text-white shadow-sm"
+                          : "bg-[#F1F5FB] text-[#0B1A30] hover:bg-[#E2EAF4]"
+                      }`}
+                    >
+                      <span>{cat}</span>
+                      <span
+                        className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                          selectedCategory === cat
+                            ? "bg-[#B99A5E] text-[#0B1A30] font-bold"
+                            : "bg-[#DFE6EF] text-[#5A6878]"
+                        }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Grid of All Real Logos */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-4 mt-8">
+            {/* Grid of All Real Logos - Standardized 270x155 WebP Assets */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5 mt-8">
               {filteredClients.map((client, idx) => (
                 <motion.div
                   key={client.id}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.03 }}
-                  className="bg-white border border-[#DFE6EF] rounded-lg p-5 flex flex-col items-center justify-center hover:border-[#B99A5E] hover:shadow-xl transition-all duration-300 min-h-[120px] group"
+                  transition={{ duration: 0.35, delay: Math.min(idx * 0.015, 0.35) }}
+                  className="bg-white border border-[#DFE6EF] rounded-lg p-3 sm:p-4 flex flex-col items-center justify-between hover:border-[#B99A5E] hover:shadow-lg transition-all duration-300 min-h-[140px] sm:min-h-[150px] group relative"
                 >
-                  <div className="relative w-full h-14 flex items-center justify-center">
-                    <Image
+                  {/* Category Pill Tag */}
+                  <span className="self-end text-[9px] font-bold tracking-wider uppercase text-[#8E9CAE] group-hover:text-[#B99A5E] transition-colors">
+                    {client.category}
+                  </span>
+
+                  {/* Uniform Logo Container */}
+                  <div className="w-full h-18 sm:h-20 flex items-center justify-center p-1 overflow-hidden">
+                    <img
                       src={client.logo}
                       alt={client.name}
-                      width={160}
-                      height={50}
-                      unoptimized
-                      className="max-h-11 w-auto max-w-[90%] object-contain group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      className="max-h-12 sm:max-h-14 w-auto max-w-[90%] object-contain object-center group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <span className="text-[11px] font-semibold text-[#0B1A30] text-center mt-2.5 group-hover:text-[#B99A5E] transition-colors line-clamp-1">
+
+                  {/* Company Name */}
+                  <span
+                    className="text-[11px] sm:text-xs font-semibold text-[#0B1A30] text-center mt-1 group-hover:text-[#B99A5E] transition-colors line-clamp-1 w-full px-1"
+                    title={client.name}
+                  >
                     {client.name}
                   </span>
                 </motion.div>
@@ -268,7 +338,7 @@ export default function ClientsPage() {
                   </h3>
                   <p className="text-xs text-[#5A6878] leading-relaxed">
                     Client announcement detailing exploration milestones and expanded
-                    drill programs across key mineral holdings.
+                    drill programs across key mineral{"\u00A0"}holdings.
                   </p>
                   <Link
                     href="/#insights"
@@ -298,7 +368,7 @@ export default function ClientsPage() {
                   </h3>
                   <p className="text-xs text-[#5A6878] leading-relaxed">
                     Strategic financing and corporate communications supporting
-                    cross-border expansion for innovative tech innovators.
+                    cross-border expansion for innovative tech{"\u00A0"}innovators.
                   </p>
                   <Link
                     href="/#insights"
@@ -324,10 +394,10 @@ export default function ClientsPage() {
                 Partner with a team that understands your vision.
               </h2>
               <p className="text-xs sm:text-sm text-[#8E9CAE]">
-                Let&apos;s discuss how we can assist in reaching your capital markets goals.
+                Let&apos;s discuss how we can assist in reaching your capital markets{"\u00A0"}goals.
               </p>
             </div>
-            <Button href="/#contact" variant="gold" className="px-7 h-11 shrink-0">
+            <Button href="/#contact" variant="gold" className="px-7 h-11 shrink-0 whitespace-nowrap">
               Discuss Your Goals
             </Button>
           </div>
@@ -338,4 +408,3 @@ export default function ClientsPage() {
     </div>
   );
 }
-

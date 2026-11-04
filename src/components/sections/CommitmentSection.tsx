@@ -25,25 +25,23 @@ export const CommitmentSection: React.FC = () => {
             <SectionBadge number="03" label="OUR COMMITMENT" light />
 
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white leading-[1.14] tracking-tight font-normal">
-              Dedicated to Helping Clients and Investors Expand Their Networks.
+              Dedicated to Helping Clients and Investors Expand Their{"\u00A0"}Networks.
             </h2>
 
             <div className="space-y-3 text-xs sm:text-sm md:text-[15px] text-[#8E9CAE] leading-relaxed font-normal pt-1">
               <p>
                 We believe every successful business deserves the right
                 connections, strategic direction and market visibility to reach
-                its full potential.
+                its full{"\u00A0"}potential.
               </p>
               <p>
                 We develop tailored strategies that combine investor relations,
                 shareholder communications, equity financing communications,
-                public relations and digital media to support our clients
-                objectives.
+                public relations and digital media to support our clients&apos;{"\u00A0"}objectives.
               </p>
               <p>
                 Every company has different ambitions and challenges. Our approach
-                is designed around individual business goals rather than a one
-                size fits all strategy.
+                is designed around individual business goals rather than a one-size-fits-all{"\u00A0"}strategy.
               </p>
             </div>
           </motion.div>

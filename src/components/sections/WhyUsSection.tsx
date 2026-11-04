@@ -41,14 +41,13 @@ export const WhyUsSection: React.FC = () => {
             <SectionBadge number="10" label="WHY HE CAPITAL MARKETS" />
 
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] font-normal leading-[1.12] tracking-tight">
-              The Right Experience. The Right Connections. A Strategic Advantage.
+              The Right Experience. The Right Connections. A Strategic{"\u00A0"}Advantage.
             </h2>
 
             <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
               We combine capital markets experience, industry knowledge and
               integrated communication capabilities to help companies navigate
-              complex markets and strengthen their presence within the investment
-              community.
+              complex markets and strengthen their presence within the investment{"\u00A0"}community.
             </p>
 
             <div className="pt-1">

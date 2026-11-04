@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ChevronDown, Menu, X, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import { NAVIGATION_ITEMS } from "@/lib/constants";
@@ -48,7 +48,7 @@ export const Navbar: React.FC = () => {
               >
                 <Link
                   href={item.href}
-                  className={`inline-flex items-center gap-1.5 py-2 transition-colors duration-200 hover:text-[#B99A5E] ${
+                  className={`inline-flex items-center gap-1.5 py-2 whitespace-nowrap transition-colors duration-200 hover:text-[#B99A5E] ${
                     isOpen ? "text-[#B99A5E]" : ""
                   }`}
                 >
