@@ -3,7 +3,7 @@ import { NavItem, ServiceItem, SectorItem, ApproachStep, InsightItem, Commitment
 export const NAVIGATION_ITEMS: NavItem[] = [
   {
     label: "About",
-    href: "#about",
+    href: "/about",
   },
   {
     label: "Services",
@@ -90,16 +90,12 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     ],
   },
   {
-    label: "Insights",
-    href: "#insights",
-  },
-  {
     label: "Clients",
     href: "/clients",
   },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 
@@ -131,7 +127,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     number: "01",
     title: "Investor Relations",
     description: "Build informed investor relationships through clear, consistent communication and targeted shareholder engagement.",
-    href: "#contact",
+    href: "/contact",
     isFeatured: true,
     highlight: "A stronger investment story. A more connected market presence.",
   },
@@ -139,31 +135,31 @@ export const SERVICES_DATA: ServiceItem[] = [
     number: "02",
     title: "Capital Markets Advisory",
     description: "Navigate the capital markets with strategic insight, market positioning and financial communications expertise.",
-    href: "#contact",
+    href: "/contact",
   },
   {
     number: "03",
     title: "Public Relations",
     description: "Shape a compelling company narrative and connect it with the media and audiences that matter.",
-    href: "#contact",
+    href: "/contact",
   },
   {
     number: "04",
     title: "Digital & Social Media",
     description: "Extend your reach through integrated digital content, social channels and investor focused campaigns.",
-    href: "#contact",
+    href: "/contact",
   },
   {
     number: "05",
     title: "Mergers & Acquisitions",
     description: "Communicate strategic opportunities with clarity and support stakeholder understanding throughout a transaction.",
-    href: "#contact",
+    href: "/contact",
   },
   {
     number: "06",
     title: "Strategic Communications & Global Outreach",
     description: "Bring your investment story to international audiences through coordinated communications and outreach.",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 
@@ -184,42 +180,42 @@ export const SECTORS_DATA: SectorItem[] = [
     title: "Mining",
     description: "Connecting resource companies with investors who understand the opportunity beneath the surface.",
     image: "/images/sector-mining.jpg",
-    href: "#contact",
+    href: "/contact",
   },
   {
     number: "02",
     title: "Technology",
     description: "Bringing innovation stories to an informed, connected investment audience.",
     image: "/images/sector-technology.jpg",
-    href: "#contact",
+    href: "/contact",
   },
   {
     number: "03",
     title: "Blockchain",
     description: "Clear communication for businesses shaping the next generation of digital infrastructure.",
     image: "/images/sector-blockchain.jpg",
-    href: "#contact",
+    href: "/contact",
   },
   {
     number: "04",
     title: "Psychedelics",
     description: "Building understanding around an evolving field of research and discovery.",
     image: "/images/sector-psychedelics.jpg",
-    href: "#contact",
+    href: "/contact",
   },
   {
     number: "05",
     title: "Pharmaceuticals",
     description: "Translating complex science into a clear and compelling investment narrative.",
     image: "/images/sector-pharmaceuticals.jpg",
-    href: "#contact",
+    href: "/contact",
   },
   {
     number: "06",
     title: "Cannabis",
     description: "Strategic market visibility for companies across the cannabis industry.",
     image: "/images/sector-cannabis.jpg",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 

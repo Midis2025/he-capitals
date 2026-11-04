@@ -8,7 +8,6 @@ import { ServicesSection } from "@/components/sections/ServicesSection";
 import { SectorsSection } from "@/components/sections/SectorsSection";
 import { ApproachSection } from "@/components/sections/ApproachSection";
 import { NetworkSection } from "@/components/sections/NetworkSection";
-import { InsightsSection } from "@/components/sections/InsightsSection";
 import { GlobalReachSection } from "@/components/sections/GlobalReachSection";
 import { WhyUsSection } from "@/components/sections/WhyUsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -40,9 +39,6 @@ export default function Home() {
 
         {/* 07 Our Network (Trusted Clients & Partners) */}
         <NetworkSection />
-
-        {/* 08 Insights & Press Releases */}
-        <InsightsSection />
 
         {/* 09 Global Reach */}
         <GlobalReachSection />

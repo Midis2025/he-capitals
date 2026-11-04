@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { ChevronDown, Menu, X, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
@@ -12,6 +13,14 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const getHref = (href: string) => {
+    if (href.startsWith("#") && pathname !== "/") {
+      return `/${href}`;
+    }
+    return href;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,18 +35,23 @@ export const Navbar: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-[#091426]/95 backdrop-blur-md shadow-lg border-b border-[#1A2D4B] h-[72px]"
-          : "bg-[#091426] border-b border-[#1A2D4B] h-[88px]"
+          : "bg-[#091426] border-b border-[#1A2D4B] h-[74px]"
       }`}
     >
       <div className="site-container h-full flex items-center justify-between">
-        {/* Logo - cleanly placed without extra background */}
-        <Logo />
+        {/* Logo - elevated visual presence */}
+        <Logo width={186} height={46} />
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8 text-[13px] font-medium tracking-[0.06em] text-[#E2E8F0]">
+        <nav className="hidden lg:flex items-center gap-9 text-[14px] font-medium tracking-[0.03em] text-[#E2E8F0]">
           {NAVIGATION_ITEMS.map((item) => {
             const hasChildren = item.children && item.children.length > 0;
             const isOpen = activeDropdown === item.label;
+            const isActive =
+              item.href === pathname ||
+              (item.href === "/about" && (pathname === "/about" || pathname?.startsWith("/about/"))) ||
+              (item.href === "/clients" && (pathname === "/clients" || pathname?.startsWith("/clients/"))) ||
+              (item.href === "/contact" && (pathname === "/contact" || pathname?.startsWith("/contact/")));
 
             return (
               <div
@@ -47,12 +61,17 @@ export const Navbar: React.FC = () => {
                 onMouseLeave={() => hasChildren && setActiveDropdown(null)}
               >
                 <Link
-                  href={item.href}
+                  href={getHref(item.href)}
                   className={`inline-flex items-center gap-1.5 py-2 whitespace-nowrap transition-colors duration-200 hover:text-[#B99A5E] ${
-                    isOpen ? "text-[#B99A5E]" : ""
+                    isActive ? "text-[#B99A5E] font-semibold" : isOpen ? "text-[#B99A5E]" : "text-[#E2E8F0]"
                   }`}
                 >
-                  <span>{item.label}</span>
+                  <span className="relative pb-0.5">
+                    {item.label}
+                    {isActive && (
+                      <span className="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-[#B99A5E] rounded-full shadow-[0_0_8px_rgba(185,154,94,0.6)]" />
+                    )}
+                  </span>
                   {hasChildren && (
                     <ChevronDown
                       className={`w-3.5 h-3.5 transition-transform duration-200 ${
@@ -73,7 +92,7 @@ export const Navbar: React.FC = () => {
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-1/2 -translate-x-1/2 w-[460px] pt-3 z-50"
                       >
-                        <div className="bg-[#0B1A30] border border-[#1A2D4B] rounded shadow-2xl p-4 text-white">
+                        <div className="bg-[#0B1A30] border border-[#1A2D4B] rounded-lg shadow-2xl p-4 text-white">
                           <div className="text-[10px] font-semibold tracking-widest text-[#B99A5E] uppercase px-3 py-1.5 border-b border-[#1A2D4B] mb-2 flex items-center justify-between">
                             <span>{item.label} DIRECTORY</span>
                             <span className="text-[#8E9CAE]">0{item.children?.length} ITEMS</span>
@@ -83,7 +102,7 @@ export const Navbar: React.FC = () => {
                             {item.children?.map((child) => (
                               <Link
                                 key={child.title}
-                                href={child.href}
+                                href={getHref(child.href)}
                                 onClick={() => setActiveDropdown(null)}
                                 className="group p-2.5 rounded hover:bg-[#152845] transition-colors flex items-start gap-3"
                               >
@@ -117,9 +136,9 @@ export const Navbar: React.FC = () => {
         {/* Right CTA Button */}
         <div className="hidden lg:block shrink-0">
           <Button
-            href="#contact"
+            href={getHref("#contact")}
             variant="gold"
-            className="h-[48px] px-6 text-[13px] tracking-wide whitespace-nowrap shadow-lg shadow-[#B99A5E]/20"
+            className="h-[46px] px-7 text-[13px] font-semibold tracking-wider uppercase whitespace-nowrap shadow-lg shadow-[#B99A5E]/20"
           >
             Discuss Your Goals
           </Button>
@@ -147,37 +166,47 @@ export const Navbar: React.FC = () => {
             className="lg:hidden bg-[#0B1A30] border-t border-[#1A2D4B] text-white overflow-hidden shadow-2xl"
           >
             <div className="px-6 py-6 space-y-4">
-              {NAVIGATION_ITEMS.map((item) => (
-                <div key={item.label} className="border-b border-[#1A2D4B]/60 pb-3">
-                  <Link
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block text-sm font-medium hover:text-[#B99A5E] transition-colors"
-                  >
-                    {item.label}
-                  </Link>
+              {NAVIGATION_ITEMS.map((item) => {
+                const isActive =
+                  item.href === pathname ||
+                  (item.href === "/about" && (pathname === "/about" || pathname?.startsWith("/about/"))) ||
+                  (item.href === "/clients" && (pathname === "/clients" || pathname?.startsWith("/clients/"))) ||
+              (item.href === "/contact" && (pathname === "/contact" || pathname?.startsWith("/contact/")));
 
-                  {item.children && (
-                    <div className="mt-2 pl-3 space-y-1.5 border-l border-[#1A2D4B]">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.title}
-                          href={child.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block text-xs text-[#8E9CAE] hover:text-white transition-colors py-1"
-                        >
-                          <span className="text-[#B99A5E] mr-1.5">{child.number}</span>
-                          {child.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
+                return (
+                  <div key={item.label} className="border-b border-[#1A2D4B]/60 pb-3">
+                    <Link
+                      href={getHref(item.href)}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`block text-sm font-medium transition-colors ${
+                        isActive ? "text-[#B99A5E] font-semibold" : "text-[#E2E8F0] hover:text-[#B99A5E]"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+
+                    {item.children && (
+                      <div className="mt-2 pl-3 space-y-1.5 border-l border-[#1A2D4B]">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.title}
+                            href={getHref(child.href)}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block text-xs text-[#8E9CAE] hover:text-white transition-colors py-1"
+                          >
+                            <span className="text-[#B99A5E] mr-1.5">{child.number}</span>
+                            {child.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
 
               <div className="pt-2">
                 <Button
-                  href="#contact"
+                  href={getHref("#contact")}
                   variant="gold"
                   className="w-full justify-center h-12 text-sm"
                   onClick={() => setMobileMenuOpen(false)}
