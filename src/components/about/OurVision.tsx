@@ -35,10 +35,10 @@ export const OurVision: React.FC = () => {
   ];
 
   return (
-    <section className="section-spacing bg-[#091426] text-white relative overflow-hidden border-b border-[#1A2D4B]">
+    <section className="section-spacing bg-[#071629] text-white relative overflow-hidden border-b border-[#1A2D4B]">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 -left-32 w-[520px] h-[520px] bg-[#1E3A66]/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[460px] h-[460px] bg-[#B99A5E]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[460px] h-[460px] bg-[#C5A15A]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(#1A2D4B_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none" />
 
       <div className="site-container relative z-10">
@@ -53,10 +53,10 @@ export const OurVision: React.FC = () => {
           >
             <div className="space-y-3">
               <SectionBadge number="04" label="OUR VISION" light />
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-white font-normal tracking-tight leading-[1.06]">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] text-white font-normal tracking-tight leading-[1.08]">
                 Our Vision.
               </h2>
-              <div className="w-16 h-[2px] bg-[#B99A5E] my-1.5" />
+              <div className="w-16 h-[2px] bg-[#C5A15A] my-1.5" />
             </div>
 
             {/* Glowing 3D Digital Globe Visual */}
@@ -68,11 +68,11 @@ export const OurVision: React.FC = () => {
                 sizes="(max-width: 1024px) 100vw, 500px"
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#091426]/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071629]/60 via-transparent to-transparent pointer-events-none" />
 
               {/* Minimal caption */}
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#B99A5E] bg-[#091426]/90 backdrop-blur-md px-3 py-1.5 rounded border border-[#1A2D4B]">
+                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A] bg-[#071629]/90 backdrop-blur-md px-3 py-1.5 rounded border border-[#1A2D4B]">
                   INSTITUTIONAL CAPITAL ECOSYSTEM
                 </span>
               </div>
@@ -94,21 +94,21 @@ export const OurVision: React.FC = () => {
                   className="pb-7 sm:pb-8 border-b border-[#1A2D4B] last:border-b-0 last:pb-0 flex items-start gap-5 sm:gap-6 group"
                 >
                   {/* Icon Badge */}
-                  <div className="w-13 h-13 rounded-xl bg-[#11233D] border border-[#1E3B68] flex items-center justify-center shrink-0 text-[#B99A5E] group-hover:bg-[#B99A5E] group-hover:text-[#091426] transition-all duration-300 shadow-md">
+                  <div className="w-13 h-13 rounded-xl bg-[#0B1D31] border border-[#1E3B68] flex items-center justify-center shrink-0 text-[#C5A15A] group-hover:bg-[#C5A15A] group-hover:text-[#071629] transition-all duration-300 shadow-md">
                     <IconComp className="w-5 h-5" />
                   </div>
 
                   {/* Title & Statement */}
-                  <div className="space-y-2 flex-1">
+                  <div className="space-y-1.5 flex-1">
                     <div className="flex items-center gap-3">
-                      <span className="text-sm font-serif font-bold text-[#B99A5E]">
+                      <span className="text-sm font-serif font-bold text-[#C5A15A]">
                         {item.number}
                       </span>
-                      <h3 className="text-xs sm:text-[13.5px] font-semibold tracking-[0.2em] uppercase text-white group-hover:text-[#B99A5E] transition-colors">
+                      <h3 className="font-serif text-lg sm:text-xl font-normal text-white group-hover:text-[#C5A15A] transition-colors leading-snug">
                         {item.title}
                       </h3>
                     </div>
-                    <p className="text-[14.5px] sm:text-[15.5px] text-[#D2DEEC] leading-[1.68] font-normal">
+                    <p className="text-[14.5px] sm:text-[15px] lg:text-[15.5px] text-[#9FB3C8] leading-[1.65] font-normal">
                       {item.text}
                     </p>
                   </div>

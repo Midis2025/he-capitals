@@ -20,19 +20,19 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded text-sm font-medium transition-all duration-300 group cursor-pointer select-none whitespace-nowrap";
+    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded text-[13.5px] sm:text-[14px] font-medium tracking-[0.03em] transition-all duration-300 group cursor-pointer select-none whitespace-nowrap";
 
   const variantStyles = {
     primary:
-      "bg-[#0B1A30] text-white hover:bg-[#152845] hover:shadow-lg hover:shadow-[#0B1A30]/10 border border-transparent active:scale-[0.99]",
+      "bg-[#071629] text-white hover:bg-[#0B1D31] hover:shadow-lg hover:shadow-[#071629]/15 border border-transparent active:scale-[0.99]",
     secondary:
-      "bg-[#F1F5FB] text-[#0B1A30] hover:bg-[#E2EAF4] border border-[#DFE6EF] active:scale-[0.99]",
+      "bg-[#F8F6F1] text-[#071629] hover:bg-[#EEF2F6] border border-[#DCE4EF] active:scale-[0.99]",
     outline:
-      "bg-transparent text-[#0B1A30] border border-[#0B1A30]/30 hover:border-[#0B1A30] hover:bg-[#0B1A30]/5 active:scale-[0.99]",
+      "bg-transparent text-[#071629] border border-[#071629]/30 hover:border-[#071629] hover:bg-[#071629]/5 active:scale-[0.99]",
     gold:
-      "bg-[#B99A5E] text-white hover:bg-[#A8894E] hover:shadow-lg hover:shadow-[#B99A5E]/20 active:scale-[0.99]",
+      "bg-[#C5A15A] text-[#071629] hover:bg-[#D4B36D] hover:shadow-lg hover:shadow-[#C5A15A]/25 active:scale-[0.99]",
     text:
-      "bg-transparent p-0 text-[#0B1A30] hover:text-[#B99A5E] underline-offset-4 hover:underline",
+      "bg-transparent p-0 text-[#071629] hover:text-[#C5A15A] underline-offset-4 hover:underline",
   };
 
   const content = (
@@ -42,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
       )}
       {arrow === "up-right" && (
-        <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#B99A5E]" />
+        <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#C5A15A]" />
       )}
     </>
   );

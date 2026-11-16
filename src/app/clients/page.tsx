@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { ClientsHero } from "@/components/clients/ClientsHero";
 import { ClientsStatsStrip } from "@/components/clients/ClientsStatsStrip";
 import { ClientShowcase } from "@/components/clients/ClientShowcase";
-import { IndustriesSupported } from "@/components/clients/IndustriesSupported";
+import { OurApproach } from "@/components/clients/OurApproach";
 import { ContactFooter } from "@/components/contact/ContactFooter";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function ClientsPage() {
         <ClientsHero />
         <ClientsStatsStrip />
         <ClientShowcase />
-        <IndustriesSupported />
+        <OurApproach />
       </main>
       <ContactFooter />
     </div>

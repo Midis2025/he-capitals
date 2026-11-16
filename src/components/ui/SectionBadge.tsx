@@ -15,13 +15,14 @@ export const SectionBadge: React.FC<SectionBadgeProps> = ({
 }) => {
   return (
     <div
-      className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] whitespace-nowrap ${
-        light ? "text-[#B99A5E]" : "text-[#244A80]"
-      } ${className}`}
+      className={`inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.24em] whitespace-nowrap text-[#C5A15A] ${className}`}
     >
-      {number && <span className="text-[#B99A5E] font-medium">{number}</span>}
+      {number ? (
+        <span className="text-[#C5A15A] font-semibold">{number}</span>
+      ) : (
+        <span className="w-6 h-[2px] bg-[#C5A15A] shrink-0" />
+      )}
       <span>{label}</span>
     </div>
   );
 };
-

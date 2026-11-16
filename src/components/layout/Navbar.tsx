@@ -43,7 +43,7 @@ export const Navbar: React.FC = () => {
         <Logo width={186} height={46} />
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-9 text-[14px] font-medium tracking-[0.03em] text-[#E2E8F0]">
+        <nav className="hidden lg:flex items-center gap-9 text-[14.5px] font-medium tracking-[0.02em] text-[#E2E8F0]">
           {NAVIGATION_ITEMS.map((item) => {
             const hasChildren = item.children && item.children.length > 0;
             const isOpen = activeDropdown === item.label;
@@ -51,7 +51,13 @@ export const Navbar: React.FC = () => {
               item.href === pathname ||
               (item.href === "/about" && (pathname === "/about" || pathname?.startsWith("/about/"))) ||
               (item.href === "/clients" && (pathname === "/clients" || pathname?.startsWith("/clients/"))) ||
-              (item.href === "/contact" && (pathname === "/contact" || pathname?.startsWith("/contact/")));
+              (item.href === "/contact" && (pathname === "/contact" || pathname?.startsWith("/contact/"))) ||
+              (item.label === "Services" &&
+                (pathname?.startsWith("/services") ||
+                  pathname === "/investor-relations" ||
+                  pathname === "/public-relations" ||
+                  pathname === "/digital-social-media" ||
+                  pathname === "/capital-market-advisory"));
 
             return (
               <div
@@ -62,20 +68,20 @@ export const Navbar: React.FC = () => {
               >
                 <Link
                   href={getHref(item.href)}
-                  className={`inline-flex items-center gap-1.5 py-2 whitespace-nowrap transition-colors duration-200 hover:text-[#B99A5E] ${
-                    isActive ? "text-[#B99A5E] font-semibold" : isOpen ? "text-[#B99A5E]" : "text-[#E2E8F0]"
+                  className={`inline-flex items-center gap-1.5 py-2 whitespace-nowrap transition-colors duration-200 hover:text-[#C5A15A] ${
+                    isActive ? "text-[#C5A15A] font-semibold" : isOpen ? "text-[#C5A15A]" : "text-[#E2E8F0]"
                   }`}
                 >
                   <span className="relative pb-0.5">
                     {item.label}
                     {isActive && (
-                      <span className="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-[#B99A5E] rounded-full shadow-[0_0_8px_rgba(185,154,94,0.6)]" />
+                      <span className="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-[#C5A15A] rounded-full shadow-[0_0_8px_rgba(197,161,90,0.6)]" />
                     )}
                   </span>
                   {hasChildren && (
                     <ChevronDown
                       className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-[#B99A5E]" : "text-[#8E9CAE]"
+                        isOpen ? "rotate-180 text-[#C5A15A]" : "text-[#8E9CAE]"
                       }`}
                     />
                   )}
@@ -92,8 +98,8 @@ export const Navbar: React.FC = () => {
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-1/2 -translate-x-1/2 w-[460px] pt-3 z-50"
                       >
-                        <div className="bg-[#0B1A30] border border-[#1A2D4B] rounded-lg shadow-2xl p-4 text-white">
-                          <div className="text-[10px] font-semibold tracking-widest text-[#B99A5E] uppercase px-3 py-1.5 border-b border-[#1A2D4B] mb-2 flex items-center justify-between">
+                        <div className="bg-[#0B1D31] border border-[#1A2D4B] rounded-lg shadow-2xl p-4 text-white">
+                          <div className="text-[11px] font-semibold tracking-widest text-[#C5A15A] uppercase px-3 py-1.5 border-b border-[#1A2D4B] mb-2 flex items-center justify-between">
                             <span>{item.label} DIRECTORY</span>
                             <span className="text-[#8E9CAE]">0{item.children?.length} ITEMS</span>
                           </div>
@@ -104,19 +110,19 @@ export const Navbar: React.FC = () => {
                                 key={child.title}
                                 href={getHref(child.href)}
                                 onClick={() => setActiveDropdown(null)}
-                                className="group p-2.5 rounded hover:bg-[#152845] transition-colors flex items-start gap-3"
+                                className="group p-2.5 rounded hover:bg-white/[0.05] transition-colors flex items-start gap-3"
                               >
                                 {child.number && (
-                                  <span className="text-xs font-serif text-[#B99A5E] pt-0.5">
+                                  <span className="text-xs font-serif text-[#C5A15A] pt-0.5">
                                     {child.number}
                                   </span>
                                 )}
                                 <div className="flex-1">
-                                  <div className="text-xs font-medium text-white group-hover:text-[#B99A5E] transition-colors flex items-center justify-between">
+                                  <div className="text-xs font-medium text-white group-hover:text-[#C5A15A] transition-colors flex items-center justify-between">
                                     <span>{child.title}</span>
-                                    <ArrowUpRight className="w-3 h-3 text-[#B99A5E] opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <ArrowUpRight className="w-3 h-3 text-[#C5A15A] opacity-0 group-hover:opacity-100 transition-opacity" />
                                   </div>
-                                  <p className="text-[11px] text-[#8E9CAE] line-clamp-1 mt-0.5 font-normal">
+                                  <p className="text-[11.5px] text-[#8E9CAE] line-clamp-1 mt-0.5 font-normal">
                                     {child.description}
                                   </p>
                                 </div>
@@ -138,7 +144,7 @@ export const Navbar: React.FC = () => {
           <Button
             href={getHref("#contact")}
             variant="gold"
-            className="h-[46px] px-7 text-[13px] font-semibold tracking-wider uppercase whitespace-nowrap shadow-lg shadow-[#B99A5E]/20"
+            className="h-[44px] px-6 text-[13.5px] font-semibold tracking-wider uppercase whitespace-nowrap shadow-lg shadow-[#C5A15A]/20"
           >
             Discuss Your Goals
           </Button>
@@ -171,7 +177,13 @@ export const Navbar: React.FC = () => {
                   item.href === pathname ||
                   (item.href === "/about" && (pathname === "/about" || pathname?.startsWith("/about/"))) ||
                   (item.href === "/clients" && (pathname === "/clients" || pathname?.startsWith("/clients/"))) ||
-              (item.href === "/contact" && (pathname === "/contact" || pathname?.startsWith("/contact/")));
+                  (item.href === "/contact" && (pathname === "/contact" || pathname?.startsWith("/contact/"))) ||
+                  (item.label === "Services" &&
+                (pathname?.startsWith("/services") ||
+                  pathname === "/investor-relations" ||
+                  pathname === "/public-relations" ||
+                  pathname === "/digital-social-media" ||
+                  pathname === "/capital-market-advisory"));
 
                 return (
                   <div key={item.label} className="border-b border-[#1A2D4B]/60 pb-3">

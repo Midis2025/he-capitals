@@ -14,7 +14,7 @@ export const ContactFooter: React.FC = () => {
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4">
             <Logo light width={180} height={48} />
-            <p className="text-xs sm:text-[13px] text-[#8EA2BA] leading-relaxed max-w-xs font-normal">
+            <p className="text-[14px] text-[#A0B3C6] leading-relaxed max-w-xs font-normal">
               A capital markets advisory firm that helps companies build market
               value through strategic communication, investor engagement and
               global reach.
@@ -25,10 +25,10 @@ export const ContactFooter: React.FC = () => {
           <div className="lg:col-span-5 grid grid-cols-3 gap-6 sm:gap-8">
             {/* Sectors */}
             <div className="space-y-3">
-              <h4 className="text-xs font-semibold tracking-wider text-white">
+              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A]">
                 Sectors
               </h4>
-              <ul className="space-y-2 text-xs text-[#8EA2BA]">
+              <ul className="space-y-2 text-[13px] text-[#A0B3C6]">
                 <li>
                   <Link href="/#sectors" className="hover:text-white transition-colors">
                     Cannabis
@@ -64,22 +64,27 @@ export const ContactFooter: React.FC = () => {
 
             {/* Services */}
             <div className="space-y-3">
-              <h4 className="text-xs font-semibold tracking-wider text-white">
+              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A]">
                 Services
               </h4>
-              <ul className="space-y-2 text-xs text-[#8EA2BA]">
+              <ul className="space-y-2 text-[13px] text-[#A0B3C6]">
                 <li>
-                  <Link href="/#services" className="hover:text-white transition-colors">
+                  <Link href="/services/investor-relations" className="hover:text-white transition-colors">
                     Investor Relations
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services" className="hover:text-white transition-colors">
+                  <Link href="/services/capital-market-advisory" className="hover:text-white transition-colors">
+                    Capital Market Advisory
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/public-relations" className="hover:text-white transition-colors">
                     Public Relations
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services" className="hover:text-white transition-colors">
+                  <Link href="/services/digital-social-media" className="hover:text-white transition-colors">
                     Digital & Social Media
                   </Link>
                 </li>
@@ -88,10 +93,10 @@ export const ContactFooter: React.FC = () => {
 
             {/* About */}
             <div className="space-y-3">
-              <h4 className="text-xs font-semibold tracking-wider text-white">
+              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A]">
                 About
               </h4>
-              <ul className="space-y-2 text-xs text-[#8EA2BA]">
+              <ul className="space-y-2 text-[13px] text-[#A0B3C6]">
                 <li>
                   <Link href="/about" className="hover:text-white transition-colors">
                     About Us
@@ -118,6 +123,7 @@ export const ContactFooter: React.FC = () => {
                 src="/images/global-reach-bg-globe.png"
                 alt=""
                 fill
+                sizes="180px"
                 className="object-contain"
               />
             </div>

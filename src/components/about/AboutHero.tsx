@@ -16,16 +16,11 @@ export const AboutHero: React.FC = () => {
       <div className="site-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-14 items-center">
           {/* Left Column: 48% Width on Desktop */}
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-6 xl:col-span-6 space-y-5 sm:space-y-6"
-          >
+          <div className="lg:col-span-6 xl:col-span-6 space-y-5 sm:space-y-6">
             {/* Eyebrow Label with Thin Gold Horizontal Line */}
             <div className="flex items-center gap-3">
-              <span className="w-8 h-[2px] bg-[#B99A5E] shrink-0" />
-              <span className="text-xs sm:text-[13px] font-semibold tracking-[0.24em] text-[#B99A5E] uppercase">
+              <span className="w-8 h-[2px] bg-[#C5A15A] shrink-0" />
+              <span className="text-xs sm:text-[13px] font-semibold tracking-[0.24em] text-[#C5A15A] uppercase">
                 ABOUT US
               </span>
             </div>
@@ -42,7 +37,7 @@ export const AboutHero: React.FC = () => {
             </p>
 
             {/* Description */}
-            <p className="text-base sm:text-[16.5px] md:text-[17.5px] text-[#9CB1C9] leading-[1.65] font-normal max-w-[490px] pt-1">
+            <p className="text-[15px] sm:text-[15.5px] lg:text-[16px] text-[#9FB3C8] leading-[1.65] font-normal max-w-[490px] pt-1">
               A capital markets advisory firm that helps companies build market
               value through strategic communication, investor engagement and
               global{"\u00A0"}reach.
@@ -52,7 +47,7 @@ export const AboutHero: React.FC = () => {
             <div className="pt-3">
               <Link
                 href="/#contact"
-                className="inline-flex items-center gap-2.5 h-[52px] px-8 text-sm font-semibold tracking-wider text-[#071629] bg-[#C29F5C] hover:bg-[#D4B372] rounded transition-all duration-200 shadow-xl shadow-[#C29F5C]/25 group"
+                className="inline-flex items-center gap-2.5 h-[50px] px-8 text-[13.5px] font-semibold tracking-wider text-[#071629] bg-[#C5A15A] hover:bg-[#D4B36D] rounded transition-all duration-200 shadow-xl shadow-[#C5A15A]/25 group"
               >
                 <span>Discuss Your Goals</span>
                 <span className="transition-transform duration-200 group-hover:translate-x-1 font-sans text-base leading-none">
@@ -60,15 +55,10 @@ export const AboutHero: React.FC = () => {
                 </span>
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: 52% Width Architectural Skyscraper Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-6 xl:col-span-6 flex justify-center lg:justify-end"
-          >
+          <div className="lg:col-span-6 xl:col-span-6 flex justify-center lg:justify-end">
             <div className="relative w-full aspect-[4/3] sm:aspect-[4/3] lg:aspect-[16/11] xl:aspect-[5/4] max-h-[580px] rounded-xl overflow-hidden shadow-2xl border border-[#1E365C]/80 bg-[#071629] group">
               <Image
                 src="/images/about-hero-skyscrapers.jpg"
@@ -84,7 +74,7 @@ export const AboutHero: React.FC = () => {
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#071629]/70 to-transparent pointer-events-none" />
               <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#071629]/40 to-transparent pointer-events-none" />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

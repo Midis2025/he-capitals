@@ -35,7 +35,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="section-spacing bg-[#0B1A30] text-white relative">
+    <section id="contact" className="section-spacing bg-[#071629] text-white relative">
       <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Headline & Info */}
@@ -48,11 +48,11 @@ export const ContactSection: React.FC = () => {
           >
             <SectionBadge number="11" label="LET'S CONNECT" light />
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-normal leading-[1.12] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-white font-normal leading-[1.14] tracking-tight">
               Your Next Opportunity Starts With a Conversation.
             </h2>
 
-            <p className="text-xs sm:text-sm md:text-[15px] text-[#8E9CAE] leading-relaxed font-normal">
+            <p className="text-[15px] sm:text-[15.5px] lg:text-[16px] text-[#9FB3C8] leading-[1.65] font-normal">
               Whether you&apos;re looking to strengthen investor relationships,
               expand market visibility or explore new opportunities, our team
               is ready to understand your{"\u00A0"}objectives.
@@ -61,28 +61,28 @@ export const ContactSection: React.FC = () => {
             {/* Info Items */}
             <div className="space-y-3 pt-4 border-t border-[#1A2D4B]">
               <div>
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#B99A5E] block">
+                <span className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A] block">
                   Business Email
                 </span>
-                <span className="text-xs sm:text-sm text-[#E2E8F0] mt-0.5 block font-medium">
+                <span className="text-sm sm:text-[15px] text-[#E2E8F0] mt-0.5 block font-medium">
                   To be supplied
                 </span>
               </div>
 
               <div>
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#B99A5E] block">
+                <span className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A] block">
                   Phone Number
                 </span>
-                <span className="text-xs sm:text-sm text-[#E2E8F0] mt-0.5 block font-medium">
+                <span className="text-sm sm:text-[15px] text-[#E2E8F0] mt-0.5 block font-medium">
                   To be supplied
                 </span>
               </div>
 
               <div>
-                <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#B99A5E] block">
+                <span className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A] block">
                   Location
                 </span>
-                <span className="text-xs sm:text-sm text-[#E2E8F0] mt-0.5 block font-medium">
+                <span className="text-sm sm:text-[15px] text-[#E2E8F0] mt-0.5 block font-medium">
                   To be supplied
                 </span>
               </div>
@@ -95,7 +95,7 @@ export const ContactSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="lg:col-span-7 bg-[#0E203B] border border-[#1A2D4B] rounded p-6 sm:p-8 shadow-xl"
+            className="lg:col-span-7 bg-[#0B1D31] border border-[#1A2D4B] rounded-xl p-6 sm:p-8 shadow-2xl"
           >
             <h3 className="font-serif text-xl sm:text-2xl text-white font-normal mb-5 sm:mb-6">
               Tell us about your goals.
@@ -254,7 +254,7 @@ export const ContactSection: React.FC = () => {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto bg-[#B99A5E] hover:bg-[#A8894E] text-white px-8 py-3.5 rounded text-xs font-semibold tracking-[0.16em] uppercase transition-all duration-300 inline-flex items-center justify-center gap-2 group cursor-pointer shadow-lg shadow-[#B99A5E]/15 select-none whitespace-nowrap"
+                    className="w-full sm:w-auto bg-[#C5A15A] hover:bg-[#D4B36D] text-[#071629] px-8 py-3.5 rounded text-[13px] font-semibold tracking-[0.06em] uppercase transition-all duration-300 inline-flex items-center justify-center gap-2 group cursor-pointer shadow-lg shadow-[#C5A15A]/20 select-none whitespace-nowrap"
                   >
                     <span>Submit Enquiry</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -262,7 +262,7 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 {/* Disclaimer */}
-                <p className="text-[11px] text-[#8E9CAE] leading-relaxed pt-2">
+                <p className="text-[12px] text-[#8E9CAE] leading-relaxed pt-2">
                   By submitting this enquiry, you agree to be contacted about
                   your request. Your information will be handled in accordance
                   with our Privacy Policy.

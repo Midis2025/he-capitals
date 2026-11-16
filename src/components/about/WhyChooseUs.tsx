@@ -21,10 +21,10 @@ export const WhyChooseUs: React.FC = () => {
         {/* Header */}
         <div className="space-y-3 max-w-2xl mb-8 sm:mb-10">
           <SectionBadge number="03" label="WHY CHOOSE HE CAPITAL MARKETS" />
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[42px] text-[#0B1A30] leading-[1.12] tracking-tight font-normal">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#071629] leading-[1.14] tracking-tight font-normal">
             Our Commitment to Your Success.
           </h2>
-          <div className="w-16 h-[2px] bg-[#B99A5E] my-1" />
+          <div className="w-16 h-[2px] bg-[#C5A15A] my-1" />
         </div>
 
         {/* Interactive 3-Tab Component */}
@@ -41,13 +41,13 @@ export const WhyChooseUs: React.FC = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`py-4 sm:py-4.5 px-6 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-200 cursor-pointer relative text-center flex items-center justify-center select-none ${
                     isActive
-                      ? "bg-[#0B1A30] text-white shadow-sm"
-                      : "text-[#5A6878] hover:text-[#0B1A30] hover:bg-[#E9EFF6] border-b sm:border-b-0 border-[#DFE6EF]"
+                      ? "bg-[#071629] text-white shadow-sm"
+                      : "text-[#5A6878] hover:text-[#071629] hover:bg-[#E9EFF6] border-b sm:border-b-0 border-[#DFE6EF]"
                   }`}
                 >
                   <span>{tab.label}</span>
                   {isActive && (
-                    <span className="hidden sm:block absolute bottom-0 left-0 right-0 h-[3px] bg-[#B99A5E]" />
+                    <span className="hidden sm:block absolute bottom-0 left-0 right-0 h-[3px] bg-[#C5A15A]" />
                   )}
                 </button>
               );
@@ -68,10 +68,10 @@ export const WhyChooseUs: React.FC = () => {
                 >
                   {/* Left: Gold Layered Diamond Crest Icon with vertical divider */}
                   <div className="md:col-span-3 flex items-center justify-center md:border-r md:border-[#DFE6EF] md:pr-10">
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#F8FAFC] border border-[#DFE6EF] flex items-center justify-center p-5 shadow-sm group hover:border-[#B99A5E] transition-colors">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-[#F8FAFC] border border-[#DFE6EF] flex items-center justify-center p-5 shadow-sm group hover:border-[#C5A15A] transition-colors">
                       <svg
                         viewBox="0 0 48 48"
-                        className="w-14 h-14 text-[#B99A5E] stroke-current fill-none transition-transform duration-300 hover:scale-105"
+                        className="w-14 h-14 text-[#C5A15A] stroke-current fill-none transition-transform duration-300 hover:scale-105"
                         strokeWidth="1.75"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -85,7 +85,7 @@ export const WhyChooseUs: React.FC = () => {
                   </div>
 
                   {/* Right: Exact Content */}
-                  <div className="md:col-span-9 space-y-4 text-sm sm:text-[15px] md:text-[15.5px] text-[#526377] leading-[1.7] font-normal">
+                  <div className="md:col-span-9 space-y-4 text-[15px] sm:text-[15.5px] lg:text-[16px] text-[#536985] leading-[1.7] font-normal">
                     <p>
                       We believe in building market value through strategic
                       consultation, financial marketing, brand positioning and

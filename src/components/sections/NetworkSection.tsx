@@ -100,18 +100,18 @@ export const NetworkSection: React.FC = () => {
 
             <div className="relative z-10 max-w-2xl mx-auto space-y-3">
               <div className="flex items-center justify-center gap-3">
-                <span className="w-8 h-[1px] bg-[#B99A5E]" />
-                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#244A80]">
+                <span className="w-8 h-[1px] bg-[#C5A15A]" />
+                <span className="text-[11.5px] sm:text-xs font-semibold tracking-[0.24em] uppercase text-[#C5A15A]">
                   CLIENTS WE HAVE WORKED WITH
                 </span>
-                <span className="w-8 h-[1px] bg-[#B99A5E]" />
+                <span className="w-8 h-[1px] bg-[#C5A15A]" />
               </div>
 
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#0B1A30] font-normal tracking-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#071629] font-normal tracking-tight">
                 Trusted by Innovative Companies Worldwide
               </h2>
 
-              <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed pt-1">
+              <p className="text-[15px] sm:text-[15.5px] lg:text-[16px] text-[#536985] leading-[1.65] pt-1 font-normal">
                 We are proud to partner with a diverse range of forward-thinking companies across the
                 resource, technology and industrial sectors, helping them connect with the right investors and
                 achieve their strategic{"\u00A0"}goals.

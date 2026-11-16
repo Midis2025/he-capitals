@@ -15,10 +15,10 @@ export const ApproachSection: React.FC = () => {
         {/* Section Header */}
         <div className="space-y-2.5 max-w-2xl mb-8 sm:mb-10">
           <SectionBadge number="06" label="OUR APPROACH" />
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] font-normal tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#071629] font-normal tracking-tight">
             A Strategic Approach to Every Opportunity.
           </h2>
-          <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
+          <p className="text-[15px] sm:text-[15.5px] lg:text-[16px] text-[#536985] leading-[1.65] font-normal">
             We combine industry knowledge, financial market experience and
             strategic communications to create a structured approach for every{"\u00A0"}client.
           </p>
@@ -40,21 +40,21 @@ export const ApproachSection: React.FC = () => {
               >
                 {/* Step Number & Icon */}
                 <div className="flex items-center justify-between">
-                  <span className="font-serif text-xl sm:text-2xl font-medium text-[#B99A5E]">
+                  <span className="font-serif text-2xl sm:text-3xl font-medium text-[#C5A15A]">
                     {step.number}
                   </span>
-                  <div className="w-8 h-8 rounded-full bg-[#F1F5FB] flex items-center justify-center text-[#244A80] group-hover:bg-[#B99A5E] group-hover:text-white transition-colors duration-300">
+                  <div className="w-8 h-8 rounded-full bg-[#F8F6F1] border border-[#DCE4EF] flex items-center justify-center text-[#071629] group-hover:bg-[#C5A15A] group-hover:text-[#071629] group-hover:border-[#C5A15A] transition-colors duration-300">
                     <IconComponent className="w-4 h-4" />
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xs font-semibold tracking-[0.2em] text-[#0B1A30] uppercase">
+                <h3 className="font-serif text-lg sm:text-xl font-normal text-[#071629] group-hover:text-[#C5A15A] transition-colors leading-snug">
                   {step.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed font-normal">
+                <p className="text-[14px] sm:text-[14.5px] text-[#536985] leading-[1.65] font-normal">
                   {step.description}
                 </p>
               </motion.div>

@@ -40,18 +40,18 @@ export const WhyUsSection: React.FC = () => {
           >
             <SectionBadge number="10" label="WHY HE CAPITAL MARKETS" />
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] font-normal leading-[1.12] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#071629] font-normal leading-[1.14] tracking-tight">
               The Right Experience. The Right Connections. A Strategic{"\u00A0"}Advantage.
             </h2>
 
-            <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
+            <p className="text-[15px] sm:text-[15.5px] lg:text-[16px] text-[#536985] leading-[1.65] font-normal">
               We combine capital markets experience, industry knowledge and
               integrated communication capabilities to help companies navigate
               complex markets and strengthen their presence within the investment{"\u00A0"}community.
             </p>
 
             <div className="pt-1">
-              <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] text-[#0B1A30] uppercase">
+              <span className="text-[11.5px] sm:text-xs font-semibold tracking-[0.24em] text-[#C5A15A] uppercase">
                 PERSPECTIVE BUILDS POSSIBILITY.
               </span>
             </div>
@@ -63,14 +63,14 @@ export const WhyUsSection: React.FC = () => {
                   key={point.number}
                   className="flex items-start gap-3.5 sm:gap-5 group"
                 >
-                  <span className="font-serif text-base sm:text-lg font-medium text-[#B99A5E] shrink-0 pt-0.5">
+                  <span className="font-serif text-lg sm:text-xl font-medium text-[#C5A15A] shrink-0 pt-0.5">
                     {point.number}
                   </span>
                   <div>
-                    <h3 className="text-sm sm:text-base font-semibold text-[#0B1A30] group-hover:text-[#B99A5E] transition-colors">
+                    <h3 className="font-serif text-lg sm:text-xl font-normal text-[#071629] group-hover:text-[#C5A15A] transition-colors leading-snug">
                       {point.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed font-normal mt-0.5">
+                    <p className="text-[14px] sm:text-[14.5px] text-[#536985] leading-[1.65] font-normal mt-0.5">
                       {point.description}
                     </p>
                   </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 import Image from "next/image";
 import {
   Pickaxe,
@@ -8,11 +8,12 @@ import {
   Boxes,
   Pill,
   Sprout,
-  Droplets,
-  ArrowRight,
-  ChevronUp,
+  Flame,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { PortfolioWorldMap } from "./PortfolioWorldMap";
 
 export type SectorCategory =
   | "All"
@@ -31,7 +32,7 @@ export interface ClientItem {
 }
 
 const ALL_CLIENTS: ClientItem[] = [
-  // Primary Featured Clients
+  // Primary Featured Clients (First 10 match the exact reference layout)
   { id: 1, name: "Pan Global Resources", category: "Mining", logo: "/images/clients/pan-global-resources.webp" },
   { id: 2, name: "Harfang Exploration", category: "Mining", logo: "/images/clients/harfang-exploration.webp" },
   { id: 3, name: "Monumental Energy", category: "Oil & Gas", logo: "/images/clients/monumental-energy.webp" },
@@ -99,178 +100,317 @@ const ALL_CLIENTS: ClientItem[] = [
   { id: 63, name: "FD Media", category: "Technology", logo: "/images/clients/unidentified-client.webp" },
 ];
 
-interface FilterOption {
-  label: string;
-  value: SectorCategory;
-  icon?: React.ComponentType<{ className?: string }>;
-}
-
-const FILTER_OPTIONS: FilterOption[] = [
+const SECTOR_FILTERS: { label: string; value: SectorCategory; icon?: React.ComponentType<{ className?: string }> }[] = [
   { label: "All Clients", value: "All" },
   { label: "Mining", value: "Mining", icon: Pickaxe },
   { label: "Technology", value: "Technology", icon: Cpu },
   { label: "Blockchain", value: "Blockchain", icon: Boxes },
   { label: "Pharmaceuticals", value: "Pharmaceuticals", icon: Pill },
   { label: "Psychedelics", value: "Psychedelics", icon: Sprout },
-  { label: "Oil & Gas", value: "Oil & Gas", icon: Droplets },
+  { label: "Oil & Gas", value: "Oil & Gas", icon: Flame },
 ];
 
-// Initial featured client count: exactly 15 cards (3 balanced rows of 5)
-const INITIAL_FEATURED_COUNT = 15;
+// Helper to determine optimal container sizing based on natural logo aspect ratios
+const getLogoProportions = (filename: string): string => {
+  const ultraWide = [
+    "harfang-exploration",
+    "contango-silver-gold",
+    "standard-uranium",
+    "deep-sea-minerals",
+    "pan-global-resources",
+    "monumental-energy",
+    "hemostemix",
+    "marimaca-copper",
+    "defiance-silver",
+    "predictmedix",
+    "blockchain-k2",
+    "fansunite",
+    "lithium-south",
+    "silver-one",
+  ];
+
+  const square = [
+    "west-point-gold",
+    "arway",
+    "fokus-mining",
+    "red-light-holland",
+    "unidentified-client",
+    "amex-exploration",
+  ];
+
+  const stacked = [
+    "bulgold",
+    "tru-precious-metals",
+    "lexaria-bioscience",
+    "redhill-biopharma",
+    "quantum-emotion",
+    "steppe-gold",
+    "defence-therapeutics",
+    "fsd-pharma",
+    "max-resource",
+    "talisker-resources",
+    "revive-therapeutics",
+    "manganese-x-energy",
+    "f3-uranium",
+    "flyht",
+    "green-battery-minerals",
+  ];
+
+  const slug = filename.replace(/^.*[\\/]/, "").replace(/\.webp$/, "");
+
+  if (ultraWide.includes(slug)) {
+    return "w-full max-w-[82%] sm:max-w-[185px] lg:max-w-[195px] h-[40px] sm:h-[48px] lg:h-[54px]";
+  }
+  if (square.includes(slug)) {
+    return "w-full max-w-[95px] sm:max-w-[110px] lg:max-w-[125px] h-[58px] sm:h-[66px] lg:h-[72px]";
+  }
+  if (stacked.includes(slug)) {
+    return "w-full max-w-[80%] sm:max-w-[150px] lg:max-w-[165px] h-[48px] sm:h-[56px] lg:h-[64px]";
+  }
+  return "w-full max-w-[82%] sm:max-w-[170px] lg:max-w-[180px] h-[48px] sm:h-[56px] lg:h-[62px]";
+};
 
 export const ClientShowcase: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<SectorCategory>("All");
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [selectedSector, setSelectedSector] = useState<SectorCategory>("All");
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [direction, setDirection] = useState<number>(1);
 
-  // Filter clients based on selected category
+  // Filter clients by sector
   const filteredClients = useMemo(() => {
-    if (selectedCategory === "All") {
-      return ALL_CLIENTS;
-    }
-    return ALL_CLIENTS.filter((c) => c.category === selectedCategory);
-  }, [selectedCategory]);
+    if (selectedSector === "All") return ALL_CLIENTS;
+    return ALL_CLIENTS.filter((c) => c.category === selectedSector);
+  }, [selectedSector]);
 
-  const isExpandable = filteredClients.length > INITIAL_FEATURED_COUNT;
+  // Items per page: 10 on desktop (2 rows x 5), 6 on tablet (2 x 3), 4 on mobile (2 x 2)
+  const itemsPerPage = 10;
+  const totalPages = Math.max(1, Math.ceil(filteredClients.length / itemsPerPage));
 
-  // Display initial 15 featured cards or full collection when expanded
-  const displayedClients = useMemo(() => {
-    if (!isExpanded && isExpandable) {
-      return filteredClients.slice(0, INITIAL_FEATURED_COUNT);
-    }
-    return filteredClients;
-  }, [filteredClients, isExpanded, isExpandable]);
+  // Reset to first slide when sector changes
+  const handleSectorChange = (sector: SectorCategory) => {
+    setSelectedSector(sector);
+    setCurrentPage(0);
+  };
+
+  const handleNext = useCallback(() => {
+    setDirection(1);
+    setCurrentPage((prev) => (prev + 1) % totalPages);
+  }, [totalPages]);
+
+  const handlePrev = useCallback(() => {
+    setDirection(-1);
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+  }, [totalPages]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") handlePrev();
+      else if (e.key === "ArrowRight") handleNext();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [handleNext, handlePrev]);
+
+  // Current page items
+  const currentItems = useMemo(() => {
+    const start = currentPage * itemsPerPage;
+    return filteredClients.slice(start, start + itemsPerPage);
+  }, [filteredClients, currentPage, itemsPerPage]);
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#F8FAFC] relative overflow-hidden border-b border-[#DFE6EF]">
-      {/* Delicate Alpine Mountain Silhouette Along Bottom Edge */}
-      <div className="absolute bottom-0 left-0 right-0 h-[260px] sm:h-[340px] lg:h-[400px] pointer-events-none select-none z-0 overflow-hidden">
-        <Image
-          src="/images/clients-hero-mountains.jpg"
-          alt=""
-          fill
-          className="object-cover object-bottom opacity-80"
-        />
-        {/* Soft atmospheric gradient fade from light background down into mountain peaks */}
-        <div className="absolute inset-x-0 top-0 h-44 sm:h-56 bg-gradient-to-b from-[#F8FAFC] via-[#F8FAFC]/85 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-[#071629] to-transparent pointer-events-none" />
-      </div>
+    <section id="portfolio" className="relative w-full overflow-hidden">
+      {/* ========================================================== */}
+      {/* 1. UPPER SECTION: WARM IVORY EDITORIAL & DOTTED WORLD MAP */}
+      {/* ========================================================== */}
+      <div className="bg-[#F8F6F1] pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-14 border-b border-[#E5EAEF] relative">
+        <div className="site-container relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Column: Heading & Description */}
+            <div className="lg:col-span-6 space-y-3.5 sm:space-y-4 max-w-xl">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2.5">
+                <span className="w-7 h-[2px] bg-[#C5A15A] shrink-0" />
+                <span className="text-xs font-semibold tracking-[0.24em] text-[#C5A15A] uppercase">
+                  CLIENT PORTFOLIO
+                </span>
+              </div>
 
-      <div className="site-container relative z-10">
-        {/* Centered Heading Composition */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3">
-          {/* Eyebrow Label with Short Horizontal Gold Line */}
-          <div className="inline-flex items-center justify-center gap-2.5">
-            <span className="w-6 h-[2px] bg-[#C5A15A]" />
-            <span className="text-xs font-semibold tracking-[0.24em] text-[#C5A15A] uppercase">
-              OUR CLIENTS
-            </span>
+              {/* Main Heading */}
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] text-[#071629] font-normal tracking-tight leading-[1.12]">
+                A Diverse and<br />
+                Global Client Base
+              </h2>
+
+              {/* Description */}
+              <p className="text-sm sm:text-[15.5px] lg:text-[16px] text-[#536985] leading-relaxed font-normal max-w-lg pt-1">
+                We are proud to partner with a broad range of public and private
+                companies across key growth industries and global markets.
+              </p>
+            </div>
+
+            {/* Right Column: Large Sophisticated Vector Dotted World Map */}
+            <div className="lg:col-span-6 relative flex items-center justify-center">
+              <PortfolioWorldMap />
+            </div>
           </div>
 
-          {/* Main Serif Heading (46-54px) */}
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-[46px] lg:text-[50px] text-[#071629] font-normal tracking-tight leading-[1.12]">
-            A Diverse and Growing Client Base
-          </h2>
+          {/* ========================================================== */}
+          {/* 2. SECTOR FILTER BAR (PILL-SHAPED CONTROLS) */}
+          {/* ========================================================== */}
+          <div className="pt-10 sm:pt-12">
+            <div className="flex items-center gap-2.5 sm:gap-3 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none">
+              {SECTOR_FILTERS.map((filter) => {
+                const Icon = filter.icon;
+                const isActive = selectedSector === filter.value;
 
-          {/* Supporting Text (17-19px) */}
-          <p className="text-sm sm:text-base md:text-[17.5px] text-[#536985] leading-relaxed max-w-2xl mx-auto pt-1 font-normal">
-            We are proud to partner with a broad range of public and private
-            companies across key growth industries and global markets.
-          </p>
-        </div>
-
-        {/* Segmented Filter Bar Container */}
-        <div className="flex justify-center mb-10 sm:mb-12 overflow-x-auto no-scrollbar py-1">
-          <div className="bg-white rounded-full border border-[#DCE4EF] shadow-[0_4px_24px_rgba(7,22,41,0.06)] p-1.5 inline-flex items-center gap-1 sm:gap-1.5 shrink-0">
-            {FILTER_OPTIONS.map((opt, idx) => {
-              const isActive = selectedCategory === opt.value;
-              const Icon = opt.icon;
-
-              return (
-                <React.Fragment key={opt.value}>
+                return (
                   <button
-                    onClick={() => {
-                      setSelectedCategory(opt.value);
-                      setIsExpanded(false);
-                    }}
-                    className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-[13px] font-medium transition-all duration-200 cursor-pointer select-none whitespace-nowrap ${
+                    key={filter.value}
+                    onClick={() => handleSectorChange(filter.value)}
+                    className={`shrink-0 inline-flex items-center gap-2 px-4 sm:px-4.5 py-2.5 rounded-full text-xs sm:text-[13px] font-medium transition-all duration-200 cursor-pointer shadow-sm ${
                       isActive
-                        ? "bg-[#071629] text-white border border-[#C5A15A] shadow-xs px-4 sm:px-5"
-                        : "text-[#071629] hover:bg-slate-50 hover:text-[#C5A15A]"
+                        ? "bg-[#071629] text-white border border-[#C5A15A] shadow-md shadow-[#071629]/20"
+                        : "bg-white text-[#071629] border border-[#DCE4EF] hover:border-[#C5A15A]/60 hover:bg-[#FAF8F4]"
                     }`}
                   >
                     {Icon && (
                       <Icon
-                        className={`w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[1.75] text-[#C5A15A]`}
+                        className={`w-3.5 h-3.5 stroke-[1.8] ${
+                          isActive ? "text-[#C5A15A]" : "text-[#C5A15A]"
+                        }`}
                       />
                     )}
-                    <span>{opt.label}</span>
+                    <span>{filter.label}</span>
                   </button>
-
-                  {/* Thin Divider Between Inactive Items */}
-                  {idx < FILTER_OPTIONS.length - 1 &&
-                    !isActive &&
-                    selectedCategory !== FILTER_OPTIONS[idx + 1]?.value && (
-                      <span className="w-[1px] h-3.5 bg-slate-200 shrink-0 hidden sm:inline-block" />
-                    )}
-                </React.Fragment>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* 5-Column Refined Logo Grid with Constrained, Balanced Logo Sizes */}
-        <motion.div
-          layout
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-4.5"
-        >
-          <AnimatePresence mode="popLayout">
-            {displayedClients.map((client) => (
-              <motion.div
-                key={client.id}
-                layout
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.2 }}
-                className="bg-white rounded-xl border border-[#DCE4EF] shadow-[0_2px_8px_rgba(7,22,41,0.02)] hover:border-[#C5A15A]/60 hover:shadow-[0_8px_20px_rgba(7,22,41,0.06)] hover:-translate-y-0.5 transition-all duration-200 h-[100px] sm:h-[110px] lg:h-[116px] px-5 sm:px-6 py-4 flex items-center justify-center relative group select-none"
-              >
-                {/* Logo Wrapper with Controlled Max-Dimensions (Width: 120-140px, Height: 44-48px) */}
-                <div className="relative w-full max-w-[125px] sm:max-w-[135px] lg:max-w-[140px] h-[40px] sm:h-[46px] lg:h-[48px] flex items-center justify-center">
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    fill
-                    sizes="(max-width: 640px) 120px, (max-width: 1024px) 135px, 140px"
-                    className="object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+      {/* ========================================================== */}
+      {/* 3. DARK CINEMATIC CLIENT LOGO CAROUSEL SECTION */}
+      {/* ========================================================== */}
+      <div className="bg-[#071629] py-14 sm:py-16 lg:py-20 relative overflow-hidden border-b border-[#1A2D4B]">
+        {/* Subtle geometric glass streaks inspired by reference */}
+        <div className="absolute inset-0 bg-[radial-gradient(#1A2D4B_1px,transparent_1px)] [background-size:32px_32px] opacity-15 pointer-events-none" />
+        <div className="absolute -top-32 right-10 w-[500px] h-[500px] bg-[#1E3A66]/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-transparent pointer-events-none" />
 
-        {/* Functional Show All Clients / Collapse Action Button */}
-        {isExpandable && (
-          <div className="text-center pt-8 sm:pt-10">
+        <div className="site-container relative z-10">
+          {/* Carousel Viewport Container with Left/Right Arrow Overlays */}
+          <div className="relative px-0 sm:px-8 lg:px-12">
+            {/* Left Circular Arrow Button (Desktop & Tablet) */}
             <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="inline-flex items-center gap-2.5 h-[44px] px-7 rounded-full text-xs sm:text-[13px] font-semibold tracking-wider uppercase text-[#071629] bg-white border border-[#C5A15A] hover:bg-[#FAF7F0] hover:shadow-md transition-all duration-200 cursor-pointer shadow-xs group"
+              onClick={handlePrev}
+              aria-label="Previous client logos"
+              className="hidden sm:flex absolute -left-1 sm:left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#091D36]/80 hover:bg-[#0D294D] border border-white/20 hover:border-[#C5A15A] text-white items-center justify-center transition-all duration-200 shadow-xl cursor-pointer backdrop-blur-md"
             >
-              <span>
-                {isExpanded
-                  ? "Show Featured Clients"
-                  : selectedCategory === "All"
-                  ? `Show All Clients (${filteredClients.length})`
-                  : `Show All ${selectedCategory} Clients (${filteredClients.length})`}
-              </span>
-              {isExpanded ? (
-                <ChevronUp className="w-4 h-4 text-[#C5A15A] transition-transform" />
-              ) : (
-                <ArrowRight className="w-4 h-4 text-[#C5A15A] group-hover:translate-x-1 transition-transform" />
-              )}
+              <ChevronLeft className="w-5 h-5" />
             </button>
+
+            {/* Right Circular Arrow Button (Desktop & Tablet) */}
+            <button
+              onClick={handleNext}
+              aria-label="Next client logos"
+              className="hidden sm:flex absolute -right-1 sm:right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#091D36]/80 hover:bg-[#0D294D] border border-white/20 hover:border-[#C5A15A] text-white items-center justify-center transition-all duration-200 shadow-xl cursor-pointer backdrop-blur-md"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+
+            {/* Carousel Slide Area with Framer Motion Animation */}
+            <div className="overflow-hidden min-h-[220px] sm:min-h-[235px] lg:min-h-[250px] flex items-center">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={`${selectedSector}-${currentPage}`}
+                  initial={{ opacity: 0, x: direction * 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -direction * 40 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  className="w-full"
+                >
+                  {/* Two-Row Grid of Client Cards: 5 cols on lg, 3 on md, 2 on sm */}
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-4.5">
+                    {currentItems.map((client) => {
+                      // Use trimmed high-visibility optimized logo path
+                      const optimizedLogo = client.logo.replace('/images/clients/', '/images/clients-optimized/');
+                      
+                      return (
+                        <div
+                          key={client.id}
+                          className="group relative -skew-x-[3.5deg] sm:-skew-x-[4deg] rounded-xl bg-gradient-to-b from-[#10243E]/90 via-[#0C1E36]/95 to-[#08172B]/95 border border-[#1E3B63]/60 hover:border-[#C5A15A]/80 hover:from-[#132C4D] transition-all duration-300 p-2.5 sm:p-3 lg:p-3.5 h-[98px] sm:h-[108px] lg:h-[116px] flex items-center justify-center shadow-lg shadow-[#040C17]/60 overflow-hidden cursor-default before:absolute before:inset-x-0 before:top-0 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-white/15 before:to-transparent"
+                        >
+                          {/* Restrained gold hover glow highlight */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#C5A15A]/12 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                          {/* Subtle inner corner highlight */}
+                          <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-white/[0.04] to-transparent pointer-events-none" />
+
+                          {/* Unskewed Logo Container for Level Geometry */}
+                          <div className="skew-x-[3.5deg] sm:skew-x-[4deg] relative w-full h-full flex items-center justify-center">
+                            <div className={`relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${getLogoProportions(client.logo)}`}>
+                              <Image
+                                src={optimizedLogo}
+                                alt={`${client.name} logo`}
+                                fill
+                                sizes="(max-width: 640px) 140px, (max-width: 1024px) 160px, 195px"
+                                className="object-contain"
+                                unoptimized
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Pagination Indicators & Mobile Nav Controls */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-3 pt-8 sm:pt-10">
+                {/* Mobile Prev Arrow */}
+                <button
+                  onClick={handlePrev}
+                  aria-label="Previous client logos"
+                  className="sm:hidden w-8 h-8 rounded-full bg-[#091D36] border border-white/20 active:border-[#C5A15A] text-white flex items-center justify-center shadow-md cursor-pointer"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                {/* Dots */}
+                <div className="flex items-center gap-2">
+                  {Array.from({ length: totalPages }).map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        setDirection(idx > currentPage ? 1 : -1);
+                        setCurrentPage(idx);
+                      }}
+                      aria-label={`Go to slide page ${idx + 1}`}
+                      className={`transition-all duration-300 rounded-full cursor-pointer ${
+                        idx === currentPage
+                          ? "w-6 h-2 bg-[#C5A15A]"
+                          : "w-2 h-2 bg-[#1E3E68] hover:bg-[#346096]"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                {/* Mobile Next Arrow */}
+                <button
+                  onClick={handleNext}
+                  aria-label="Next client logos"
+                  className="sm:hidden w-8 h-8 rounded-full bg-[#091D36] border border-white/20 active:border-[#C5A15A] text-white flex items-center justify-center shadow-md cursor-pointer"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

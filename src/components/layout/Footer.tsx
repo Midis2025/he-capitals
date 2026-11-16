@@ -19,14 +19,14 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#091426] text-white border-t border-[#1A2D4B]">
+    <footer className="bg-[#071629] text-white border-t border-[#1A2D4B]">
       <div className="site-container pt-14 sm:pt-16 lg:pt-20 pb-10 sm:pb-12">
         {/* Top Grid: Logo + Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 sm:pb-14 border-b border-[#1A2D4B]">
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4 sm:space-y-5">
             <Logo light width={196} height={52} />
-            <p className="text-sm text-[#A0B3C6] leading-relaxed max-w-sm font-normal">
+            <p className="text-[14px] text-[#A0B3C6] leading-relaxed max-w-sm font-normal">
               Strategic capital markets advisory, investor relations and
               communications. Connecting ambitious companies with{"\u00A0"}opportunity.
             </p>
@@ -36,10 +36,10 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
             {/* COMPANY */}
             <div className="space-y-4">
-              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#B99A5E]">
+              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A]">
                 Company
               </h4>
-              <ul className="space-y-3 text-xs sm:text-[13px] text-[#A0B3C6]">
+              <ul className="space-y-3 text-[13px] text-[#A0B3C6]">
                 <li>
                   <Link href="/about" className="hover:text-white transition-colors">
                     About Us
@@ -65,27 +65,27 @@ export const Footer: React.FC = () => {
 
             {/* SERVICES */}
             <div className="space-y-4">
-              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#B99A5E]">
+              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A]">
                 Services
               </h4>
-              <ul className="space-y-3 text-xs sm:text-[13px] text-[#A0B3C6]">
+              <ul className="space-y-3 text-[13px] text-[#A0B3C6]">
                 <li>
-                  <Link href="/#services" className="hover:text-white transition-colors">
+                  <Link href="/services/investor-relations" className="hover:text-white transition-colors">
                     Investor Relations
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services" className="hover:text-white transition-colors">
+                  <Link href="/services/capital-market-advisory" className="hover:text-white transition-colors">
                     Capital Markets Advisory
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services" className="hover:text-white transition-colors">
+                  <Link href="/services/public-relations" className="hover:text-white transition-colors">
                     Public Relations
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services" className="hover:text-white transition-colors">
+                  <Link href="/services/digital-social-media" className="hover:text-white transition-colors">
                     Digital & Social Media
                   </Link>
                 </li>
@@ -99,10 +99,10 @@ export const Footer: React.FC = () => {
 
             {/* INDUSTRIES */}
             <div className="space-y-4">
-              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#B99A5E]">
+              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A]">
                 Industries
               </h4>
-              <ul className="space-y-3 text-xs sm:text-[13px] text-[#A0B3C6]">
+              <ul className="space-y-3 text-[13px] text-[#A0B3C6]">
                 <li>
                   <Link href="/#sectors" className="hover:text-white transition-colors">
                     Mining
@@ -138,10 +138,10 @@ export const Footer: React.FC = () => {
 
             {/* RESOURCES */}
             <div className="space-y-4">
-              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#B99A5E]">
+              <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A]">
                 Resources
               </h4>
-              <ul className="space-y-3 text-xs sm:text-[13px] text-[#A0B3C6]">
+              <ul className="space-y-3 text-[13px] text-[#A0B3C6]">
                 <li>
                   <Link href="/contact" className="hover:text-white transition-colors">
                     Office Locations
@@ -163,7 +163,7 @@ export const Footer: React.FC = () => {
             <h3 className="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-white">
               A more informed perspective.
             </h3>
-            <p className="text-sm text-[#A0B3C6] max-w-xl leading-relaxed">
+            <p className="text-[14px] sm:text-[14.5px] text-[#A0B3C6] max-w-xl leading-relaxed">
               Receive market perspectives, company news and updates from HE Capital
               Markets. Subscribe to our{"\u00A0"}newsletter.
             </p>
@@ -177,11 +177,11 @@ export const Footer: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your business email"
                 required
-                className="flex-1 bg-[#0B1A30] border border-[#1E365C] rounded-md px-4 py-3 text-sm text-white placeholder-[#7E8F9F] focus:outline-none focus:border-[#B99A5E] transition-colors"
+                className="flex-1 bg-[#050E1A] border border-[#1A2D4B] rounded-md px-4 py-3 text-sm text-white placeholder-[#7E8F9F] focus:outline-none focus:border-[#C5A15A] transition-colors"
               />
               <button
                 type="submit"
-                className="bg-[#B99A5E] hover:bg-[#C8A96E] text-[#091426] px-6 py-3 rounded-md text-xs font-semibold tracking-wider uppercase transition-colors inline-flex items-center justify-center gap-2 select-none cursor-pointer whitespace-nowrap shadow-md"
+                className="bg-[#C5A15A] hover:bg-[#D4B36D] text-[#071629] px-6 py-3 rounded-md text-[12.5px] font-semibold tracking-wider uppercase transition-colors inline-flex items-center justify-center gap-2 select-none cursor-pointer whitespace-nowrap shadow-md"
               >
                 <span>{subscribed ? "Subscribed!" : "Subscribe"}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -191,7 +191,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Legal & Socials */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#8E9CAE] gap-4">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-[12.5px] text-[#8E9CAE] gap-4">
           <div>
             <p>© HE Capital Markets. All rights reserved.</p>
           </div>
@@ -209,7 +209,7 @@ export const Footer: React.FC = () => {
               className="hover:text-white transition-colors inline-flex items-center gap-1 group"
             >
               <span>LinkedIn</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#B99A5E]" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#C5A15A]" />
             </a>
             <a
               href="https://x.com"
@@ -218,7 +218,7 @@ export const Footer: React.FC = () => {
               className="hover:text-white transition-colors inline-flex items-center gap-1 group"
             >
               <span>X (Twitter)</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#B99A5E]" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#C5A15A]" />
             </a>
           </div>
         </div>

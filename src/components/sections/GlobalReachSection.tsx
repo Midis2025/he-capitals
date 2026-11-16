@@ -107,15 +107,15 @@ export const GlobalReachSection: React.FC = () => {
               </div>
 
               {/* Main Heading */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] text-[#0B1A30] font-normal tracking-tight leading-[1.14]">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#071629] font-normal tracking-tight leading-[1.14]">
                 Local understanding.
-                <span className="block mt-1 sm:mt-1.5 text-[#244A80]">
+                <span className="block mt-1 sm:mt-1.5 text-[#C5A15A]">
                   Global connections.
                 </span>
               </h2>
 
               {/* Body Text without serial comma */}
-              <p className="text-sm sm:text-[15px] text-[#5A6878] leading-relaxed font-normal mt-4 sm:mt-5 max-w-xl">
+              <p className="text-[15px] sm:text-[15.5px] lg:text-[16px] text-[#536985] leading-[1.65] font-normal mt-4 sm:mt-5 max-w-xl">
                 We connect ambitious companies with investors, financial professionals and market
                 audiences across key international{"\u00A0"}markets.
               </p>
@@ -129,31 +129,31 @@ export const GlobalReachSection: React.FC = () => {
                     <button
                       key={region.id}
                       onClick={() => handleSelectRegion(region)}
-                      className={`w-full text-left py-4 sm:py-5 border-b border-[#DFE6EF] transition-all duration-300 group flex items-start justify-between cursor-pointer focus:outline-none focus-visible:bg-[#F1F5FB] ${
-                        isActive ? "bg-[#F1F5FB] pl-3 pr-2 rounded-r-md" : "hover:bg-[#F8FAFC]"
+                      className={`w-full text-left py-4 sm:py-5 border-b border-[#DFE6EF] transition-all duration-300 group flex items-start justify-between cursor-pointer focus:outline-none focus-visible:bg-[#F8F6F1] ${
+                        isActive ? "bg-[#F8F6F1] pl-3 pr-2 rounded-r-md" : "hover:bg-[#FAFBFD]"
                       }`}
                     >
                       <div className="flex items-start gap-3.5">
                         {/* Active Dot / Bullet */}
                         <div className="pt-1.5 flex items-center justify-center shrink-0">
                           {isActive ? (
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#B99A5E] ring-4 ring-[#B99A5E]/20" />
+                            <span className="w-2.5 h-2.5 rounded-full bg-[#C5A15A] ring-4 ring-[#C5A15A]/20" />
                           ) : (
-                            <span className="w-2 h-2 rounded-full bg-[#CBD5E1] group-hover:bg-[#B99A5E] transition-colors" />
+                            <span className="w-2 h-2 rounded-full bg-[#CBD5E1] group-hover:bg-[#C5A15A] transition-colors" />
                           )}
                         </div>
 
                         <div>
                           {/* Region Name */}
                           <div className="flex items-center gap-2">
-                            <span className="text-[11px] font-mono font-medium text-[#8E9CAE]">
+                            <span className="text-[12px] font-sans font-medium text-[#8E9CAE]">
                               {region.number}
                             </span>
                             <span
                               className={`transition-colors duration-200 ${
                                 isActive
-                                  ? "font-serif text-lg sm:text-xl text-[#0B1A30] font-medium"
-                                  : "text-sm sm:text-[15px] font-medium text-[#4A5568] group-hover:text-[#0B1A30]"
+                                  ? "font-serif text-lg sm:text-xl text-[#071629] font-medium"
+                                  : "text-sm sm:text-[15px] font-medium text-[#4A5568] group-hover:text-[#071629]"
                               }`}
                             >
                               {region.name}
@@ -162,9 +162,9 @@ export const GlobalReachSection: React.FC = () => {
 
                           {/* Subtitle */}
                           <p
-                            className={`text-xs mt-0.5 tracking-wide transition-colors ${
+                            className={`text-[11.5px] mt-0.5 tracking-wide transition-colors ${
                               isActive
-                                ? "text-[#244A80] font-semibold uppercase tracking-[0.12em]"
+                                ? "text-[#C5A15A] font-semibold uppercase tracking-[0.16em]"
                                 : "text-[#718096] group-hover:text-[#4A5568]"
                             }`}
                           >
@@ -180,7 +180,7 @@ export const GlobalReachSection: React.FC = () => {
                               transition={{ duration: 0.3 }}
                               className="mt-3 pt-2.5 border-t border-[#DFE6EF]"
                             >
-                              <p className="text-xs text-[#5A6878] leading-relaxed">
+                              <p className="text-[14px] text-[#536985] leading-[1.6]">
                                 {region.description}
                               </p>
 

@@ -18,14 +18,14 @@ export const InsightsSection: React.FC = () => {
         {/* Header */}
         <div className="space-y-2.5 max-w-2xl mb-6 sm:mb-8">
           <SectionBadge number="08" label="INSIGHTS & PRESS RELEASES" />
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] font-normal tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#071629] font-normal tracking-tight">
             Stay Informed. Stay Connected.
           </h2>
-          <p className="text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal">
+          <p className="text-[15px] sm:text-[15.5px] lg:text-[16px] text-[#536985] leading-[1.65] font-normal">
             Explore the latest company announcements, industry developments,
             press releases and insights from across the markets we serve.
           </p>
-          <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] text-[#8E9CAE] uppercase pt-0.5">
+          <p className="text-[11px] font-semibold tracking-[0.2em] text-[#8E9CAE] uppercase pt-0.5">
             SAMPLE EDITORIAL NOT PUBLISHED ANNOUNCEMENTS
           </p>
         </div>
@@ -38,10 +38,10 @@ export const InsightsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 bg-[#F1F5FB] border border-[#DFE6EF] rounded overflow-hidden group hover:shadow-xl transition-shadow flex flex-col justify-between"
+            className="lg:col-span-7 bg-[#F8F6F1] border border-[#DFE6EF] rounded overflow-hidden group hover:shadow-xl transition-shadow flex flex-col justify-between"
           >
             {featured.image && (
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#0B1A30]">
+              <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#071629]">
                 <Image
                   src={featured.image}
                   alt={featured.title}
@@ -53,7 +53,7 @@ export const InsightsSection: React.FC = () => {
             )}
 
             <div className="p-5 sm:p-6 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-[#244A80] uppercase">
+              <div className="flex items-center gap-2 text-[11.5px] font-semibold tracking-wider text-[#C5A15A] uppercase">
                 <span>{featured.category}</span>
                 <span className="text-[#8E9CAE]">·</span>
                 <span className="text-[#8E9CAE] font-normal lowercase first-letter:uppercase">
@@ -61,21 +61,21 @@ export const InsightsSection: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="font-serif text-xl sm:text-2xl text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors">
+              <h3 className="font-serif text-xl sm:text-2xl text-[#071629] font-normal group-hover:text-[#C5A15A] transition-colors leading-snug">
                 {featured.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed font-normal">
+              <p className="text-[14px] sm:text-[14.5px] text-[#536985] leading-[1.65] font-normal">
                 {featured.description}
               </p>
 
               <div className="pt-1">
                 <Link
                   href="#contact"
-                  className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
+                  className="inline-flex items-center gap-2 text-[12.5px] font-semibold tracking-[0.16em] uppercase text-[#071629] hover:text-[#C5A15A] transition-colors group"
                 >
                   <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#C5A15A]" />
                 </Link>
               </div>
             </div>
@@ -89,10 +89,10 @@ export const InsightsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="bg-[#F1F5FB] border border-[#DFE6EF] rounded overflow-hidden group hover:shadow-xl transition-shadow"
+              className="bg-[#F8F6F1] border border-[#DFE6EF] rounded overflow-hidden group hover:shadow-xl transition-shadow"
             >
               {second.image && (
-                <div className="relative w-full aspect-[21/9] overflow-hidden bg-[#0B1A30]">
+                <div className="relative w-full aspect-[21/9] overflow-hidden bg-[#071629]">
                   <Image
                     src={second.image}
                     alt={second.title}
@@ -104,7 +104,7 @@ export const InsightsSection: React.FC = () => {
               )}
 
               <div className="p-4 sm:p-5 space-y-2.5">
-                <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-[#244A80] uppercase">
+                <div className="flex items-center gap-2 text-[11.5px] font-semibold tracking-wider text-[#C5A15A] uppercase">
                   <span>{second.category}</span>
                   <span className="text-[#8E9CAE]">·</span>
                   <span className="text-[#8E9CAE] font-normal lowercase first-letter:uppercase">
@@ -112,21 +112,21 @@ export const InsightsSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="font-serif text-lg sm:text-xl text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors">
+                <h3 className="font-serif text-lg sm:text-xl text-[#071629] font-normal group-hover:text-[#C5A15A] transition-colors leading-snug">
                   {second.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed font-normal">
+                <p className="text-[14px] sm:text-[14.5px] text-[#536985] leading-[1.65] font-normal">
                   {second.description}
                 </p>
 
                 <div className="pt-1">
                   <Link
                     href="#contact"
-                    className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
+                    className="inline-flex items-center gap-2 text-[12.5px] font-semibold tracking-[0.16em] uppercase text-[#071629] hover:text-[#C5A15A] transition-colors group"
                   >
                     <span>Read Article</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#C5A15A]" />
                   </Link>
                 </div>
               </div>
@@ -138,9 +138,9 @@ export const InsightsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="bg-[#F1F5FB] border border-[#DFE6EF] rounded p-5 sm:p-6 space-y-2.5 group hover:shadow-xl transition-shadow"
+              className="bg-[#F8F6F1] border border-[#DFE6EF] rounded p-5 sm:p-6 space-y-2.5 group hover:shadow-xl transition-shadow"
             >
-              <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-[#244A80] uppercase">
+              <div className="flex items-center gap-2 text-[11.5px] font-semibold tracking-wider text-[#C5A15A] uppercase">
                 <span>{third.category}</span>
                 <span className="text-[#8E9CAE]">·</span>
                 <span className="text-[#8E9CAE] font-normal lowercase first-letter:uppercase">
@@ -148,21 +148,21 @@ export const InsightsSection: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="font-serif text-lg sm:text-xl text-[#0B1A30] font-normal group-hover:text-[#B99A5E] transition-colors">
+              <h3 className="font-serif text-lg sm:text-xl text-[#071629] font-normal group-hover:text-[#C5A15A] transition-colors leading-snug">
                 {third.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-[#5A6878] leading-relaxed font-normal">
+              <p className="text-[14px] sm:text-[14.5px] text-[#536985] leading-[1.65] font-normal">
                 {third.description}
               </p>
 
               <div className="pt-1">
                 <Link
                   href="#contact"
-                  className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group"
+                  className="inline-flex items-center gap-2 text-[12.5px] font-semibold tracking-[0.16em] uppercase text-[#071629] hover:text-[#C5A15A] transition-colors group"
                 >
                   <span>Read Article</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-[#C5A15A]" />
                 </Link>
               </div>
             </motion.div>
@@ -171,7 +171,7 @@ export const InsightsSection: React.FC = () => {
 
         {/* Bottom Link Button */}
         <div className="mt-8 sm:mt-10 text-center">
-          <Button href="#contact" variant="outline" className="px-7 h-[44px]">
+          <Button href="#contact" variant="outline" className="px-7 h-[46px] text-[13.5px]">
             View All Insights
           </Button>
         </div>

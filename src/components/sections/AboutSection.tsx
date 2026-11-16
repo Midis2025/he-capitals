@@ -31,24 +31,24 @@ export const AboutSection: React.FC = () => {
             <SectionBadge number="02" label="ABOUT HE CAPITAL MARKETS" />
 
             {/* Title */}
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#0B1A30] leading-[1.12] tracking-tight font-normal">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#071629] leading-[1.14] tracking-tight font-normal">
               Global Investor Relations{"\u00A0"}Specialists.
             </h2>
 
             {/* Subheading */}
-            <p className="font-serif text-lg sm:text-xl text-[#244A80] italic">
+            <p className="font-serif text-lg sm:text-xl text-[#C5A15A] italic">
               Building market value through strategic{"\u00A0"}consultation.
             </p>
 
             {/* Eyebrow Callout */}
             <div className="pt-1">
-              <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] text-[#0B1A30] uppercase block">
+              <span className="text-[11.5px] sm:text-xs font-semibold tracking-[0.24em] text-[#071629] uppercase block">
                 INNOVATIVE COMMUNICATIONS. STRATEGIES THAT INSPIRE INVESTMENT.
               </span>
             </div>
 
             {/* Paragraphs */}
-            <div className="space-y-3 text-xs sm:text-sm md:text-[15px] text-[#5A6878] leading-relaxed font-normal max-w-2xl">
+            <div className="space-y-3.5 text-[15px] sm:text-[15.5px] lg:text-[16px] text-[#536985] leading-[1.65] font-normal max-w-2xl">
               <p>
                 HE Capital Markets is a full service investor relations firm with
                 a proven track record in helping companies optimize visibility in
@@ -72,10 +72,10 @@ export const AboutSection: React.FC = () => {
             <div className="pt-2">
               <Link
                 href="#services"
-                className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.16em] uppercase text-[#0B1A30] hover:text-[#B99A5E] transition-colors group whitespace-nowrap"
+                className="inline-flex items-center gap-2 text-[12.5px] font-semibold tracking-[0.16em] uppercase text-[#071629] hover:text-[#C5A15A] transition-colors group whitespace-nowrap"
               >
                 <span>ONE CONNECTED INVESTMENT LANDSCAPE</span>
-                <ArrowUpRight className="w-4 h-4 text-[#B99A5E] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-4 h-4 text-[#C5A15A] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
           </motion.div>
@@ -109,8 +109,8 @@ export const AboutSection: React.FC = () => {
                 key={idx}
                 className="flex items-center justify-center md:justify-start gap-3"
               >
-                <span className="text-[#B99A5E] text-xs">◇</span>
-                <span className="text-xs sm:text-sm font-medium tracking-wide text-[#0B1A30]">
+                <span className="text-[#C5A15A] text-xs">◇</span>
+                <span className="text-[13px] sm:text-[14px] font-medium tracking-wide text-[#071629]">
                   {item}
                 </span>
               </div>

@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { Handshake, TrendingUp, Globe, Gem } from "lucide-react";
-import { motion } from "framer-motion";
+import { Handshake, BarChart3, Globe, Layers } from "lucide-react";
 
 export const ClientsStatsStrip: React.FC = () => {
   const stats = [
@@ -12,7 +11,7 @@ export const ClientsStatsStrip: React.FC = () => {
       label: "Companies Advised",
     },
     {
-      icon: TrendingUp,
+      icon: BarChart3,
       value: "10+",
       label: "Industry Sectors",
     },
@@ -22,50 +21,44 @@ export const ClientsStatsStrip: React.FC = () => {
       label: "Investor Reach",
     },
     {
-      icon: Gem,
+      icon: Layers,
       value: "Long-Term",
       label: "Client Partnerships",
     },
   ];
 
   return (
-    <section className="bg-white border-b border-[#DFE6EF] relative z-20">
-      <div className="site-container py-6 sm:py-7 lg:py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0"
-        >
-          {stats.map((stat, idx) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={stat.label}
-                className={`flex items-center gap-3.5 sm:gap-4 md:px-6 lg:px-8 ${
-                  idx < stats.length - 1
-                    ? "md:border-r md:border-slate-200/90"
-                    : ""
-                }`}
-              >
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-[#FAF7F0] border border-[#C5A15A]/25 flex items-center justify-center shrink-0 text-[#C5A15A]">
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.5]" />
-                </div>
-                <div>
-                  <div className="font-serif text-xl sm:text-2xl lg:text-[26px] font-normal text-[#071629] leading-tight tracking-tight">
-                    {stat.value}
+    <section className="bg-[#071629] pb-10 sm:pb-12 lg:pb-14 relative z-20">
+      <div className="site-container">
+        <div className="rounded-xl lg:rounded-2xl bg-[#091C34]/85 border border-[#1E3A61]/70 backdrop-blur-md shadow-2xl shadow-[#040C17]/80 overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#1E3A61]/60">
+            {stats.map((stat) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={stat.label}
+                  className="p-5 sm:p-6 lg:p-7 flex items-center gap-4 sm:gap-4.5 justify-center md:justify-start group hover:bg-white/[0.02] transition-colors"
+                >
+                  {/* Gold Outline Icon */}
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-[#C5A15A]/10 border border-[#C5A15A]/25 flex items-center justify-center shrink-0 text-[#C5A15A] group-hover:border-[#C5A15A]/50 transition-colors">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.5]" />
                   </div>
-                  <div className="text-xs sm:text-[13px] text-[#536985] font-normal leading-tight pt-0.5">
-                    {stat.label}
+
+                  {/* Stat Value & Label */}
+                  <div>
+                    <div className="font-serif text-xl sm:text-2xl lg:text-[27px] font-normal text-white leading-tight tracking-tight">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs sm:text-[13px] text-[#A0B3C6] font-normal leading-tight pt-1">
+                      {stat.label}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </motion.div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
 };
-
