@@ -13,7 +13,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PortfolioWorldMap } from "./PortfolioWorldMap";
 
 export type SectorCategory =
   | "All"
@@ -110,64 +109,16 @@ const SECTOR_FILTERS: { label: string; value: SectorCategory; icon?: React.Compo
   { label: "Oil & Gas", value: "Oil & Gas", icon: Flame },
 ];
 
-// Helper to determine optimal container sizing based on natural logo aspect ratios
-const getLogoProportions = (filename: string): string => {
-  const ultraWide = [
-    "harfang-exploration",
-    "contango-silver-gold",
-    "standard-uranium",
-    "deep-sea-minerals",
-    "pan-global-resources",
-    "monumental-energy",
-    "hemostemix",
-    "marimaca-copper",
-    "defiance-silver",
-    "predictmedix",
-    "blockchain-k2",
-    "fansunite",
-    "lithium-south",
-    "silver-one",
-  ];
-
-  const square = [
-    "west-point-gold",
-    "arway",
-    "fokus-mining",
-    "red-light-holland",
-    "unidentified-client",
-    "amex-exploration",
-  ];
-
-  const stacked = [
-    "bulgold",
-    "tru-precious-metals",
-    "lexaria-bioscience",
-    "redhill-biopharma",
-    "quantum-emotion",
-    "steppe-gold",
-    "defence-therapeutics",
-    "fsd-pharma",
-    "max-resource",
-    "talisker-resources",
-    "revive-therapeutics",
-    "manganese-x-energy",
-    "f3-uranium",
-    "flyht",
-    "green-battery-minerals",
-  ];
-
-  const slug = filename.replace(/^.*[\\/]/, "").replace(/\.webp$/, "");
-
-  if (ultraWide.includes(slug)) {
-    return "w-full max-w-[82%] sm:max-w-[185px] lg:max-w-[195px] h-[40px] sm:h-[48px] lg:h-[54px]";
+// Helper to determine optimal high-resolution vector or retina asset
+const getClientLogoSrc = (logo: string): string => {
+  const filename = logo.replace(/^.*[\\/]/, "");
+  const slug = filename.replace(/\.(webp|png|jpg|svg)$/, "");
+  // Prefer native vector SVG where available for infinite sharpness
+  const vectorSvgSlugs = ["pan-global-resources", "bulgold", "scottie-resources"];
+  if (vectorSvgSlugs.includes(slug)) {
+    return `/images/clients-white-card/${slug}.svg`;
   }
-  if (square.includes(slug)) {
-    return "w-full max-w-[95px] sm:max-w-[110px] lg:max-w-[125px] h-[58px] sm:h-[66px] lg:h-[72px]";
-  }
-  if (stacked.includes(slug)) {
-    return "w-full max-w-[80%] sm:max-w-[150px] lg:max-w-[165px] h-[48px] sm:h-[56px] lg:h-[64px]";
-  }
-  return "w-full max-w-[82%] sm:max-w-[170px] lg:max-w-[180px] h-[48px] sm:h-[56px] lg:h-[62px]";
+  return `/images/clients-white-card/${slug}.webp`;
 };
 
 export const ClientShowcase: React.FC = () => {
@@ -220,70 +171,75 @@ export const ClientShowcase: React.FC = () => {
   return (
     <section id="portfolio" className="relative w-full overflow-hidden">
       {/* ========================================================== */}
-      {/* 1. UPPER SECTION: WARM IVORY EDITORIAL & DOTTED WORLD MAP */}
+      {/* 1. UPPER SECTION: WARM OFF-WHITE EDITORIAL & WORLD MAP */}
       {/* ========================================================== */}
-      <div className="bg-[#F8F6F1] pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-14 border-b border-[#E5EAEF] relative">
+      <div className="bg-[#F7F5F0] pt-14 sm:pt-16 md:pt-18 lg:pt-20 pb-12 sm:pb-14 border-b border-[#E7E2D7] relative overflow-hidden">
         <div className="site-container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Column: Heading & Description */}
-            <div className="lg:col-span-6 space-y-3.5 sm:space-y-4 max-w-xl">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-7 md:gap-8 lg:gap-10 xl:gap-12 items-center">
+            {/* 1. TEXT CONTENT (Desktop & Tablet: Col 1-6 Row 1 | Mobile: Stack Item 1) */}
+            <div className="md:col-span-6 md:row-start-1 space-y-3 sm:space-y-3.5 lg:space-y-4 max-w-xl">
               {/* Eyebrow */}
               <div className="flex items-center gap-2.5">
-                <span className="w-7 h-[2px] bg-[#C5A15A] shrink-0" />
-                <span className="text-xs font-semibold tracking-[0.24em] text-[#C5A15A] uppercase">
+                <span className="w-7 h-[2px] bg-[#C9A45E] shrink-0" />
+                <span className="text-xs font-semibold tracking-[0.24em] text-[#C9A45E] uppercase">
                   CLIENT PORTFOLIO
                 </span>
               </div>
 
               {/* Main Heading */}
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] text-[#071629] font-normal tracking-tight leading-[1.12]">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-[34px] lg:text-[42px] xl:text-[46px] text-[#08172A] font-normal tracking-tight leading-[1.12]">
                 A Diverse and<br />
                 Global Client Base
               </h2>
 
               {/* Description */}
-              <p className="text-sm sm:text-[15.5px] lg:text-[16px] text-[#536985] leading-relaxed font-normal max-w-lg pt-1">
+              <p className="text-sm sm:text-[15px] lg:text-[16px] text-[#536985] leading-relaxed font-normal max-w-lg pt-1">
                 We are proud to partner with a broad range of public and private
                 companies across key growth industries and global markets.
               </p>
             </div>
 
-            {/* Right Column: Large Sophisticated Vector Dotted World Map */}
-            <div className="lg:col-span-6 relative flex items-center justify-center">
-              <PortfolioWorldMap />
+            {/* 2. WORLD MAP ILLUSTRATION (Desktop & Tablet: Col 7-12 Row 1-2 Centered | Mobile: Stack Item 2, between Text and Filters) */}
+            <div className="md:col-span-6 md:col-start-7 md:row-start-1 md:row-span-2 relative flex items-center justify-center w-full my-2 sm:my-3 md:my-0">
+              <div className="relative w-full max-w-[360px] sm:max-w-[420px] md:max-w-[420px] lg:max-w-[580px] xl:max-w-[640px] aspect-[16/9] flex items-center justify-center">
+                <Image
+                  src="/images/client-portfolio-world-map.png"
+                  alt="HE Capital Markets Global Network World Map"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </div>
-          </div>
 
-          {/* ========================================================== */}
-          {/* 2. SECTOR FILTER BAR (PILL-SHAPED CONTROLS) */}
-          {/* ========================================================== */}
-          <div className="pt-10 sm:pt-12">
-            <div className="flex items-center gap-2.5 sm:gap-3 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none">
-              {SECTOR_FILTERS.map((filter) => {
-                const Icon = filter.icon;
-                const isActive = selectedSector === filter.value;
+            {/* 3. INDUSTRY FILTER BUTTONS (Desktop & Tablet: Col 1-6 Row 2 | Mobile: Stack Item 3, beneath World Map) */}
+            <div className="md:col-span-6 md:row-start-2 pt-2 sm:pt-3 md:pt-2">
+              <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 md:flex-wrap scrollbar-none">
+                {SECTOR_FILTERS.map((filter) => {
+                  const Icon = filter.icon;
+                  const isActive = selectedSector === filter.value;
 
-                return (
-                  <button
-                    key={filter.value}
-                    onClick={() => handleSectorChange(filter.value)}
-                    className={`shrink-0 inline-flex items-center gap-2 px-4 sm:px-4.5 py-2.5 rounded-full text-xs sm:text-[13px] font-medium transition-all duration-200 cursor-pointer shadow-sm ${
-                      isActive
-                        ? "bg-[#071629] text-white border border-[#C5A15A] shadow-md shadow-[#071629]/20"
-                        : "bg-white text-[#071629] border border-[#DCE4EF] hover:border-[#C5A15A]/60 hover:bg-[#FAF8F4]"
-                    }`}
-                  >
-                    {Icon && (
-                      <Icon
-                        className={`w-3.5 h-3.5 stroke-[1.8] ${
-                          isActive ? "text-[#C5A15A]" : "text-[#C5A15A]"
-                        }`}
-                      />
-                    )}
-                    <span>{filter.label}</span>
-                  </button>
-                );
-              })}
+                  return (
+                    <button
+                      key={filter.value}
+                      onClick={() => handleSectorChange(filter.value)}
+                      className={`shrink-0 inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 md:px-3 lg:px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-[13px] font-medium transition-all duration-200 cursor-pointer shadow-sm ${
+                        isActive
+                          ? "bg-[#08172A] text-white border border-[#C9A45E] shadow-md shadow-[#08172A]/20"
+                          : "bg-white text-[#08172A] border border-[#DCE4EF] hover:border-[#C9A45E]/60 hover:bg-[#FAF8F4]"
+                      }`}
+                    >
+                      {Icon && (
+                        <Icon
+                          className={`w-3.5 h-3.5 stroke-[1.8] text-[#C9A45E]`}
+                        />
+                      )}
+                      <span>{filter.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -300,23 +256,23 @@ export const ClientShowcase: React.FC = () => {
 
         <div className="site-container relative z-10">
           {/* Carousel Viewport Container with Left/Right Arrow Overlays */}
-          <div className="relative px-0 sm:px-8 lg:px-12">
+          <div className="relative px-0 sm:px-10 lg:px-12">
             {/* Left Circular Arrow Button (Desktop & Tablet) */}
             <button
               onClick={handlePrev}
               aria-label="Previous client logos"
-              className="hidden sm:flex absolute -left-1 sm:left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#091D36]/80 hover:bg-[#0D294D] border border-white/20 hover:border-[#C5A15A] text-white items-center justify-center transition-all duration-200 shadow-xl cursor-pointer backdrop-blur-md"
+              className="hidden sm:flex absolute -left-2 lg:-left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#08182D]/80 hover:bg-[#0E2442] border border-white/25 hover:border-[#C5A15A] text-white items-center justify-center transition-all duration-200 shadow-xl cursor-pointer backdrop-blur-md"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-5 h-5 stroke-[1.8]" />
             </button>
 
             {/* Right Circular Arrow Button (Desktop & Tablet) */}
             <button
               onClick={handleNext}
               aria-label="Next client logos"
-              className="hidden sm:flex absolute -right-1 sm:right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#091D36]/80 hover:bg-[#0D294D] border border-white/20 hover:border-[#C5A15A] text-white items-center justify-center transition-all duration-200 shadow-xl cursor-pointer backdrop-blur-md"
+              className="hidden sm:flex absolute -right-2 lg:-right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-[#08182D]/80 hover:bg-[#0E2442] border border-white/25 hover:border-[#C5A15A] text-white items-center justify-center transition-all duration-200 shadow-xl cursor-pointer backdrop-blur-md"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-5 h-5 stroke-[1.8]" />
             </button>
 
             {/* Carousel Slide Area with Framer Motion Animation */}
@@ -333,32 +289,24 @@ export const ClientShowcase: React.FC = () => {
                   {/* Two-Row Grid of Client Cards: 5 cols on lg, 3 on md, 2 on sm */}
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-4.5">
                     {currentItems.map((client) => {
-                      // Use trimmed high-visibility optimized logo path
-                      const optimizedLogo = client.logo.replace('/images/clients/', '/images/clients-optimized/');
+                      const logoSrc = getClientLogoSrc(client.logo);
                       
                       return (
                         <div
                           key={client.id}
-                          className="group relative -skew-x-[3.5deg] sm:-skew-x-[4deg] rounded-xl bg-gradient-to-b from-[#10243E]/90 via-[#0C1E36]/95 to-[#08172B]/95 border border-[#1E3B63]/60 hover:border-[#C5A15A]/80 hover:from-[#132C4D] transition-all duration-300 p-2.5 sm:p-3 lg:p-3.5 h-[98px] sm:h-[108px] lg:h-[116px] flex items-center justify-center shadow-lg shadow-[#040C17]/60 overflow-hidden cursor-default before:absolute before:inset-x-0 before:top-0 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-white/15 before:to-transparent"
+                          className="group relative rounded-[10px] bg-white border border-slate-200/80 hover:border-[#C5A15A]/70 transition-all duration-300 p-3.5 sm:p-4 lg:p-5 h-[114px] sm:h-[120px] min-h-[114px] sm:min-h-[120px] flex items-center justify-center shadow-sm hover:shadow-xl hover:-translate-y-0.5 overflow-hidden cursor-default"
                         >
-                          {/* Restrained gold hover glow highlight */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#C5A15A]/12 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                          {/* Subtle hover gradient highlight */}
+                          <div className="absolute inset-0 bg-gradient-to-tr from-[#C5A15A]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-                          {/* Subtle inner corner highlight */}
-                          <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-white/[0.04] to-transparent pointer-events-none" />
-
-                          {/* Unskewed Logo Container for Level Geometry */}
-                          <div className="skew-x-[3.5deg] sm:skew-x-[4deg] relative w-full h-full flex items-center justify-center">
-                            <div className={`relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${getLogoProportions(client.logo)}`}>
-                              <Image
-                                src={optimizedLogo}
-                                alt={`${client.name} logo`}
-                                fill
-                                sizes="(max-width: 640px) 140px, (max-width: 1024px) 160px, 195px"
-                                className="object-contain"
-                                unoptimized
-                              />
-                            </div>
+                          {/* Level Logo Centering Container */}
+                          <div className="relative w-full h-full flex items-center justify-center">
+                            <img
+                              src={logoSrc}
+                              alt={`${client.name} logo`}
+                              className="block max-w-[85%] max-h-[64px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                              loading="lazy"
+                            />
                           </div>
                         </div>
                       );
@@ -380,8 +328,8 @@ export const ClientShowcase: React.FC = () => {
                   <ChevronLeft className="w-4 h-4" />
                 </button>
 
-                {/* Dots */}
-                <div className="flex items-center gap-2">
+                {/* Circular Dots (matching approved screenshot: active gold #C5A15A, inactive deep blue) */}
+                <div className="flex items-center gap-2.5">
                   {Array.from({ length: totalPages }).map((_, idx) => (
                     <button
                       key={idx}
@@ -392,8 +340,8 @@ export const ClientShowcase: React.FC = () => {
                       aria-label={`Go to slide page ${idx + 1}`}
                       className={`transition-all duration-300 rounded-full cursor-pointer ${
                         idx === currentPage
-                          ? "w-6 h-2 bg-[#C5A15A]"
-                          : "w-2 h-2 bg-[#1E3E68] hover:bg-[#346096]"
+                          ? "w-2.5 h-2.5 bg-[#C5A15A] ring-2 ring-[#C5A15A]/40"
+                          : "w-2 h-2 bg-[#1A3358] hover:bg-[#2B4E80]"
                       }`}
                     />
                   ))}
