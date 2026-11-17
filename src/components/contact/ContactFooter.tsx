@@ -108,20 +108,35 @@ export const ContactFooter: React.FC = () => {
               <h4 className="text-[12px] font-semibold tracking-[0.22em] uppercase text-[#C5A15A]">
                 ABOUT
               </h4>
-              <ul className="space-y-2.5 text-[13.5px] text-[#A0B3C6]">
+              <ul className="space-y-2 text-[13px] text-[#A0B3C6]">
                 <li>
                   <Link href="/about" className="hover:text-white transition-colors">
-                    About Us
+                    Who We Are
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/investor-relations-new-york" className="hover:text-white transition-colors">
+                    IR New York
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/investor-relations-frankfurt" className="hover:text-white transition-colors">
+                    IR Frankfurt
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/investor-relations-london" className="hover:text-white transition-colors">
+                    IR London
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/investor-relations-vancouver" className="hover:text-white transition-colors">
+                    IR Vancouver
                   </Link>
                 </li>
                 <li>
                   <Link href="/clients" className="hover:text-white transition-colors">
                     Clients
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-white transition-colors">
-                    Office Locations
                   </Link>
                 </li>
                 <li>

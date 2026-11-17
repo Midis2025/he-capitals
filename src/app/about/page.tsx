@@ -10,7 +10,7 @@ import { GlobalReach } from "@/components/about/GlobalReach";
 import { AboutContactCTA } from "@/components/about/AboutContactCTA";
 
 export const metadata: Metadata = {
-  title: "About Us | HE Capital Markets",
+  title: "Who We Are | About Us | HE Capital Markets",
   description:
     "Learn about HE Capital Markets — a strategic capital markets advisory and investor relations firm helping companies build lasting market value through global reach.",
 };

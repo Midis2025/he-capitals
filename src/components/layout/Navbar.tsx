@@ -47,9 +47,19 @@ export const Navbar: React.FC = () => {
           {NAVIGATION_ITEMS.map((item) => {
             const hasChildren = item.children && item.children.length > 0;
             const isOpen = activeDropdown === item.label;
+            const isChildOfThisItemActive = item.children?.some(
+              (child) => child.href === pathname
+            );
             const isActive =
               item.href === pathname ||
-              (item.href === "/about" && (pathname === "/about" || pathname?.startsWith("/about/"))) ||
+              isChildOfThisItemActive ||
+              ((item.href === "/about" || item.label.startsWith("About")) &&
+                (pathname === "/about" ||
+                  pathname?.startsWith("/about/") ||
+                  pathname === "/investor-relations-new-york" ||
+                  pathname === "/investor-relations-frankfurt" ||
+                  pathname === "/investor-relations-london" ||
+                  pathname === "/investor-relations-vancouver")) ||
               (item.href === "/clients" && (pathname === "/clients" || pathname?.startsWith("/clients/"))) ||
               (item.href === "/contact" && (pathname === "/contact" || pathname?.startsWith("/contact/"))) ||
               (item.label === "Services" &&
@@ -105,29 +115,54 @@ export const Navbar: React.FC = () => {
                           </div>
 
                           <div className="grid grid-cols-1 gap-1">
-                            {item.children?.map((child) => (
-                              <Link
-                                key={child.title}
-                                href={getHref(child.href)}
-                                onClick={() => setActiveDropdown(null)}
-                                className="group p-2.5 rounded hover:bg-white/[0.05] transition-colors flex items-start gap-3"
-                              >
-                                {child.number && (
-                                  <span className="text-xs font-serif text-[#C5A15A] pt-0.5">
-                                    {child.number}
-                                  </span>
-                                )}
-                                <div className="flex-1">
-                                  <div className="text-xs font-medium text-white group-hover:text-[#C5A15A] transition-colors flex items-center justify-between">
-                                    <span>{child.title}</span>
-                                    <ArrowUpRight className="w-3 h-3 text-[#C5A15A] opacity-0 group-hover:opacity-100 transition-opacity" />
+                            {item.children?.map((child) => {
+                              const isChildActive = pathname === child.href;
+                              return (
+                                <Link
+                                  key={child.title}
+                                  href={getHref(child.href)}
+                                  onClick={() => setActiveDropdown(null)}
+                                  className={`group p-2.5 rounded transition-all flex items-start gap-3 ${
+                                    isChildActive
+                                      ? "bg-[#C5A15A]/15 border border-[#C5A15A]/40"
+                                      : "hover:bg-white/[0.05] border border-transparent"
+                                  }`}
+                                >
+                                  {child.number && (
+                                    <span
+                                      className={`text-xs font-serif pt-0.5 ${
+                                        isChildActive ? "text-[#C5A15A] font-bold" : "text-[#C5A15A]"
+                                      }`}
+                                    >
+                                      {child.number}
+                                    </span>
+                                  )}
+                                  <div className="flex-1">
+                                    <div
+                                      className={`text-xs font-medium transition-colors flex items-center justify-between ${
+                                        isChildActive
+                                          ? "text-[#C5A15A] font-semibold"
+                                          : "text-white group-hover:text-[#C5A15A]"
+                                      }`}
+                                    >
+                                      <span>{child.title}</span>
+                                      <ArrowUpRight
+                                        className={`w-3 h-3 text-[#C5A15A] transition-opacity ${
+                                          isChildActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                                        }`}
+                                      />
+                                    </div>
+                                    <p
+                                      className={`text-[11.5px] line-clamp-1 mt-0.5 font-normal ${
+                                        isChildActive ? "text-[#E2E8F0]" : "text-[#8E9CAE]"
+                                      }`}
+                                    >
+                                      {child.description}
+                                    </p>
                                   </div>
-                                  <p className="text-[11.5px] text-[#8E9CAE] line-clamp-1 mt-0.5 font-normal">
-                                    {child.description}
-                                  </p>
-                                </div>
-                              </Link>
-                            ))}
+                                </Link>
+                              );
+                            })}
                           </div>
                         </div>
                       </motion.div>
@@ -173,17 +208,27 @@ export const Navbar: React.FC = () => {
           >
             <div className="px-6 py-6 space-y-4">
               {NAVIGATION_ITEMS.map((item) => {
+                const isChildOfThisItemActive = item.children?.some(
+                  (child) => child.href === pathname
+                );
                 const isActive =
                   item.href === pathname ||
-                  (item.href === "/about" && (pathname === "/about" || pathname?.startsWith("/about/"))) ||
+                  isChildOfThisItemActive ||
+                  ((item.href === "/about" || item.label.startsWith("About")) &&
+                    (pathname === "/about" ||
+                      pathname?.startsWith("/about/") ||
+                      pathname === "/investor-relations-new-york" ||
+                      pathname === "/investor-relations-frankfurt" ||
+                      pathname === "/investor-relations-london" ||
+                      pathname === "/investor-relations-vancouver")) ||
                   (item.href === "/clients" && (pathname === "/clients" || pathname?.startsWith("/clients/"))) ||
                   (item.href === "/contact" && (pathname === "/contact" || pathname?.startsWith("/contact/"))) ||
                   (item.label === "Services" &&
-                (pathname?.startsWith("/services") ||
-                  pathname === "/investor-relations" ||
-                  pathname === "/public-relations" ||
-                  pathname === "/digital-social-media" ||
-                  pathname === "/capital-market-advisory"));
+                    (pathname?.startsWith("/services") ||
+                      pathname === "/investor-relations" ||
+                      pathname === "/public-relations" ||
+                      pathname === "/digital-social-media" ||
+                      pathname === "/capital-market-advisory"));
 
                 return (
                   <div key={item.label} className="border-b border-[#1A2D4B]/60 pb-3">
@@ -191,7 +236,7 @@ export const Navbar: React.FC = () => {
                       href={getHref(item.href)}
                       onClick={() => setMobileMenuOpen(false)}
                       className={`block text-sm font-medium transition-colors ${
-                        isActive ? "text-[#B99A5E] font-semibold" : "text-[#E2E8F0] hover:text-[#B99A5E]"
+                        isActive ? "text-[#C5A15A] font-semibold" : "text-[#E2E8F0] hover:text-[#C5A15A]"
                       }`}
                     >
                       {item.label}
@@ -199,17 +244,24 @@ export const Navbar: React.FC = () => {
 
                     {item.children && (
                       <div className="mt-2 pl-3 space-y-1.5 border-l border-[#1A2D4B]">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.title}
-                            href={getHref(child.href)}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block text-xs text-[#8E9CAE] hover:text-white transition-colors py-1"
-                          >
-                            <span className="text-[#B99A5E] mr-1.5">{child.number}</span>
-                            {child.title}
-                          </Link>
-                        ))}
+                        {item.children.map((child) => {
+                          const isChildActive = pathname === child.href;
+                          return (
+                            <Link
+                              key={child.title}
+                              href={getHref(child.href)}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className={`block text-xs transition-colors py-1 ${
+                                isChildActive
+                                  ? "text-[#C5A15A] font-semibold pl-1 border-l-2 border-[#C5A15A]"
+                                  : "text-[#8E9CAE] hover:text-white"
+                              }`}
+                            >
+                              <span className="text-[#C5A15A] mr-1.5">{child.number}</span>
+                              {child.title}
+                            </Link>
+                          );
+                        })}
                       </div>
                     )}
                   </div>

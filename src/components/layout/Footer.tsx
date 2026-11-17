@@ -39,15 +39,30 @@ export const Footer: React.FC = () => {
               <h4 className="text-[11.5px] font-semibold tracking-[0.2em] uppercase text-[#C5A15A]">
                 Company
               </h4>
-              <ul className="space-y-3 text-[13px] text-[#A0B3C6]">
+              <ul className="space-y-2.5 text-[13px] text-[#A0B3C6]">
                 <li>
                   <Link href="/about" className="hover:text-white transition-colors">
-                    About Us
+                    Who We Are
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#approach" className="hover:text-white transition-colors">
-                    Our Approach
+                  <Link href="/investor-relations-new-york" className="hover:text-white transition-colors">
+                    IR New York
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/investor-relations-frankfurt" className="hover:text-white transition-colors">
+                    IR Frankfurt
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/investor-relations-london" className="hover:text-white transition-colors">
+                    IR London
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/investor-relations-vancouver" className="hover:text-white transition-colors">
+                    IR Vancouver
                   </Link>
                 </li>
                 <li>

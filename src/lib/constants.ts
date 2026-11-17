@@ -2,8 +2,40 @@ import { NavItem, ServiceItem, SectorItem, ApproachStep, InsightItem, Commitment
 
 export const NAVIGATION_ITEMS: NavItem[] = [
   {
-    label: "About",
+    label: "About Us",
     href: "/about",
+    children: [
+      {
+        number: "01",
+        title: "Who We Are",
+        description: "Strategic insight, global connections and lasting value across international capital markets.",
+        href: "/about",
+      },
+      {
+        number: "02",
+        title: "Investor Relations New York",
+        description: "Strategic communications in North America connecting listed companies with institutional capital.",
+        href: "/investor-relations-new-york",
+      },
+      {
+        number: "03",
+        title: "Investor Relations Frankfurt",
+        description: "Your company at the core of European capital markets and continental investor networks.",
+        href: "/investor-relations-frankfurt",
+      },
+      {
+        number: "04",
+        title: "Investor Relations London",
+        description: "At the heart of European investment, UK stock brokering expertise and specialist sectors.",
+        href: "/investor-relations-london",
+      },
+      {
+        number: "05",
+        title: "Investor Relations Vancouver",
+        description: "Capital know-how in Western Canada and tailored investor relations for Canadian listings.",
+        href: "/investor-relations-vancouver",
+      },
+    ],
   },
   {
     label: "Services",
